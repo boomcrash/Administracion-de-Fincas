@@ -1,6 +1,11 @@
 
 package Vista;
 
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 public class Registro_Presidente extends javax.swing.JFrame {
     public Registro_Presidente() {
         initComponents();
@@ -141,10 +146,19 @@ public class Registro_Presidente extends javax.swing.JFrame {
         btnRegistrar_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         getContentPane().add(btnRegistrar_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 170, 40));
 
+        btnCancelar_registro_presidente.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar_registro_presidente.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnCancelar_registro_presidente.setForeground(new java.awt.Color(153, 0, 0));
+        btnCancelar_registro_presidente.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar_registro_presidente.setText("CANCELAR");
         btnCancelar_registro_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnCancelar_registro_presidente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_presidenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_presidenteMouseExited(evt);
+            }
+        });
         btnCancelar_registro_presidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelar_registro_presidenteActionPerformed(evt);
@@ -289,6 +303,19 @@ public class Registro_Presidente extends javax.swing.JFrame {
     private void cbmCanton_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCanton_presidenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbmCanton_presidenteActionPerformed
+public void setColor(JButton j){
+j.setBackground(new Color(255,51,51));
+}
+public void resetColor(JButton j1){
+j1.setBackground(new Color(153,0,0));
+}
+    private void btnCancelar_registro_presidenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseEntered
+setColor(btnCancelar_registro_presidente);
+    }//GEN-LAST:event_btnCancelar_registro_presidenteMouseEntered
+
+    private void btnCancelar_registro_presidenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseExited
+resetColor(btnCancelar_registro_presidente);
+    }//GEN-LAST:event_btnCancelar_registro_presidenteMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_presidente;

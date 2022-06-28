@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 /**
@@ -58,9 +60,18 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 390, 40));
 
         btnLogin.setBackground(new java.awt.Color(204, 255, 255));
-        btnLogin.setForeground(new java.awt.Color(94, 174, 253));
-        btnLogin.setText("Iniciar sesión");
-        btnLogin.setBorder(null);
+        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
+        btnLogin.setText("INICIAR SESIÓN");
+        btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnLoginMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnLoginMouseExited(evt);
+            }
+        });
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
@@ -73,9 +84,18 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
         jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 390, 40));
 
-        btnrestaurarpwd.setBackground(new java.awt.Color(202, 229, 228));
+        btnrestaurarpwd.setBackground(new java.awt.Color(204, 255, 255));
         btnrestaurarpwd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnrestaurarpwd.setForeground(new java.awt.Color(0, 0, 0));
         btnrestaurarpwd.setText("Restaurar contraseña");
+        btnrestaurarpwd.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnrestaurarpwdMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnrestaurarpwdMouseExited(evt);
+            }
+        });
         btnrestaurarpwd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnrestaurarpwdActionPerformed(evt);
@@ -122,6 +142,27 @@ String user,pwd;
     restaurar.setVisible(true);
     this.setVisible(false);
     }//GEN-LAST:event_btnrestaurarpwdActionPerformed
+public void setColor(JButton j){
+j.setBackground(new Color(102,255,255));
+}
+public void resetColor(JButton j1){
+j1.setBackground(new Color(204,255,255));
+}
+    private void btnrestaurarpwdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrestaurarpwdMouseEntered
+        setColor(btnrestaurarpwd);
+    }//GEN-LAST:event_btnrestaurarpwdMouseEntered
+
+    private void btnrestaurarpwdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrestaurarpwdMouseExited
+        resetColor(btnrestaurarpwd);
+    }//GEN-LAST:event_btnrestaurarpwdMouseExited
+
+    private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
+        setColor(btnLogin);
+    }//GEN-LAST:event_btnLoginMouseEntered
+
+    private void btnLoginMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseExited
+        resetColor(btnLogin);
+    }//GEN-LAST:event_btnLoginMouseExited
 
     /**
      * @param args the command line arguments

@@ -1,7 +1,10 @@
 
 package Vista;
 
+import java.awt.Color;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -10,7 +13,14 @@ public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
+        mostrarnombreventana(jblWindow);
     }
+    
+    public void mostrarnombreventana(JLabel j){
+        String formulario = getClass().getSimpleName();
+       j.setText(formulario);
+   }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -28,6 +38,7 @@ public class Inicio extends javax.swing.JFrame {
         jblWindow = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicio");
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -41,6 +52,14 @@ public class Inicio extends javax.swing.JFrame {
         btnClose_Sesion.setForeground(new java.awt.Color(255, 255, 255));
         btnClose_Sesion.setText("CERRAR SESIÓN");
         btnClose_Sesion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnClose_Sesion.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnClose_SesionMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnClose_SesionMouseExited(evt);
+            }
+        });
         btnClose_Sesion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnClose_SesionActionPerformed(evt);
@@ -49,7 +68,7 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(btnClose_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 390, 160, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 210, 260, 260));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 200, 260, -1));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -138,7 +157,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel2.setText("Usted se encuentra en:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
 
-        jblWindow.setText("INICIO");
+        jblWindow.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         getContentPane().add(jblWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 70, 20));
 
         pack();
@@ -155,6 +174,7 @@ public class Inicio extends javax.swing.JFrame {
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
 
     this.setVisible(true);
+    mostrarnombreventana(jblWindow);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -181,6 +201,19 @@ this.setVisible(true);
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
 
     }//GEN-LAST:event_jButton3MouseEntered
+public void setColor(JButton j){
+j.setBackground(new Color(153,0,0)); 
+}
+public void resetColor(JButton j1){
+j1.setBackground(new Color(255,51,51));
+}
+    private void btnClose_SesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClose_SesionMouseEntered
+        setColor(btnClose_Sesion);
+    }//GEN-LAST:event_btnClose_SesionMouseEntered
+
+    private void btnClose_SesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClose_SesionMouseExited
+        resetColor(btnClose_Sesion);
+    }//GEN-LAST:event_btnClose_SesionMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose_Sesion;
