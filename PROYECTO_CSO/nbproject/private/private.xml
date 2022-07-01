@@ -5,10 +5,18 @@
         <group>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Comunidad.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Presidente.java</file>
+<<<<<<< HEAD
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Entidad_Bancaria.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Inicio.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Submenu_Registro.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Restaurar_contraseña.java</file>
+=======
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Login.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_EntidadBancaria.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Restaurar_contraseña.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Conexion/Conexion.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Finca.java</file>
+>>>>>>> main
         </group>
     </open-files>
 </project-private>

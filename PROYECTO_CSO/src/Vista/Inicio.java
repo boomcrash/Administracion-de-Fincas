@@ -1,15 +1,27 @@
 
 package Vista;
+<<<<<<< HEAD
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+=======
+
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JLabel;
+import javax.swing.JMenuItem;
+>>>>>>> main
 import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
 
     public Inicio() {
         initComponents();
+<<<<<<< HEAD
         this.setLocationRelativeTo(null);
+=======
+>>>>>>> main
         mostrarnombreventana(jblWindow);
     }
     
