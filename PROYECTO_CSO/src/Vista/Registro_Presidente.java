@@ -1,10 +1,22 @@
 
 package Vista;
 
+import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
 public class Registro_Presidente extends javax.swing.JFrame {
     public Registro_Presidente() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        mostrarnombreventana(jblRegistropresidente);
     }
+     public void mostrarnombreventana(JLabel j){
+        String formulario = getClass().getSimpleName();
+       j.setText(formulario.replace("_", " "));
+     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -40,6 +52,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
+        jblRegistropresidente = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -77,7 +90,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         txtci_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 210, 20));
 
-        cmbCiudad_presidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCiudad_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbCiudad_presidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -86,7 +98,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         });
         getContentPane().add(cmbCiudad_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 290, 140, 20));
 
-        cbmCanton_presidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cbmCanton_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbmCanton_presidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,7 +142,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jLabel12.setText("ESTADO:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 180, 30));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBox3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 420, 170, 30));
 
@@ -139,23 +149,33 @@ public class Registro_Presidente extends javax.swing.JFrame {
         btnRegistrar_presidente.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_presidente.setText("REGISTRAR");
         btnRegistrar_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        getContentPane().add(btnRegistrar_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 170, 40));
+        getContentPane().add(btnRegistrar_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, 170, 40));
 
+        btnCancelar_registro_presidente.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar_registro_presidente.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnCancelar_registro_presidente.setForeground(new java.awt.Color(153, 0, 0));
+        btnCancelar_registro_presidente.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar_registro_presidente.setText("CANCELAR");
         btnCancelar_registro_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnCancelar_registro_presidente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_presidenteMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_presidenteMouseExited(evt);
+            }
+        });
         btnCancelar_registro_presidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelar_registro_presidenteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 510, 160, 40));
+        getContentPane().add(btnCancelar_registro_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 510, 160, 40));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 380, 250));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, 390, 250));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButton1.setText("CONSULTAS");
@@ -165,6 +185,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
 
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnInicio.setText("INICIO");
@@ -174,6 +195,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 0, 100, 40));
 
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButton3.setText("PERFIL\n");
@@ -188,6 +210,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
 
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jButton4.setText("REPORTES");
@@ -197,6 +220,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
 
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         btnRegistro.setText("REGISTROS");
@@ -206,41 +230,16 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 0, 100, 40));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(227, 227, 227)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(253, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInicio, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 10, Short.MAX_VALUE))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 970, 50));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel13.setText("Usted se encuentra en:");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
+
+        jblRegistropresidente.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        getContentPane().add(jblRegistropresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 230, 20));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -250,7 +249,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCiudad_presidenteActionPerformed
 
     private void btnCancelar_registro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_presidenteActionPerformed
 
     private void txtDireccion_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccion_propietarioActionPerformed
@@ -262,8 +261,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-
-        this.setVisible(true);
+   Inicio inicio = new Inicio();
+   inicio.setVisible(true);
+   this.setVisible(false);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
@@ -279,7 +279,10 @@ public class Registro_Presidente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-
+    this.setVisible(true);
+    Submenu_Registro submenuregistro = new Submenu_Registro();
+    submenuregistro.setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void txtnom_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnom_propietarioActionPerformed
@@ -289,6 +292,19 @@ public class Registro_Presidente extends javax.swing.JFrame {
     private void cbmCanton_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmCanton_presidenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbmCanton_presidenteActionPerformed
+public void setColor(JButton j){
+j.setBackground(new Color(255,51,51));
+}
+public void resetColor(JButton j1){
+j1.setBackground(new Color(153,0,0));
+}
+    private void btnCancelar_registro_presidenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseEntered
+setColor(btnCancelar_registro_presidente);
+    }//GEN-LAST:event_btnCancelar_registro_presidenteMouseEntered
+
+    private void btnCancelar_registro_presidenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseExited
+resetColor(btnCancelar_registro_presidente);
+    }//GEN-LAST:event_btnCancelar_registro_presidenteMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_presidente;
@@ -316,6 +332,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jblRegistropresidente;
     private com.toedter.calendar.JCalendar jcdFundacion_presidente;
     private javax.swing.JTextArea txaDescripcion_comunidad;
     private javax.swing.JTextField txtCod_comunidad;

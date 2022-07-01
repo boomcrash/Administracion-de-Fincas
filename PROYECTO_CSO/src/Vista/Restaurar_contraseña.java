@@ -56,7 +56,7 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
                 btncontinue1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btncontinue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 160, 54));
+        jPanel1.add(btncontinue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 160, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
 

@@ -1,11 +1,19 @@
 
 package Vista;
 
+import javax.swing.JLabel;
+
 public class Registro_Comunidad extends javax.swing.JFrame {
 
     public Registro_Comunidad() {
         initComponents();
+            this.setLocationRelativeTo(null);
+        mostrarnombreventana(lblregistrocomunidad);
     }
+   public void mostrarnombreventana(JLabel j){
+        String formulario = getClass().getSimpleName();
+       j.setText(formulario.replace("_", " "));
+     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +52,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        lblregistrocomunidad = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,7 +60,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         lblRegistro_comunidad.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         lblRegistro_comunidad.setForeground(new java.awt.Color(0, 102, 102));
         lblRegistro_comunidad.setText("REGISTRO DE COMUNIDAD");
-        getContentPane().add(lblRegistro_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 70, 490, 50));
+        getContentPane().add(lblRegistro_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 490, 50));
 
         jLabel4.setText("CANTÓN:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, 20));
@@ -125,7 +134,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         btnRegistrar_finca.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_finca.setText("REGISTRAR");
         btnRegistrar_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        getContentPane().add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 170, 40));
+        getContentPane().add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 170, 40));
 
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnCancelar_registro_finca.setForeground(new java.awt.Color(153, 0, 0));
@@ -136,7 +145,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
                 btnCancelar_registro_fincaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 510, 160, 40));
+        getContentPane().add(btnCancelar_registro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 510, 160, 40));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -251,6 +260,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel13.setText("Usted se encuentra en:");
         getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
 
+        lblregistrocomunidad.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        getContentPane().add(lblregistrocomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 180, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -275,8 +287,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-
-        this.setVisible(true);
+    Inicio inicio = new Inicio();
+    inicio.setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
@@ -292,7 +305,10 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-
+  this.setVisible(true);
+    Submenu_Registro submenuregistro = new Submenu_Registro();
+    submenuregistro.setVisible(true);
+    this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void cmbEstado_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstado_fincaActionPerformed
@@ -328,6 +344,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private com.toedter.calendar.JCalendar jcdFundacion_comunidad;
     private javax.swing.JLabel lblRegistro_comunidad;
+    private javax.swing.JLabel lblregistrocomunidad;
     private javax.swing.JTextArea txaDescripcion_comunidad;
     private javax.swing.JTextArea txaRef_comunidad;
     private javax.swing.JTextField txtCant_fincas;

@@ -1,12 +1,19 @@
 
 package Vista;
 
+import javax.swing.JLabel;
+
 public class Registro_Finca extends javax.swing.JFrame {
 
     public Registro_Finca() {
         initComponents();
+          this.setLocationRelativeTo(null);
+        mostrarnombreventana(jblregistrofinca);
     }
-
+  public void mostrarnombreventana(JLabel j){
+        String formulario = getClass().getSimpleName();
+       j.setText(formulario.replace("_", " "));
+     }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -44,6 +51,7 @@ public class Registro_Finca extends javax.swing.JFrame {
         txtComunidad_finca = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jblregistrofinca = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -51,7 +59,7 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
         jLabel1.setText("REGISTRO DE FINCA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 70, 380, 50));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 380, 50));
 
         jLabel4.setText("CANTÓN:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, 20));
@@ -76,7 +84,6 @@ public class Registro_Finca extends javax.swing.JFrame {
         txtci_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 210, 20));
 
-        cmbCiudad_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCiudad_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbCiudad_finca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,7 +92,6 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         getContentPane().add(cmbCiudad_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 140, 20));
 
-        cmbCanton_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbCanton_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(cmbCanton_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 140, 20));
 
@@ -112,7 +118,6 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel12.setText("ESTADO:");
         getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 180, 30));
 
-        cmbEstado_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         cmbEstado_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(cmbEstado_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 350, 170, 30));
 
@@ -120,7 +125,7 @@ public class Registro_Finca extends javax.swing.JFrame {
         btnRegistrar_finca.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_finca.setText("REGISTRAR");
         btnRegistrar_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        getContentPane().add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 170, 40));
+        getContentPane().add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 520, 170, 40));
 
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnCancelar_registro_finca.setForeground(new java.awt.Color(153, 0, 0));
@@ -131,7 +136,7 @@ public class Registro_Finca extends javax.swing.JFrame {
                 btnCancelar_registro_fincaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 510, 160, 40));
+        getContentPane().add(btnCancelar_registro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 520, 160, 40));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -242,6 +247,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel10.setText("Usted se encuentra en:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
 
+        jblregistrofinca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        getContentPane().add(jblregistrofinca, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 270, 20));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -262,8 +270,9 @@ public class Registro_Finca extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-
-        this.setVisible(true);
+    Inicio inicio = new Inicio();
+     inicio.setVisible(true);
+     this.setVisible(false);
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
@@ -279,6 +288,10 @@ public class Registro_Finca extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
+    this.setVisible(true);
+    Submenu_Registro submenuregistro = new Submenu_Registro();
+    submenuregistro.setVisible(true);
+    this.setVisible(false);
 
     }//GEN-LAST:event_btnRegistroActionPerformed
 
@@ -312,6 +325,7 @@ public class Registro_Finca extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jblregistrofinca;
     private com.toedter.calendar.JCalendar jcdFundacion_finca;
     private javax.swing.JTextArea txaDescripcion_finca;
     private javax.swing.JTextField txtComunidad_finca;
