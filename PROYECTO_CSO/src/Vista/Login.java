@@ -4,7 +4,11 @@
  */
 package Vista;
 
+import Conexion.Conexion;
 import java.awt.Color;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -13,13 +17,61 @@ import javax.swing.JOptionPane;
  * @author User
  */
 public class Login extends javax.swing.JFrame {
-
+    public static int id_Usuario;
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
+    }
+    
+    public void validarIngreso(){
+        if(txtUser.getText().isEmpty()){
+            txtUser.setBackground(Color.red);
+        }
+        if(txtpassword.getText().isEmpty()){
+             txtpassword.setBackground(Color.red);
+        }
+        if(!txtUser.getText().isEmpty()&&!txtpassword.getText().isEmpty()){
+        Conexion conect= new Conexion();
+        com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
+        PreparedStatement buscador = null;
+        ResultSet dato = null;
+        //JOptionPane.showMessageDialog(null,txtpassword.getText());
+        try{
+         buscador= (PreparedStatement) conexion2.prepareStatement("select * from Usuario where usuario=? and contraseña=?");
+         buscador.setString(1,txtUser.getText());
+         buscador.setString(2,txtpassword.getText());
+         dato=buscador.executeQuery();
+         if(dato.next())
+         {
+             String id=dato.getString("id_usuario");
+
+             if(txtUser.getText().equalsIgnoreCase(dato.getString("usuario"))&&txtpassword.getText().equalsIgnoreCase(dato.getString("contraseña")))
+             {
+                 try{
+                    if(dato.getString("tipo_usuario_id").equalsIgnoreCase("1")){
+                             System.out.println(id);
+                    }else if(dato.getString("tipo_usuario_id").equalsIgnoreCase("2")){
+                             System.out.println(id);
+                    }
+                    dispose();
+                 }catch(Exception e){
+                     System.out.println("error de obtener id");
+                 }
+             }
+          }
+        }catch(SQLException ex)
+        {
+            System.err.println("ERROR EN OBTENER DATOS");
+        }finally{
+            try{buscador.close();} catch (Exception e){}
+             try{dato.close();} catch (Exception e){}
+             try{conexion2.close();} catch (Exception e){}
+        }
+        }
+        
     }
 
     /**
@@ -126,16 +178,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-String user,pwd;
-    user=txtUser.getText();
-    pwd=txtpassword.getText();
-    if(user.equals("user")&& pwd.equals("password")){
-    Inicio acceso = new Inicio();
-    acceso.setVisible(true);
-    this.setVisible(false);
-    }else{
-        JOptionPane.showMessageDialog(null,"usuario o contraeña incorrectos");
-    }
+        validarIngreso();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnrestaurarpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestaurarpwdActionPerformed
