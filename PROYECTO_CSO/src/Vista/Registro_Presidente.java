@@ -5,10 +5,7 @@ import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
-<<<<<<< HEAD
 import javax.swing.JLabel;
-=======
->>>>>>> main
 import javax.swing.JPanel;
 
 public class Registro_Presidente extends javax.swing.JFrame {
