@@ -80,8 +80,4 @@ public class Presidente extends Persona {
         return fechaRegistro;
     }
 
-    @Override
-    public void setFechaRegistro(Date fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
 }

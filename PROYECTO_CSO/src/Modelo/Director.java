@@ -88,8 +88,4 @@ public class Director extends Persona{
         return fechaRegistro;
     }
 
-    @Override
-    public void setFechaRegistro(Date fechaRegistro) {
-        this.fechaRegistro = fechaRegistro;
-    }
 }

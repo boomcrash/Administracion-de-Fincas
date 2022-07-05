@@ -1,7 +1,13 @@
 
 package Vista;
 
+import Conexion.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Registro_Comunidad extends javax.swing.JFrame {
 
@@ -14,7 +20,51 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+   
+   public void limpiar(){
+        txtNom_comunidad.setText("");
+        txtDir_comunidad.setText("");
+        txaRef_comunidad.setText("");
+        txaDescripcion_comunidad.setText("");
+   }
 
+   public void ingresarComunidad(){
+    if(!txtNom_comunidad.getText().isEmpty()&&!txtDir_comunidad.getText().isEmpty()&&!txaRef_comunidad.getText().isEmpty()&&!txaDescripcion_comunidad.getText().isEmpty())
+     {
+        Conexion conect= new Conexion();
+        Connection conexion=(Connection) conect.getconection();
+         
+        PreparedStatement ps2=null;
+        ResultSet rs=null;
+            try {
+                    
+
+                    ps2=(PreparedStatement) conexion.prepareStatement("insert into Comunidad (nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado) values(?,?,?,?,?,?,?,?)");
+                    ps2.setString(1, txtNom_comunidad.getText().toString());
+                    ps2.setString(2, cmbCiudad_comunidad.getSelectedItem().toString());
+                    ps2.setString(3,cmbCanton_comunidad.getSelectedItem().toString());
+                    ps2.setString(4, jcdFundacion_comunidad.getDate().toString());
+                    ps2.setString(5, txtDir_comunidad.getText().toString());
+                    ps2.setString(6,txaRef_comunidad.getText().toString());
+                    ps2.setString(7,txaDescripcion_comunidad.getText().toString());
+                    ps2.setString(8,"A".toString());
+                    ps2.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "REGISTRO DE COMUNIDAD EXITOSO !");
+                    //this.dispose();
+                    limpiar();   
+         } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
+         }finally {
+                try{ps2.close();} catch (Exception e){}
+                try{conexion.close();} catch (Exception e){}
+        }
+          /*panel.removeAll();
+        panel.repaint();
+        limpiar();*/
+     }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+        
+   }
+       
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -22,10 +72,8 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         lblRegistro_comunidad = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         txtNom_comunidad = new javax.swing.JTextField();
-        txtci_presidente_com = new javax.swing.JTextField();
         cmbCiudad_comunidad = new javax.swing.JComboBox<>();
         cmbCanton_comunidad = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
@@ -33,8 +81,6 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtDir_comunidad = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        cmbEstado_finca = new javax.swing.JComboBox<>();
         btnRegistrar_finca = new javax.swing.JButton();
         btnCancelar_registro_finca = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
@@ -48,9 +94,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         txaDescripcion_comunidad = new javax.swing.JTextArea();
         jScrollPane1 = new javax.swing.JScrollPane();
         txaRef_comunidad = new javax.swing.JTextArea();
-        txtCant_fincas = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         lblregistrocomunidad = new javax.swing.JLabel();
 
@@ -63,16 +107,13 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         getContentPane().add(lblRegistro_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, 490, 50));
 
         jLabel4.setText("CANTÓN:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 250, -1, 20));
 
         jLabel5.setText("NOMBRE:");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, 20));
 
-        jLabel6.setText("C.I. PRESIDENTE:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, 20));
-
         jLabel7.setText("CIUDAD:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, 20));
 
         txtNom_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_comunidad.addActionListener(new java.awt.event.ActionListener() {
@@ -82,27 +123,24 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         });
         getContentPane().add(txtNom_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 210, 20));
 
-        txtci_presidente_com.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtci_presidente_com, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, 210, 20));
-
-        cmbCiudad_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCiudad_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cmbCiudad_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbCiudad_comunidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCiudad_comunidadActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbCiudad_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 140, 20));
+        getContentPane().add(cmbCiudad_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 200, 140, 20));
 
-        cmbCanton_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbCanton_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayas", "el oro", "los rios" }));
         cmbCanton_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(cmbCanton_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 280, 140, 20));
+        getContentPane().add(cmbCanton_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 140, 20));
 
         jLabel8.setText("FECHA DE FUNDACIÓN:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, 20));
 
         jcdFundacion_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(jcdFundacion_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, -1, 140));
+        getContentPane().add(jcdFundacion_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, -1, 140));
 
         jLabel9.setText("DIRECCIÓN:");
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, -1, 20));
@@ -118,22 +156,15 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel11.setText("DESCRIPCIÓN :");
         getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 270, -1, 20));
 
-        jLabel12.setText("ESTADO:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 180, 30));
-
-        cmbEstado_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbEstado_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        cmbEstado_finca.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbEstado_fincaActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cmbEstado_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 420, 170, 30));
-
         btnRegistrar_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_finca.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_finca.setText("REGISTRAR");
         btnRegistrar_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnRegistrar_finca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrar_fincaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 510, 170, 40));
 
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -247,14 +278,8 @@ public class Registro_Comunidad extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 196, -1, 50));
 
-        txtCant_fincas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtCant_fincas, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 370, 220, 30));
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 350, 350, 230));
-
-        jLabel10.setText("CANTIDAD DE FINCAS:");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel13.setText("Usted se encuentra en:");
@@ -311,9 +336,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    private void cmbEstado_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbEstado_fincaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbEstado_fincaActionPerformed
+    private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
+    ingresarComunidad();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -323,19 +348,15 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistro;
     private javax.swing.JComboBox<String> cmbCanton_comunidad;
     private javax.swing.JComboBox<String> cmbCiudad_comunidad;
-    private javax.swing.JComboBox<String> cmbEstado_finca;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -347,9 +368,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     private javax.swing.JLabel lblregistrocomunidad;
     private javax.swing.JTextArea txaDescripcion_comunidad;
     private javax.swing.JTextArea txaRef_comunidad;
-    private javax.swing.JTextField txtCant_fincas;
     private javax.swing.JTextField txtDir_comunidad;
     private javax.swing.JTextField txtNom_comunidad;
-    private javax.swing.JTextField txtci_presidente_com;
     // End of variables declaration//GEN-END:variables
 }
