@@ -18,10 +18,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     private void initComponents() {
 
         lblRegistro_ent_bancaria = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         lblNom_entidadbancaria = new javax.swing.JLabel();
         lblrepresentante_entbancaria = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         txtNom_EntBancaria = new javax.swing.JTextField();
         txtRepresentante_EntBancaria = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -31,12 +29,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
-        txtCant_comun_EntBancaria = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txaDescripcion_EntBancaria = new javax.swing.JTextArea();
         txtDir_EntBancaria = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
-        cmbCiudad_EntBancaria = new javax.swing.JComboBox<>();
         btnRegistrar_EntBancaria = new javax.swing.JButton();
         btnCancelar_registro_EntBancaria = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -51,17 +44,11 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         lblRegistro_ent_bancaria.setText("REGISTRO ENTIDAD BANCARIA");
         getContentPane().add(lblRegistro_ent_bancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 560, 50));
 
-        jLabel4.setText("DESCRIPCIÓN:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, 20));
-
         lblNom_entidadbancaria.setText("NOMBRE DE LA ENTIDAD BANCARIA:");
         getContentPane().add(lblNom_entidadbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
 
         lblrepresentante_entbancaria.setText("REPRESENTANTE DE LA ENTIDAD BANCARIA:");
-        getContentPane().add(lblrepresentante_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 20));
-
-        jLabel7.setText("CANTIDAD DE COMUNIDADES:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, 20));
+        getContentPane().add(lblrepresentante_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, 20));
 
         txtNom_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
@@ -72,10 +59,10 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         getContentPane().add(txtNom_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 300, 20));
 
         txtRepresentante_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtRepresentante_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 300, 20));
+        getContentPane().add(txtRepresentante_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 300, 20));
 
         jLabel8.setText("DIRECCIÓN:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 440, -1, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 20));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -137,24 +124,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
 
-        txtCant_comun_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtCant_comun_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 290, 300, 20));
-
-        txaDescripcion_EntBancaria.setColumns(20);
-        txaDescripcion_EntBancaria.setRows(5);
-        txaDescripcion_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jScrollPane1.setViewportView(txaDescripcion_EntBancaria);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 300, 60));
-
         txtDir_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtDir_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 450, 300, 20));
-
-        jLabel1.setText("CIUDAD:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, -1, -1));
-
-        cmbCiudad_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(cmbCiudad_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, -1));
+        getContentPane().add(txtDir_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 300, 20));
 
         btnRegistrar_EntBancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_EntBancaria.setForeground(new java.awt.Color(0, 0, 51));
@@ -228,24 +199,17 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistrar_EntBancaria;
     private javax.swing.JButton btnRegistro;
-    private javax.swing.JComboBox<String> cmbCiudad_EntBancaria;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblRegistroentbancaria;
     private javax.swing.JLabel lblNom_entidadbancaria;
     private javax.swing.JLabel lblRegistro_ent_bancaria;
     private javax.swing.JLabel lblrepresentante_entbancaria;
-    private javax.swing.JTextArea txaDescripcion_EntBancaria;
-    private javax.swing.JTextField txtCant_comun_EntBancaria;
     private javax.swing.JTextField txtDir_EntBancaria;
     private javax.swing.JTextField txtNom_EntBancaria;
     private javax.swing.JTextField txtRepresentante_EntBancaria;
