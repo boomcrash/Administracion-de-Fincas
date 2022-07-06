@@ -75,9 +75,6 @@ public class Presidente extends Persona {
         this.direccion = direccion;
     }
 
-    @Override
-    public Date getFechaRegistro() {
-        return fechaRegistro;
-    }
+  
 
 }

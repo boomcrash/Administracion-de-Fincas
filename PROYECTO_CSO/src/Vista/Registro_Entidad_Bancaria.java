@@ -32,9 +32,12 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         txtDir_EntBancaria = new javax.swing.JTextField();
         btnRegistrar_EntBancaria = new javax.swing.JButton();
         btnCancelar_registro_EntBancaria = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jblRegistroentbancaria = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblcomunidad = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -45,10 +48,10 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         getContentPane().add(lblRegistro_ent_bancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 560, 50));
 
         lblNom_entidadbancaria.setText("NOMBRE DE LA ENTIDAD BANCARIA:");
-        getContentPane().add(lblNom_entidadbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, 20));
+        getContentPane().add(lblNom_entidadbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
 
         lblrepresentante_entbancaria.setText("REPRESENTANTE DE LA ENTIDAD BANCARIA:");
-        getContentPane().add(lblrepresentante_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 290, -1, 20));
+        getContentPane().add(lblrepresentante_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 20));
 
         txtNom_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
@@ -59,10 +62,10 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         getContentPane().add(txtNom_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 300, 20));
 
         txtRepresentante_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtRepresentante_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, 300, 20));
+        getContentPane().add(txtRepresentante_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 300, 20));
 
         jLabel8.setText("DIRECCIÓN:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, 20));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 70, 20));
 
         jPanel1.setBackground(new java.awt.Color(51, 51, 51));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,7 +134,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         btnRegistrar_EntBancaria.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_EntBancaria.setText("REGISTRAR");
         btnRegistrar_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        getContentPane().add(btnRegistrar_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 550, 170, 40));
+        getContentPane().add(btnRegistrar_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 720, 170, 40));
 
         btnCancelar_registro_EntBancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnCancelar_registro_EntBancaria.setForeground(new java.awt.Color(153, 0, 0));
@@ -142,10 +145,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 btnCancelar_registro_EntBancariaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 550, 160, 40));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 350, 270));
+        getContentPane().add(btnCancelar_registro_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 720, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
         jLabel2.setText("Usted se encuentra en:");
@@ -153,6 +153,50 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
 
         jblRegistroentbancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         getContentPane().add(jblRegistroentbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 230, 20));
+
+        jLabel1.setText("COMUNIDAD:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 160, 20));
+
+        tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblcomunidad);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 730, 230));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 360, 270));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -202,14 +246,17 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblRegistroentbancaria;
     private javax.swing.JLabel lblNom_entidadbancaria;
     private javax.swing.JLabel lblRegistro_ent_bancaria;
     private javax.swing.JLabel lblrepresentante_entbancaria;
+    private javax.swing.JTable tblcomunidad;
     private javax.swing.JTextField txtDir_EntBancaria;
     private javax.swing.JTextField txtNom_EntBancaria;
     private javax.swing.JTextField txtRepresentante_EntBancaria;

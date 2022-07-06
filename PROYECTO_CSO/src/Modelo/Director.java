@@ -1,16 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Modelo;
-
 import java.util.Date;
-
-/**
- *
- * @author GAMER
- */
 public class Director extends Persona{
     
     @Override
@@ -83,9 +73,5 @@ public class Director extends Persona{
         this.direccion = direccion;
     }
 
-    @Override
-    public Date getFechaRegistro() {
-        return fechaRegistro;
-    }
 
 }

@@ -6,7 +6,6 @@ public class Finca {
     String direccion;
     Date añodefundacion;
     public Finca(){
-    
     }
     public String getInfoFinca(String info){
         

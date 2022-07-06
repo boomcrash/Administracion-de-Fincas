@@ -16,7 +16,7 @@ public class Submenu_Registro extends javax.swing.JFrame {
     public Submenu_Registro() {
         initComponents();
        this.setLocationRelativeTo(null);
-       this.setSize(600, 550);
+       this.setSize(750, 720);
     }
 
     /**
@@ -41,11 +41,15 @@ public class Submenu_Registro extends javax.swing.JFrame {
         btnreturn = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnregistrardirector = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
+        btnregistrarsecretaria = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        btnRegistro_propietario = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(0, 0, 255));
+        setBackground(new java.awt.Color(204, 204, 204));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnregistro_presidente.setBackground(new java.awt.Color(255, 255, 255));
@@ -56,7 +60,7 @@ public class Submenu_Registro extends javax.swing.JFrame {
                 btnregistro_presidenteActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregistro_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 90, 100, 70));
+        getContentPane().add(btnregistro_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 100, 70));
 
         btnregistro_finca.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_finca.setForeground(new java.awt.Color(51, 51, 51));
@@ -67,17 +71,17 @@ public class Submenu_Registro extends javax.swing.JFrame {
                 btnregistro_fincaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregistro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 90, 100, 70));
+        getContentPane().add(btnregistro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 100, 70));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BANCARIA");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, 60, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 60, 20));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("REGISTRAR ENTIDAD");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 290, 120, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 120, 20));
 
         btnregistro_entbancaria.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_entbancaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/entidad bancaria.png"))); // NOI18N
@@ -87,17 +91,17 @@ public class Submenu_Registro extends javax.swing.JFrame {
                 btnregistro_entbancariaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregistro_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 220, 100, 70));
+        getContentPane().add(btnregistro_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 100, 70));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("EN CONSTRUCCIÓN...");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, 140, 20));
+        jLabel3.setText("REGISTRAR DIRECTOR");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 500, 140, 20));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("REGISTRAR FINCA");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 170, 120, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 220, 120, 20));
 
         btnregistrocomunidad.setBackground(new java.awt.Color(255, 255, 255));
         btnregistrocomunidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/comunidad.png"))); // NOI18N
@@ -107,12 +111,12 @@ public class Submenu_Registro extends javax.swing.JFrame {
                 btnregistrocomunidadActionPerformed(evt);
             }
         });
-        getContentPane().add(btnregistrocomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 220, 110, 70));
+        getContentPane().add(btnregistrocomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 100, 70));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("REGISTRAR PRESIDENTE");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, 140, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 220, 140, 20));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -127,25 +131,58 @@ public class Submenu_Registro extends javax.swing.JFrame {
         });
         jPanel1.add(btnreturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 80, 60));
 
-        jLabel6.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("MENU REGISTRO");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 347, 86));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 347, 86));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setText("REGRESAR");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 80, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 80));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 770, 80));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/en-construccion.png"))); // NOI18N
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 360, 110, 80));
+        btnregistrardirector.setBackground(new java.awt.Color(255, 255, 255));
+        btnregistrardirector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/jefe.png"))); // NOI18N
+        btnregistrardirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrardirectorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnregistrardirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 410, 110, 80));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("REGISTRAR COMUNIDAD");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 300, 140, 20));
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 350, 140, 20));
+
+        btnregistrarsecretaria.setBackground(new java.awt.Color(255, 255, 255));
+        btnregistrarsecretaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/secretario.png"))); // NOI18N
+        btnregistrarsecretaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnregistrarsecretariaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnregistrarsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 410, 100, 80));
+
+        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel9.setText("REGISTRAR SECRETARIO/A");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 500, -1, -1));
+
+        btnRegistro_propietario.setBackground(new java.awt.Color(255, 255, 255));
+        btnRegistro_propietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/propietario.png"))); // NOI18N
+        btnRegistro_propietario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistro_propietarioActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnRegistro_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 540, 100, 80));
+
+        jLabel10.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel10.setText("REGISTRAR PROPIETARIO");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 630, 150, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -180,19 +217,41 @@ public class Submenu_Registro extends javax.swing.JFrame {
        this.setVisible(false);
     }//GEN-LAST:event_btnregistrocomunidadActionPerformed
 
+    private void btnregistrarsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarsecretariaActionPerformed
+   Registro_Secretaria registrosecretaria = new Registro_Secretaria();
+   registrosecretaria.setVisible(true);
+   this.setVisible(false);
+   
+    }//GEN-LAST:event_btnregistrarsecretariaActionPerformed
+
+    private void btnregistrardirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrardirectorActionPerformed
+   Registro_Director registrodirector = new Registro_Director();
+   registrodirector.setVisible(true);
+   this.setVisible(false);
+    }//GEN-LAST:event_btnregistrardirectorActionPerformed
+
+    private void btnRegistro_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistro_propietarioActionPerformed
+    Registro_Propietario registropropietario = new Registro_Propietario();
+    registropropietario.setVisible(true);
+    this.setVisible(false);
+    }//GEN-LAST:event_btnRegistro_propietarioActionPerformed
+
     /**
      * @param args the command line arguments
      */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnRegistro_propietario;
+    private javax.swing.JButton btnregistrardirector;
+    private javax.swing.JButton btnregistrarsecretaria;
     private javax.swing.JButton btnregistro_entbancaria;
     private javax.swing.JButton btnregistro_finca;
     private javax.swing.JButton btnregistro_presidente;
     private javax.swing.JButton btnregistrocomunidad;
     private javax.swing.JButton btnreturn;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -200,6 +259,7 @@ public class Submenu_Registro extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
