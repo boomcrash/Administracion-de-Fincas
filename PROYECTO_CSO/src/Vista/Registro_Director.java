@@ -4,9 +4,16 @@
  */
 package Vista;
 
+import Conexion.Conexion;
+import static Vista.Login.id_Usuario;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +33,115 @@ public class Registro_Director extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+     public void limpiar(){
+                txtnom_director.setText("");
+                txtedaddirector.setText("");
+                txtci_director.setText("");
+                txtiddirector.setText("");
+                txtcontactodirector.setText("");
+                txtdireccion_director.setText("");
+                txtusuariodirector.setText("");
+                txtcontraseñadirector.setText("");
+     }
+     public int consultarUsuario(){
+        int id=0;
+        Conexion conect= new Conexion();
+        com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
+        PreparedStatement buscador = null;
+        ResultSet dato = null;
+        //JOptionPane.showMessageDialog(null,txtpassword.getText());
+        try{
+         buscador= (PreparedStatement) conexion2.prepareStatement("select * from Usuario where usuario=? and contraseña=? and tipo_usuario_id");
+         buscador.setString(1,txtusuariodirector.getText().toString());
+         buscador.setString(2,txtcontraseñadirector.getText().toString());
+         dato=buscador.executeQuery();
+         if(dato.next())
+         {
+             id=Integer.parseInt(dato.getString("id_usuario"));
+         }
+        }catch(SQLException ex)
+        {
+            System.err.println("ERROR EN OBTENER DATOS");
+        }finally{
+            try{buscador.close();} catch (Exception e){}
+             try{dato.close();} catch (Exception e){}
+             try{conexion2.close();} catch (Exception e){}
+        }
+       return id;
+        
+    }
+     public int registrarUsuario(){
+         if(!txtusuariodirector.getText().isEmpty()&&!txtcontraseñadirector.getText().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Usuario (usuario,contraseña,tipo_usuario_id) values(?,?,?)");
+                        ps2.setString(1, txtusuariodirector.getText().toString());
+                        ps2.setString(2, txtcontraseñadirector.getText().toString());
+                        ps2.setInt(3,2);
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE USUARIO EXITOSO !");
+                        //this.dispose();
+                        limpiar();
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+         }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+         
+        return consultarUsuario();
+    }
+     public void ingresarDirector(){
+        int  id=registrarUsuario();
+        if(!txtnom_director.getText().isEmpty()&&!txtedaddirector.getText().isEmpty()&&!txtci_director.getText().isEmpty()
+                &&!cmbsexodirector.getSelectedItem().toString().isEmpty()&&!cbmciudaddirector.getSelectedItem().toString().isEmpty()
+                &&!txtiddirector.getText().isEmpty()&&!txtcontactodirector.getText().isEmpty()
+                &&!txtdireccion_director.getText().isEmpty()&&!txtusuariodirector.getText().isEmpty()
+                &&!txtcontraseñadirector.getText().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Director (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id,ususario_id) values(?,?,?,?,?,?,?,?,?)");
+                        ps2.setString(1, txtnom_director.getText().toString());
+                        ps2.setInt(2, Integer.parseInt(txtedaddirector.getText().toString()));
+                        ps2.setString(3,txtci_director.getText().toString());
+                        ps2.setString(4, cmbsexodirector.getSelectedItem().toString());
+                        ps2.setString(5, txtcontactodirector.getText().toString());
+                        ps2.setString(6,cbmciudaddirector.getSelectedItem().toString());
+                        ps2.setString(7,txtdireccion_director.getText().toString());
+                        ps2.setInt(8,Integer.parseInt(txtiddirector.getText().toString()));
+                        ps2.setInt(9,id);
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE DIRECTOR EXITOSO !");
+                        //this.dispose();
+                        limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -65,7 +181,11 @@ public class Registro_Director extends javax.swing.JFrame {
         btnCancelar_registro_director = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblcomunidad = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
+        txtiddirector = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -164,6 +284,7 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel8.setText("CONTRASEÑA:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, 20));
 
+        cbmciudaddirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "el oro", "quevedo" }));
         cbmciudaddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbmciudaddirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,6 +299,7 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel7.setText("SEXO:");
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, 20));
 
+        cmbsexodirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexodirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbsexodirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -232,7 +354,7 @@ public class Registro_Director extends javax.swing.JFrame {
                 btnRegistrar_directorActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 420, 170, 40));
+        getContentPane().add(btnRegistrar_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, 170, 40));
 
         btnCancelar_registro_director.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar_registro_director.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -252,7 +374,7 @@ public class Registro_Director extends javax.swing.JFrame {
                 btnCancelar_registro_directorActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, 160, 40));
+        getContentPane().add(btnCancelar_registro_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 370, 160, 40));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 102, 102));
@@ -260,10 +382,61 @@ public class Registro_Director extends javax.swing.JFrame {
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 400, 50));
 
         jLabel3.setText("C.I. DIRECTOR:");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 80, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, 100, 20));
+
+        tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "iID", "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN", "ESTADO"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblcomunidad);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 730, 230));
 
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 350, 270));
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 350, 270));
+
+        txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtiddirector.setEnabled(false);
+        txtiddirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtiddirectorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtiddirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 380, 60, 30));
+
+        jLabel10.setText("COMUNIDAD:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -346,6 +519,10 @@ j1.setBackground(new Color(153,0,0));
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcontactodirectorActionPerformed
 
+    private void txtiddirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtiddirectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtiddirectorActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -392,6 +569,7 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -404,12 +582,15 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblregistrodirector;
+    private javax.swing.JTable tblcomunidad;
     private javax.swing.JTextField txtci_director;
     private javax.swing.JTextField txtcontactodirector;
     private javax.swing.JTextField txtcontraseñadirector;
     private javax.swing.JTextField txtdireccion_director;
     private javax.swing.JTextField txtedaddirector;
+    private javax.swing.JTextField txtiddirector;
     private javax.swing.JTextField txtnom_director;
     private javax.swing.JTextField txtusuariodirector;
     // End of variables declaration//GEN-END:variables
