@@ -68,8 +68,6 @@ public class Persona {
         this.direccion = direccion;
     }
 
-    public Date getFechaRegistro() {
-        return fechaRegistro;
-    }
+ 
  
 }
