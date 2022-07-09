@@ -241,7 +241,7 @@ j1.setBackground(new Color(204,255,255));
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Inicio().setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
