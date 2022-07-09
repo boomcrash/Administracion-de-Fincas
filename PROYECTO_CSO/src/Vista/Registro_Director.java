@@ -14,13 +14,14 @@ import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author User
  */
 public class Registro_Director extends javax.swing.JFrame {
-
+    int id_com;
     /**
      * Creates new form Registro_Director
      */
@@ -29,10 +30,51 @@ public class Registro_Director extends javax.swing.JFrame {
             this.setLocationRelativeTo(null);
         mostrarnombreventana(jblregistrodirector);
     }
+    
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+     
+     
+   public void llenarTabla(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblcomunidad.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad where ciudad=?");
+            ps.setString(1,cbmciudaddirector.getSelectedItem().toString());
+            rs=ps.executeQuery();
+            modelo.addColumn("id_comunidad");
+            modelo.addColumn("nombre");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("canton");
+            modelo.addColumn("fecha_fundacion");
+            modelo.addColumn("direccion");
+            modelo.addColumn("referencia");
+            modelo.addColumn("descripcion");
+            modelo.addColumn("estado");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+   
      public void limpiar(){
                 txtnom_director.setText("");
                 txtedaddirector.setText("");
@@ -51,9 +93,10 @@ public class Registro_Director extends javax.swing.JFrame {
         ResultSet dato = null;
         //JOptionPane.showMessageDialog(null,txtpassword.getText());
         try{
-         buscador= (PreparedStatement) conexion2.prepareStatement("select * from Usuario where usuario=? and contraseña=? and tipo_usuario_id");
+         buscador= (PreparedStatement) conexion2.prepareStatement("select * from Usuario where usuario=? and contraseña=? and tipo_usuario_id=?");
          buscador.setString(1,txtusuariodirector.getText().toString());
          buscador.setString(2,txtcontraseñadirector.getText().toString());
+         buscador.setInt(3,2);
          dato=buscador.executeQuery();
          if(dato.next())
          {
@@ -86,7 +129,7 @@ public class Registro_Director extends javax.swing.JFrame {
                         ps2.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE USUARIO EXITOSO !");
                         //this.dispose();
-                        limpiar();
+                        
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
              }finally {
@@ -101,7 +144,7 @@ public class Registro_Director extends javax.swing.JFrame {
         return consultarUsuario();
     }
      public void ingresarDirector(){
-        int  id=registrarUsuario();
+        
         if(!txtnom_director.getText().isEmpty()&&!txtedaddirector.getText().isEmpty()&&!txtci_director.getText().isEmpty()
                 &&!cmbsexodirector.getSelectedItem().toString().isEmpty()&&!cbmciudaddirector.getSelectedItem().toString().isEmpty()
                 &&!txtiddirector.getText().isEmpty()&&!txtcontactodirector.getText().isEmpty()
@@ -115,23 +158,25 @@ public class Registro_Director extends javax.swing.JFrame {
             ResultSet rs=null;
                 try {
 
-
-                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Director (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id,ususario_id) values(?,?,?,?,?,?,?,?,?)");
+                        int  id=registrarUsuario();
+                        int edad= Integer.parseInt(txtedaddirector.getText().toString().trim());
+                        int id_dire=Integer.parseInt(txtiddirector.getText().toString().trim());
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Director (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id,usuario_id) values(?,?,?,?,?,?,?,?,?)");
                         ps2.setString(1, txtnom_director.getText().toString());
-                        ps2.setInt(2, Integer.parseInt(txtedaddirector.getText().toString()));
+                        ps2.setInt(2,edad);
                         ps2.setString(3,txtci_director.getText().toString());
                         ps2.setString(4, cmbsexodirector.getSelectedItem().toString());
                         ps2.setString(5, txtcontactodirector.getText().toString());
                         ps2.setString(6,cbmciudaddirector.getSelectedItem().toString());
                         ps2.setString(7,txtdireccion_director.getText().toString());
-                        ps2.setInt(8,Integer.parseInt(txtiddirector.getText().toString()));
+                        ps2.setInt(8,id_dire);
                         ps2.setInt(9,id);
                         ps2.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE DIRECTOR EXITOSO !");
                         //this.dispose();
                         limpiar();   
              } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
                     try{ps2.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
@@ -284,8 +329,13 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel8.setText("CONTRASEÑA:");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, 20));
 
-        cbmciudaddirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "el oro", "quevedo" }));
+        cbmciudaddirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cbmciudaddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cbmciudaddirector.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbmciudaddirectorItemStateChanged(evt);
+            }
+        });
         cbmciudaddirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbmciudaddirectorActionPerformed(evt);
@@ -388,34 +438,24 @@ public class Registro_Director extends javax.swing.JFrame {
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "iID", "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN", "ESTADO"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, true
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        tblcomunidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcomunidadMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblcomunidad);
@@ -425,6 +465,7 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 480, 350, 270));
 
+        txtiddirector.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtiddirector.setEnabled(false);
@@ -491,7 +532,7 @@ public class Registro_Director extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnom_directorActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        // TODO add your handling code here:
+    ingresarDirector();        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));
@@ -522,6 +563,18 @@ j1.setBackground(new Color(153,0,0));
     private void txtiddirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtiddirectorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtiddirectorActionPerformed
+
+    private void cbmciudaddirectorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudaddirectorItemStateChanged
+    llenarTabla();        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmciudaddirectorItemStateChanged
+
+    private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
+    int row=tblcomunidad.getSelectedRow();
+    if(row!=-1){
+        id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
+        txtiddirector.setText(String.valueOf(id_com));
+    }// TODO add your handling code here:
+    }//GEN-LAST:event_tblcomunidadMouseClicked
 
     /**
      * @param args the command line arguments

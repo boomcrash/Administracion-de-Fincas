@@ -1,10 +1,17 @@
 
 package Vista;
 
+import Conexion.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Registro_Finca extends javax.swing.JFrame {
-
+    int id_com=0;
     public Registro_Finca() {
         initComponents();
           this.setLocationRelativeTo(null);
@@ -14,7 +21,83 @@ public class Registro_Finca extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
-    
+         public void limpiar(){
+                txtNom_finca.setText("");
+                txtDir_finca.setText("");
+                txtidcomunidad.setText("");
+     }
+     public void llenarTabla(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblcomunidad.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_propietario,nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id from Propietario where ciudad=?");
+             ps.setString(1,cmbCiudad_finca.getSelectedItem().toString());
+            rs=ps.executeQuery();
+            modelo.addColumn("id_propietario");
+            modelo.addColumn("nombre");
+            modelo.addColumn("edad");
+            modelo.addColumn("cedula");
+            modelo.addColumn("sexo");
+            modelo.addColumn("contacto");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("direccion");
+            modelo.addColumn("comunidad_id");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+      public void ingresarFinca(){
+        
+        if(!txtNom_finca.getText().isEmpty()&&!txtDir_finca.getText().isEmpty()&&!txtidcomunidad.getText().isEmpty()
+                &&!cmbCiudad_finca.getSelectedItem().toString().isEmpty()&&!jcdFundacion_finca.getDate().toString().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Finca (nombre,ciudad,direccion,AnioFuncionamiento,propietario_id) values(?,?,?,?,?)");
+                        ps2.setString(1, txtNom_finca.getText().toString());
+                        ps2.setString(2,cmbCiudad_finca.getSelectedItem().toString());
+                        ps2.setString(3,txtDir_finca.getText().toString());
+                        ps2.setString(4, jcdFundacion_finca.getDate().toString());
+                        ps2.setInt(5,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE FINCA EXITOSO !");
+                        //this.dispose();
+                        limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -40,8 +123,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jblregistrofinca = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblpropietarios = new javax.swing.JTable();
+        tblcomunidad = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        txtidcomunidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -68,7 +152,13 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         getContentPane().add(txtNom_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 200, 20));
 
+        cmbCiudad_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cmbCiudad_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cmbCiudad_finca.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCiudad_fincaItemStateChanged(evt);
+            }
+        });
         cmbCiudad_finca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCiudad_fincaActionPerformed(evt);
@@ -97,6 +187,11 @@ public class Registro_Finca extends javax.swing.JFrame {
         btnRegistrar_finca.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_finca.setText("REGISTRAR");
         btnRegistrar_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnRegistrar_finca.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrar_fincaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 710, 170, 40));
 
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -177,46 +272,47 @@ public class Registro_Finca extends javax.swing.JFrame {
         jblregistrofinca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         getContentPane().add(jblregistrofinca, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 270, 20));
 
-        tblpropietarios.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
-        tblpropietarios.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
-        tblpropietarios.setModel(new javax.swing.table.DefaultTableModel(
+        tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        tblcomunidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcomunidadMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(tblpropietarios);
+        jScrollPane1.setViewportView(tblcomunidad);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 460, 730, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 470, 730, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 510, 380, 270));
+
+        txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtidcomunidad.setEnabled(false);
+        txtidcomunidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidcomunidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 430, 60, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -267,6 +363,27 @@ public class Registro_Finca extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNom_fincaActionPerformed
 
+    private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
+        int row=tblcomunidad.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
+            txtidcomunidad.setText(String.valueOf(id_com));
+
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_tblcomunidadMouseClicked
+
+    private void txtidcomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidcomunidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidcomunidadActionPerformed
+
+    private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
+        ingresarFinca();// TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
+
+    private void cmbCiudad_fincaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCiudad_fincaItemStateChanged
+        llenarTabla();        // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCiudad_fincaItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_finca;
     private javax.swing.JButton btnInicio;
@@ -288,8 +405,9 @@ public class Registro_Finca extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblregistrofinca;
     private com.toedter.calendar.JCalendar jcdFundacion_finca;
-    private javax.swing.JTable tblpropietarios;
+    private javax.swing.JTable tblcomunidad;
     private javax.swing.JTextField txtDir_finca;
     private javax.swing.JTextField txtNom_finca;
+    private javax.swing.JTextField txtidcomunidad;
     // End of variables declaration//GEN-END:variables
 }

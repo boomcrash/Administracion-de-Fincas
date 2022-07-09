@@ -1,16 +1,25 @@
 
 package Vista;
 
+import Conexion.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 public class Registro_Presidente extends javax.swing.JFrame {
+    int id_com=0;
     public Registro_Presidente() {
         initComponents();
+        
         this.setLocationRelativeTo(null);
         mostrarnombreventana(jblRegistropresidente);
     }
@@ -18,6 +27,90 @@ public class Registro_Presidente extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+     
+     public void limpiar(){
+                txtnom_propietario.setText("");
+                txtci_propietario.setText("");
+                txtDireccion_propietario.setText("");
+                txtedadpresidente.setText("");
+                txtCod_comunidad.setText("");
+     }
+     public void llenarTabla(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblcomunidad.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad where ciudad=?");
+             ps.setString(1,cmbCiudad_presidente.getSelectedItem().toString());
+            rs=ps.executeQuery();
+            modelo.addColumn("id_comunidad");
+            modelo.addColumn("nombre");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("canton");
+            modelo.addColumn("fecha_fundacion");
+            modelo.addColumn("direccion");
+            modelo.addColumn("referencia");
+            modelo.addColumn("descripcion");
+            modelo.addColumn("estado");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+      public void ingresarPresidente(){
+        
+        if(!txtnom_propietario.getText().isEmpty()&&!txtci_propietario.getText().isEmpty()&&!txtedadpresidente.getText().isEmpty()
+                &&!cbmsexopresidente.getSelectedItem().toString().isEmpty()&&!txtDireccion_propietario.getText().isEmpty()
+                &&!txtCod_comunidad.getText().isEmpty()&&!cmbCiudad_presidente.getSelectedItem().toString().isEmpty()
+                &&!txtidcomunidad.getText().toString().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Presidente (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id) values(?,?,?,?,?,?,?,?)");
+                        ps2.setString(1, txtnom_propietario.getText().toString());
+                        ps2.setInt(2,Integer.parseInt(txtedadpresidente.getText().toString()));
+                        ps2.setString(3,txtci_propietario.getText().toString());
+                        ps2.setString(4, cbmsexopresidente.getSelectedItem().toString());
+                        ps2.setString(5, txtCod_comunidad.getText().toString());
+                        ps2.setString(6,cmbCiudad_presidente.getSelectedItem().toString());
+                        ps2.setString(7,txtDireccion_propietario.getText().toString());
+                        ps2.setInt(8,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE PRESIDENTE EXITOSO !");
+                        //this.dispose();
+                        limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -52,6 +145,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcomunidad = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        txtidcomunidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -89,7 +183,13 @@ public class Registro_Presidente extends javax.swing.JFrame {
         txtci_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 210, 20));
 
+        cmbCiudad_presidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cmbCiudad_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cmbCiudad_presidente.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cmbCiudad_presidenteItemStateChanged(evt);
+            }
+        });
         cmbCiudad_presidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmbCiudad_presidenteActionPerformed(evt);
@@ -97,6 +197,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
         });
         getContentPane().add(cmbCiudad_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 140, 20));
 
+        cbmsexopresidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cbmsexopresidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbmsexopresidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,6 +233,11 @@ public class Registro_Presidente extends javax.swing.JFrame {
         btnRegistrar_presidente.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_presidente.setText("REGISTRAR");
         btnRegistrar_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnRegistrar_presidente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrar_presidenteActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegistrar_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 790, 170, 40));
 
         btnCancelar_registro_presidente.setBackground(new java.awt.Color(255, 51, 51));
@@ -233,42 +339,43 @@ public class Registro_Presidente extends javax.swing.JFrame {
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        tblcomunidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcomunidadMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblcomunidad);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 440, 730, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 730, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 600, 390, 270));
+
+        txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtidcomunidad.setEnabled(false);
+        txtidcomunidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidcomunidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 390, 60, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -339,6 +446,27 @@ resetColor(btnCancelar_registro_presidente);
         // TODO add your handling code here:
     }//GEN-LAST:event_txtedadpresidenteActionPerformed
 
+    private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
+        int row=tblcomunidad.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
+            txtidcomunidad.setText(String.valueOf(id_com));
+     
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_tblcomunidadMouseClicked
+
+    private void txtidcomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidcomunidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidcomunidadActionPerformed
+
+    private void btnRegistrar_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_presidenteActionPerformed
+     ingresarPresidente();   // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrar_presidenteActionPerformed
+
+    private void cmbCiudad_presidenteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCiudad_presidenteItemStateChanged
+            llenarTabla();   // TODO add your handling code here:
+    }//GEN-LAST:event_cmbCiudad_presidenteItemStateChanged
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_presidente;
     private javax.swing.JButton btnInicio;
@@ -369,6 +497,7 @@ resetColor(btnCancelar_registro_presidente);
     private javax.swing.JTextField txtDireccion_propietario;
     private javax.swing.JTextField txtci_propietario;
     private javax.swing.JTextField txtedadpresidente;
+    private javax.swing.JTextField txtidcomunidad;
     private javax.swing.JTextField txtnom_propietario;
     // End of variables declaration//GEN-END:variables
 }

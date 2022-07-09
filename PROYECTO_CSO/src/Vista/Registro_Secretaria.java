@@ -1,12 +1,19 @@
 
 package Vista;
 
+import Conexion.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Registro_Secretaria extends javax.swing.JFrame {
-
+    int id_com;
     public Registro_Secretaria() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -16,7 +23,156 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+    
+      public void llenarTabla(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblcomunidad.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad where ciudad=?");
+            ps.setString(1,cbmciudadsecretaria.getSelectedItem().toString());
+            rs=ps.executeQuery();
+            modelo.addColumn("id_comunidad");
+            modelo.addColumn("nombre");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("canton");
+            modelo.addColumn("fecha_fundacion");
+            modelo.addColumn("direccion");
+            modelo.addColumn("referencia");
+            modelo.addColumn("descripcion");
+            modelo.addColumn("estado");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+  public void limpiar(){
+                txtnom_secretaria.setText("");
+                txtedadsecretaria.setText("");
+                txtci_secretaria.setText("");
+                txtiddirector.setText("");
+                txtcontactosecretaria.setText("");
+                txtDireccion_secretaria.setText("");
+                txtusuariosecretaria.setText("");
+                txtcontraseñasecretaria.setText("");
+     }
+     public int consultarUsuario(){
+        int id=0;
+        Conexion conect= new Conexion();
+        com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
+        PreparedStatement buscador = null;
+        ResultSet dato = null;
+        //JOptionPane.showMessageDialog(null,txtpassword.getText());
+        try{
+         buscador= (PreparedStatement) conexion2.prepareStatement("select * from Usuario where usuario=? and contraseña=? and tipo_usuario_id=?");
+         buscador.setString(1,txtusuariosecretaria.getText().toString());
+         buscador.setString(2,txtcontraseñasecretaria.getText().toString());
+         buscador.setInt(3,1);
+         dato=buscador.executeQuery();
+         if(dato.next())
+         {
+             id=Integer.parseInt(dato.getString("id_usuario"));
+         }
+        }catch(SQLException ex)
+        {
+            System.err.println("ERROR EN OBTENER DATOS");
+        }finally{
+            try{buscador.close();} catch (Exception e){}
+             try{dato.close();} catch (Exception e){}
+             try{conexion2.close();} catch (Exception e){}
+        }
+       return id;
+        
+    }
+     public int registrarUsuario(){
+         if(!txtusuariosecretaria.getText().isEmpty()&&!txtcontraseñasecretaria.getText().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
 
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Usuario (usuario,contraseña,tipo_usuario_id) values(?,?,?)");
+                        ps2.setString(1, txtusuariosecretaria.getText().toString());
+                        ps2.setString(2, txtcontraseñasecretaria.getText().toString());
+                        ps2.setInt(3,1);
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE USUARIO EXITOSO !");
+                        //this.dispose();
+                        
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+         }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+         
+        return consultarUsuario();
+    }
+     public void ingresarSecretario(){
+        
+        if(!txtnom_secretaria.getText().isEmpty()&&!txtedadsecretaria.getText().isEmpty()&&!txtci_secretaria.getText().isEmpty()
+                &&!cmbsexosecretaria.getSelectedItem().toString().isEmpty()&&!cbmciudadsecretaria.getSelectedItem().toString().isEmpty()
+                &&!txtiddirector.getText().isEmpty()&&!txtcontactosecretaria.getText().isEmpty()
+                &&!txtDireccion_secretaria.getText().isEmpty()&&!txtusuariosecretaria.getText().isEmpty()
+                &&!txtcontraseñasecretaria.getText().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+                        int  id=registrarUsuario();
+                        int edad= Integer.parseInt(txtedadsecretaria.getText().toString().trim());
+                        int id_dire=Integer.parseInt(txtiddirector.getText().toString().trim());
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Secretario (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id,usuario_id) values(?,?,?,?,?,?,?,?,?)");
+                        ps2.setString(1, txtnom_secretaria.getText().toString());
+                        ps2.setInt(2,edad);
+                        ps2.setString(3,txtci_secretaria.getText().toString());
+                        ps2.setString(4, cmbsexosecretaria.getSelectedItem().toString());
+                        ps2.setString(5, txtcontactosecretaria.getText().toString());
+                        ps2.setString(6,cbmciudadsecretaria.getSelectedItem().toString());
+                        ps2.setString(7,txtDireccion_secretaria.getText().toString());
+                        ps2.setInt(8,id_dire);
+                        ps2.setInt(9,id);
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE SECRETARIO EXITOSO !");
+                        //this.dispose();
+                        limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -54,8 +210,12 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         txtusuariosecretaria = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         txtcontraseñasecretaria = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
         jblregistrosecretaria = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblcomunidad = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        txtiddirector = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -141,7 +301,13 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         jLabel4.setText("CIUDAD:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, 20));
 
+        cbmciudadsecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cbmciudadsecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cbmciudadsecretaria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbmciudadsecretariaItemStateChanged(evt);
+            }
+        });
         cbmciudadsecretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbmciudadsecretariaActionPerformed(evt);
@@ -149,6 +315,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         });
         getContentPane().add(cbmciudadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, 140, 20));
 
+        cmbsexosecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexosecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbsexosecretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -196,7 +363,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 btnRegistrar_directorActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 510, 170, 40));
+        getContentPane().add(btnRegistrar_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, 170, 40));
 
         btnCancelar_registro_secretaria.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar_registro_secretaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -216,7 +383,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 btnCancelar_registro_secretariaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 510, 160, 40));
+        getContentPane().add(btnCancelar_registro_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 400, 160, 40));
 
         jLabel2.setText("EDAD:");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 210, -1, -1));
@@ -244,11 +411,53 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         txtcontraseñasecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtcontraseñasecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 280, 210, -1));
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 340, -1, 270));
-
         jblregistrosecretaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         getContentPane().add(jblregistrosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 220, 20));
+
+        tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
+        tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
+            },
+            new String [] {
+
+            }
+        ));
+        tblcomunidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcomunidadMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblcomunidad);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 730, 230));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 540, -1, 270));
+
+        txtiddirector.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtiddirector.setEnabled(false);
+        txtiddirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtiddirectorActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtiddirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 60, 30));
+
+        jLabel10.setText("COMUNIDAD:");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -320,12 +529,28 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_txtedadsecretariaActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        // TODO add your handling code here:
+      ingresarSecretario();  // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 
     private void txtci_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtci_secretariaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtci_secretariaActionPerformed
+
+    private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
+        int row=tblcomunidad.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
+            txtiddirector.setText(String.valueOf(id_com));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_tblcomunidadMouseClicked
+
+    private void txtiddirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtiddirectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtiddirectorActionPerformed
+
+    private void cbmciudadsecretariaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaItemStateChanged
+        llenarTabla();        // TODO add your handling code here:
+    }//GEN-LAST:event_cbmciudadsecretariaItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_secretaria;
@@ -338,6 +563,7 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -350,12 +576,15 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblregistrosecretaria;
+    private javax.swing.JTable tblcomunidad;
     private javax.swing.JTextField txtDireccion_secretaria;
     private javax.swing.JTextField txtci_secretaria;
     private javax.swing.JTextField txtcontactosecretaria;
     private javax.swing.JTextField txtcontraseñasecretaria;
     private javax.swing.JTextField txtedadsecretaria;
+    private javax.swing.JTextField txtiddirector;
     private javax.swing.JTextField txtnom_secretaria;
     private javax.swing.JTextField txtusuariosecretaria;
     // End of variables declaration//GEN-END:variables

@@ -4,9 +4,16 @@
  */
 package Vista;
 
+import Conexion.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,6 +24,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
     /**
      * Creates new form Registro_Propietario
      */
+    int id_com=0;
     public Registro_Propietario() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -26,7 +34,91 @@ public class Registro_Propietario extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+     public void limpiar(){
+                txtnom_propietario.setText("");
+                txtcontactosecretaria.setText("");
+                txtedadpropietario.setText("");
+                txtci_propietario.setText("");
+                txtidcomunidad.setText("");
+                txtcontactosecretaria.setText("");
+                txtDireccion_secretaria.setText("");
+     }
+     public void llenarTabla(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblcomunidad.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad where ciudad=?");
+             ps.setString(1,cbmciudadsecretaria.getSelectedItem().toString());
+            rs=ps.executeQuery();
+            modelo.addColumn("id_comunidad");
+            modelo.addColumn("nombre");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("canton");
+            modelo.addColumn("fecha_fundacion");
+            modelo.addColumn("direccion");
+            modelo.addColumn("referencia");
+            modelo.addColumn("descripcion");
+            modelo.addColumn("estado");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+      public void ingresarPropietario(){
+        
+        if(!txtnom_propietario.getText().isEmpty()&&!txtcontactosecretaria.getText().isEmpty()&&!txtedadpropietario.getText().isEmpty()
+                &&!cmbsexopropietario.getSelectedItem().toString().isEmpty()&&!txtci_propietario.getText().isEmpty()
+                &&!txtidcomunidad.getText().isEmpty()&&!cbmciudadsecretaria.getSelectedItem().toString().isEmpty()
+                &&!txtcontactosecretaria.getText().toString().isEmpty()&&!txtDireccion_secretaria.getText().toString().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
 
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Propietario (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id) values(?,?,?,?,?,?,?,?)");
+                        ps2.setString(1, txtnom_propietario.getText().toString());
+                        ps2.setInt(2,Integer.parseInt(txtedadpropietario.getText().toString()));
+                        ps2.setString(3,txtci_propietario.getText().toString());
+                        ps2.setString(4, cmbsexopropietario.getSelectedItem().toString());
+                        ps2.setString(5, txtcontactosecretaria.getText().toString());
+                        ps2.setString(6,cbmciudadsecretaria.getSelectedItem().toString());
+                        ps2.setString(7,txtDireccion_secretaria.getText().toString());
+                        ps2.setInt(8,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE PROPIETARIO EXITOSO !");
+                        //this.dispose();
+                        limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,6 +158,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcomunidad = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        txtidcomunidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -190,6 +283,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
         txtci_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         getContentPane().add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 210, 20));
 
+        cmbsexopropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexopropietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbsexopropietario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -204,7 +298,13 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jLabel4.setText("CIUDAD:");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, 20));
 
+        cbmciudadsecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cbmciudadsecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        cbmciudadsecretaria.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cbmciudadsecretariaItemStateChanged(evt);
+            }
+        });
         cbmciudadsecretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cbmciudadsecretariaActionPerformed(evt);
@@ -247,42 +347,43 @@ public class Registro_Propietario extends javax.swing.JFrame {
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        tblcomunidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcomunidadMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblcomunidad);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, 730, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 730, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 390, 270));
+
+        txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtidcomunidad.setEnabled(false);
+        txtidcomunidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidcomunidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 60, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -337,7 +438,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
     }//GEN-LAST:event_cbmciudadsecretariaActionPerformed
 
     private void btnRegistrar_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_propietarioActionPerformed
-        // TODO add your handling code here:
+        ingresarPropietario();// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_propietarioActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));
@@ -356,6 +457,23 @@ j1.setBackground(new Color(153,0,0));
     private void btnCancelar_registro_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_propietarioActionPerformed
         // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_propietarioActionPerformed
+
+    private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
+        int row=tblcomunidad.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
+            txtidcomunidad.setText(String.valueOf(id_com));
+
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_tblcomunidadMouseClicked
+
+    private void txtidcomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidcomunidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidcomunidadActionPerformed
+
+    private void cbmciudadsecretariaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaItemStateChanged
+        llenarTabla();// TODO add your handling code here:
+    }//GEN-LAST:event_cbmciudadsecretariaItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_propietario;
@@ -386,6 +504,7 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JTextField txtci_propietario;
     private javax.swing.JTextField txtcontactosecretaria;
     private javax.swing.JTextField txtedadpropietario;
+    private javax.swing.JTextField txtidcomunidad;
     private javax.swing.JTextField txtnom_propietario;
     // End of variables declaration//GEN-END:variables
 }

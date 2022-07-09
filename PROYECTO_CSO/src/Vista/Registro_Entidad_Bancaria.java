@@ -1,18 +1,103 @@
 
 package Vista;
 
+import Conexion.Conexion;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
+    int id_com=0;
     public Registro_Entidad_Bancaria() {
         initComponents();
         this.setLocationRelativeTo(null);
+        llenarTabla();
         mostrarnombreventana(jblRegistroentbancaria);
     }
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
+     public void limpiar(){
+                txtNom_EntBancaria.setText("");
+                txtDir_EntBancaria.setText("");
+                txtRepresentante_EntBancaria.setText("");
+                txtidcomunidad.setText("");
+     }
+     public void llenarTabla(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblcomunidad.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad");
+            rs=ps.executeQuery();
+            modelo.addColumn("id_comunidad");
+            modelo.addColumn("nombre");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("canton");
+            modelo.addColumn("fecha_fundacion");
+            modelo.addColumn("direccion");
+            modelo.addColumn("referencia");
+            modelo.addColumn("descripcion");
+            modelo.addColumn("estado");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+      public void ingresarBanco(){
+        
+        if(!txtNom_EntBancaria.getText().isEmpty()&&!txtDir_EntBancaria.getText().isEmpty()&&!txtRepresentante_EntBancaria.getText().isEmpty()
+                &&!txtidcomunidad.getText().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Banco (nombre,direccion,representante,comunidad_id) values(?,?,?,?)");
+                        ps2.setString(1, txtNom_EntBancaria.getText().toString());
+                        ps2.setString(2,txtDir_EntBancaria.getText().toString());
+                        ps2.setString(3, txtRepresentante_EntBancaria.getText().toString());
+                        ps2.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE BANCO EXITOSO !");
+                        //this.dispose();
+                        limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -38,6 +123,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcomunidad = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
+        txtidcomunidad = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -134,6 +220,11 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         btnRegistrar_EntBancaria.setForeground(new java.awt.Color(0, 0, 51));
         btnRegistrar_EntBancaria.setText("REGISTRAR");
         btnRegistrar_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnRegistrar_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegistrar_EntBancariaActionPerformed(evt);
+            }
+        });
         getContentPane().add(btnRegistrar_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 720, 170, 40));
 
         btnCancelar_registro_EntBancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -155,48 +246,49 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         getContentPane().add(jblRegistroentbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 230, 20));
 
         jLabel1.setText("COMUNIDAD:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 160, 20));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 20));
 
         tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "NOMBRE", "CIUDAD", "CANTÓN", "FUNDACIÓN", "DIRECCIÓN", "REFERENCIA", "DESCRIPCIÓN"
-            }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
-            };
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false
-            };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
             }
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        ));
+        tblcomunidad.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblcomunidadMouseClicked(evt);
             }
         });
         jScrollPane1.setViewportView(tblcomunidad);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 390, 730, 230));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 730, 230));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 360, 270));
+
+        txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtidcomunidad.setEnabled(false);
+        txtidcomunidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtidcomunidadActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 60, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -238,6 +330,22 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar_registro_EntBancariaActionPerformed
 
+    private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
+        int row=tblcomunidad.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
+            txtidcomunidad.setText(String.valueOf(id_com));
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_tblcomunidadMouseClicked
+
+    private void txtidcomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidcomunidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidcomunidadActionPerformed
+
+    private void btnRegistrar_EntBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_EntBancariaActionPerformed
+    ingresarBanco();        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRegistrar_EntBancariaActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_EntBancaria;
     private javax.swing.JButton btnInicio;
@@ -260,5 +368,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     private javax.swing.JTextField txtDir_EntBancaria;
     private javax.swing.JTextField txtNom_EntBancaria;
     private javax.swing.JTextField txtRepresentante_EntBancaria;
+    private javax.swing.JTextField txtidcomunidad;
     // End of variables declaration//GEN-END:variables
 }
