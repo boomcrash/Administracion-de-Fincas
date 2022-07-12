@@ -102,7 +102,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblRegistro_ent_bancaria = new javax.swing.JLabel();
+        jpanelbackground = new javax.swing.JPanel();
         lblNom_entidadbancaria = new javax.swing.JLabel();
         lblrepresentante_entbancaria = new javax.swing.JLabel();
         txtNom_EntBancaria = new javax.swing.JTextField();
@@ -122,22 +122,21 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcomunidad = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         txtidcomunidad = new javax.swing.JTextField();
+        lblRegistro_ent_bancaria = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblRegistro_ent_bancaria.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        lblRegistro_ent_bancaria.setForeground(new java.awt.Color(0, 102, 102));
-        lblRegistro_ent_bancaria.setText("REGISTRO ENTIDAD BANCARIA");
-        getContentPane().add(lblRegistro_ent_bancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 90, 560, 50));
+        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
 
+        lblNom_entidadbancaria.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblNom_entidadbancaria.setForeground(new java.awt.Color(0, 0, 0));
         lblNom_entidadbancaria.setText("NOMBRE DE LA ENTIDAD BANCARIA:");
-        getContentPane().add(lblNom_entidadbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
 
+        lblrepresentante_entbancaria.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        lblrepresentante_entbancaria.setForeground(new java.awt.Color(0, 0, 0));
         lblrepresentante_entbancaria.setText("REPRESENTANTE DE LA ENTIDAD BANCARIA:");
-        getContentPane().add(lblrepresentante_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, 20));
 
         txtNom_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
@@ -145,40 +144,45 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 txtNom_EntBancariaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtNom_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 170, 300, 20));
 
         txtRepresentante_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtRepresentante_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 300, 20));
 
+        jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DIRECCIÓN:");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 70, 20));
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(45, 106, 79));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("CONSULTAS");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 0, 100, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 100, 40));
 
+        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("INICIO");
-        btnInicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, 100, 40));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 100, 40));
 
+        jButton3.setBackground(new java.awt.Color(45, 106, 79));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("PERFIL\n");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton3.setBorder(null);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton3MouseEntered(evt);
@@ -189,32 +193,33 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(139, 0, 100, 40));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 100, 40));
 
+        jButton4.setBackground(new java.awt.Color(45, 106, 79));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("REPORTES");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(239, 0, 100, 40));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 100, 40));
 
+        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistro.setText("REGISTROS");
-        btnRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 0, 100, 40));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 50));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 100, 40));
 
         txtDir_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtDir_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 230, 300, 20));
 
         btnRegistrar_EntBancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_EntBancaria.setForeground(new java.awt.Color(0, 0, 51));
@@ -225,7 +230,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 btnRegistrar_EntBancariaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 720, 170, 40));
 
         btnCancelar_registro_EntBancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnCancelar_registro_EntBancaria.setForeground(new java.awt.Color(153, 0, 0));
@@ -236,17 +240,16 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 btnCancelar_registro_EntBancariaActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 720, 160, 40));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Usted se encuentra en:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
 
         jblRegistroentbancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        getContentPane().add(jblRegistroentbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 230, 20));
 
+        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("COMUNIDAD:");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 350, 80, 20));
 
         tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -274,11 +277,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblcomunidad);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 410, 730, 230));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 500, 360, 270));
-
         txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
@@ -288,7 +286,89 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 txtidcomunidadActionPerformed(evt);
             }
         });
-        getContentPane().add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 60, 30));
+
+        lblRegistro_ent_bancaria.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
+        lblRegistro_ent_bancaria.setForeground(new java.awt.Color(8, 28, 21));
+        lblRegistro_ent_bancaria.setText("REGISTRO ENTIDAD BANCARIA");
+
+        javax.swing.GroupLayout jpanelbackgroundLayout = new javax.swing.GroupLayout(jpanelbackground);
+        jpanelbackground.setLayout(jpanelbackgroundLayout);
+        jpanelbackgroundLayout.setHorizontalGroup(
+            jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
+                        .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelbackgroundLayout.createSequentialGroup()
+                                .addGap(64, 64, 64)
+                                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel8)
+                                    .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(lblrepresentante_entbancaria)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelbackgroundLayout.createSequentialGroup()
+                                            .addComponent(jLabel1)
+                                            .addGap(26, 26, 26)
+                                            .addComponent(txtidcomunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(lblNom_entidadbancaria)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelbackgroundLayout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jblRegistroentbancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelbackgroundLayout.createSequentialGroup()
+                        .addComponent(btnRegistrar_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCancelar_registro_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap()))
+                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpanelbackgroundLayout.createSequentialGroup()
+                    .addGap(94, 94, 94)
+                    .addComponent(lblRegistro_ent_bancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 792, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
+                .addGap(80, 80, 80)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(txtNom_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDir_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRepresentante_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+        );
+        jpanelbackgroundLayout.setVerticalGroup(
+            jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jblRegistroentbancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lblRegistro_ent_bancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(72, 72, 72)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblNom_entidadbancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNom_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtDir_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblrepresentante_entbancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtRepresentante_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtidcomunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnCancelar_registro_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnRegistrar_EntBancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32))
+        );
+
+        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -356,11 +436,11 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblRegistroentbancaria;
+    private javax.swing.JPanel jpanelbackground;
     private javax.swing.JLabel lblNom_entidadbancaria;
     private javax.swing.JLabel lblRegistro_ent_bancaria;
     private javax.swing.JLabel lblrepresentante_entbancaria;

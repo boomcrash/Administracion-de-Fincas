@@ -86,6 +86,7 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jpanelbackground = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jblUser = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -95,16 +96,19 @@ public class Login extends javax.swing.JFrame {
         btnrestaurarpwd = new javax.swing.JButton();
         jbliconlogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
+        jpanelbackground.setBackground(new java.awt.Color(27, 67, 50));
+        jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(216, 243, 220));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jblUser.setForeground(new java.awt.Color(73, 80, 87));
+        jblUser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jblUser.setForeground(new java.awt.Color(8, 28, 21));
         jblUser.setText("Usuario");
         jPanel2.add(jblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
@@ -117,7 +121,6 @@ public class Login extends javax.swing.JFrame {
 
         btnLogin.setBackground(new java.awt.Color(204, 255, 255));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnLogin.setText("INICIAR SESIÓN");
         btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,15 +138,16 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 390, 40));
 
-        jblpassword.setForeground(new java.awt.Color(73, 80, 87));
+        jblpassword.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jblpassword.setForeground(new java.awt.Color(8, 28, 21));
         jblpassword.setText("Contraseña");
         jPanel2.add(jblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, -1, -1));
         jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 390, 40));
 
         btnrestaurarpwd.setBackground(new java.awt.Color(204, 255, 255));
         btnrestaurarpwd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnrestaurarpwd.setForeground(new java.awt.Color(0, 0, 0));
         btnrestaurarpwd.setText("Restaurar contraseña");
+        btnrestaurarpwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnrestaurarpwd.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 btnrestaurarpwdMouseEntered(evt);
@@ -160,18 +164,16 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(btnrestaurarpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 200, 40));
 
         jbliconlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iniciar-sesion (1).png"))); // NOI18N
-        jPanel2.add(jbliconlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, 70, 120));
+        jPanel2.add(jbliconlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 70, 120));
 
-        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 153, 153));
+        jLabel2.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(8, 28, 21));
         jLabel2.setText("INICIAR SESIÓN");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 70, 280, 50));
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 310, 50));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, 450, 490));
+        jpanelbackground.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 450, 490));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Union.png"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 600));
+        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 599));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,12 +250,12 @@ j1.setBackground(new Color(204,255,255));
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnrestaurarpwd;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jblUser;
     private javax.swing.JLabel jbliconlogin;
     private javax.swing.JLabel jblpassword;
+    private javax.swing.JPanel jpanelbackground;
     private javax.swing.JTextField txtUser;
     private javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables

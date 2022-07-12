@@ -135,12 +135,12 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
+        jpanelbackground = new javax.swing.JPanel();
         txtcontactosecretaria = new javax.swing.JTextField();
         txtDireccion_secretaria = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jblregistropropietario = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -157,38 +157,44 @@ public class Registro_Propietario extends javax.swing.JFrame {
         btnCancelar_registro_propietario = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcomunidad = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
         txtidcomunidad = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(51, 51, 51));
+        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setBackground(new java.awt.Color(45, 106, 79));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("CONSULTAS");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 0, 100, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 100, 40));
 
+        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
         btnInicio.setText("INICIO");
-        btnInicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 0, 100, 40));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 100, 40));
 
+        jButton3.setBackground(new java.awt.Color(45, 106, 79));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("PERFIL\n");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton3.setBorder(null);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton3MouseEntered(evt);
@@ -199,32 +205,40 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 100, 40));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 100, 40));
 
+        jButton4.setBackground(new java.awt.Color(45, 106, 79));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("REPORTES");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 0, 100, 40));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 100, 40));
 
+        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
         btnRegistro.setText("REGISTROS");
-        btnRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 100, 40));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 100, 40));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 880, 50));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
+
+        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
+        jpanelbackground.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtcontactosecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtcontactosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 210, -1));
+        jpanelbackground.add(txtcontactosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 210, -1));
 
         txtDireccion_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtDireccion_secretaria.addActionListener(new java.awt.event.ActionListener() {
@@ -232,31 +246,35 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 txtDireccion_secretariaActionPerformed(evt);
             }
         });
-        getContentPane().add(txtDireccion_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 200, 210, 20));
+        jpanelbackground.add(txtDireccion_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 210, 20));
 
+        jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("COMUNIDAD:");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, 20));
+        jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 410, -1, 20));
 
+        jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("DIRECCIÓN:");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 200, -1, 20));
+        jpanelbackground.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, -1, 20));
 
+        jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("CONTACTO:");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
+        jpanelbackground.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("SansSerif", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 102, 102));
-        jLabel1.setText("REGISTRO PROPIETARIO");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 450, 50));
-
-        jLabel13.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Usted se encuentra en:");
-        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
+        jpanelbackground.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, 20));
 
         jblregistropropietario.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        getContentPane().add(jblregistropropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 220, 20));
+        jpanelbackground.add(jblregistropropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 220, 20));
 
+        jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("NOMBRE:");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 20));
+        jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, 20));
 
         txtnom_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtnom_propietario.addActionListener(new java.awt.event.ActionListener() {
@@ -264,7 +282,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 txtnom_propietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtnom_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 170, 210, 20));
+        jpanelbackground.add(txtnom_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 210, 20));
 
         txtedadpropietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtedadpropietario.addActionListener(new java.awt.event.ActionListener() {
@@ -272,16 +290,20 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 txtedadpropietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(txtedadpropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, 60, 30));
+        jpanelbackground.add(txtedadpropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 60, 30));
 
+        jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDAD:");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 230, -1, -1));
 
+        jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("C.I. PROPIETARIO:");
-        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 20));
+        jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, -1, 20));
 
         txtci_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        getContentPane().add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 240, 210, 20));
+        jpanelbackground.add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 280, 210, 20));
 
         cmbsexopropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexopropietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -290,13 +312,17 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 cmbsexopropietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(cmbsexopropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 280, 140, 20));
+        jpanelbackground.add(cmbsexopropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 140, 20));
 
+        jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("SEXO:");
-        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, 20));
+        jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 340, -1, 20));
 
+        jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CIUDAD:");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 250, -1, 20));
+        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, -1, 20));
 
         cbmciudadsecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cbmciudadsecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -310,7 +336,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 cbmciudadsecretariaActionPerformed(evt);
             }
         });
-        getContentPane().add(cbmciudadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 250, 140, 30));
+        jpanelbackground.add(cbmciudadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 140, 30));
 
         btnRegistrar_propietario.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_propietario.setForeground(new java.awt.Color(0, 0, 51));
@@ -321,7 +347,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 btnRegistrar_propietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnRegistrar_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 720, 170, 40));
+        jpanelbackground.add(btnRegistrar_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 710, 170, 40));
 
         btnCancelar_registro_propietario.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar_registro_propietario.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -341,7 +367,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 btnCancelar_registro_propietarioActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar_registro_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 720, 160, 40));
+        jpanelbackground.add(btnCancelar_registro_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 710, 160, 40));
 
         tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -369,10 +395,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblcomunidad);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 730, 230));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/Ellipse 209.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 510, 390, 270));
+        jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 730, 230));
 
         txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
         txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -383,7 +406,14 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 txtidcomunidadActionPerformed(evt);
             }
         });
-        getContentPane().add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 60, 30));
+        jpanelbackground.add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 400, 60, 30));
+
+        jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel1.setText("REGISTRO PROPIETARIO");
+        jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 80, 630, 50));
+
+        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -490,7 +520,6 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -499,6 +528,7 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel jblregistropropietario;
+    private javax.swing.JPanel jpanelbackground;
     private javax.swing.JTable tblcomunidad;
     private javax.swing.JTextField txtDireccion_secretaria;
     private javax.swing.JTextField txtci_propietario;
