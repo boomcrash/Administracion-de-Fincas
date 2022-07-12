@@ -19,7 +19,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
     int id_com=0;
     public Registro_Presidente() {
         initComponents();
-        
+        llenarTabla();
         this.setLocationRelativeTo(null);
         mostrarnombreventana(jblRegistropresidente);
     }

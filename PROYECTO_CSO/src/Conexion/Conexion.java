@@ -6,9 +6,9 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 public class Conexion {
-    private final String USUARIO = "sql10504199";
-    private final String CONTRASEÑA = "5qM3pIlWBc";
-    public static final String URL="jdbc:mysql://sql10.freemysqlhosting.net:3306/sql10504199?autoReconnet=true&useSSL=false";
+    private final String USUARIO = "boomcrash@admfinca";
+    private final String CONTRASEÑA = "Camaleon_1";
+    public static final String URL="jdbc:mysql://admfinca.mysql.database.azure.com:3306/admFinca?autoReconnet=true&useSSL=true";
     Connection conexion=null;
     
     public Conexion() {

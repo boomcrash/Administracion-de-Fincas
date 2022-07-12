@@ -17,6 +17,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         llenarTabla();
         mostrarnombreventana(jblRegistroentbancaria);
+        llenarTabla();
     }
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
