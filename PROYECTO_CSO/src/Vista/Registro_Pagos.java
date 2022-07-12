@@ -185,29 +185,47 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 530, 50));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("FECHA DE PAGO:");
         jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 120, 20));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DESCRIPCIÓN:");
         jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CANTIDAD:");
-        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, -1, -1));
+        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
         jpanelbackground.add(jcdfecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
+        txadescripcion_pago.setBackground(new java.awt.Color(255, 255, 255));
         txadescripcion_pago.setColumns(20);
+        txadescripcion_pago.setForeground(new java.awt.Color(0, 0, 0));
         txadescripcion_pago.setRows(5);
         txadescripcion_pago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txadescripcion_pago);
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, -1, -1));
 
+        txtcantidad.setBackground(new java.awt.Color(255, 255, 255));
+        txtcantidad.setForeground(new java.awt.Color(0, 0, 0));
         txtcantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtcantidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcantidadActionPerformed(evt);
+            }
+        });
+        txtcantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcantidadKeyTyped(evt);
+            }
+        });
         jpanelbackground.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 160, 90, 40));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Usted se encuentra en:");
         jpanelbackground.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
@@ -241,25 +259,41 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 410, 180));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("PRESIDENTE CI:");
         jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("ENTIDAD BANCARIA ruc:");
         jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
+        txtidbanco.setBackground(new java.awt.Color(255, 255, 255));
+        txtidbanco.setForeground(new java.awt.Color(0, 0, 0));
         txtidbanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidbanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidbancoActionPerformed(evt);
             }
         });
-        jpanelbackground.add(txtidbanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 420, 160, 30));
+        txtidbanco.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidbancoKeyTyped(evt);
+            }
+        });
+        jpanelbackground.add(txtidbanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, 160, 30));
 
+        txtidpresidente1.setBackground(new java.awt.Color(255, 255, 255));
+        txtidpresidente1.setForeground(new java.awt.Color(0, 0, 0));
         txtidpresidente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidpresidente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidpresidente1ActionPerformed(evt);
+            }
+        });
+        txtidpresidente1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtidpresidente1KeyTyped(evt);
             }
         });
         jpanelbackground.add(txtidpresidente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 150, 30));
@@ -295,8 +329,16 @@ public class Registro_Pagos extends javax.swing.JFrame {
         });
         jpanelbackground.add(btnCancelar_registro_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 670, 160, 40));
 
+        jButton2.setBackground(new java.awt.Color(45, 106, 79));
+        jButton2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("BUSCAR");
-        jpanelbackground.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 420, 90, 30));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jpanelbackground.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 100, 40));
 
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 800));
 
@@ -360,6 +402,36 @@ j1.setBackground(new Color(153,0,0));
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed
         // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_directorActionPerformed
+
+    private void txtcantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar())){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtcantidadKeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcantidadActionPerformed
+
+    private void txtidpresidente1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidpresidente1KeyTyped
+    if(txtidpresidente1.getText().length() >= 10 && !Character.isDigit(evt.getKeyChar())){
+    evt.consume();
+}
+
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtidpresidente1KeyTyped
+
+    private void txtidbancoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidbancoKeyTyped
+        // TODO add your handling code here:
+        if(txtidbanco.getText().length() >= 13 && !Character.isDigit(evt.getKeyChar())){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtidbancoKeyTyped
 
     /**
      * @param args the command line arguments

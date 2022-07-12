@@ -309,14 +309,23 @@ public class Registro_Director extends javax.swing.JFrame {
         jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
         jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        txtci_director.setBackground(new java.awt.Color(255, 255, 255));
+        txtci_director.setForeground(new java.awt.Color(0, 0, 0));
         txtci_director.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtci_director.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtci_directorActionPerformed(evt);
             }
         });
+        txtci_director.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtci_directorKeyTyped(evt);
+            }
+        });
         jpanelbackground.add(txtci_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 240, 210, 20));
 
+        txtcontactodirector.setBackground(new java.awt.Color(255, 255, 255));
+        txtcontactodirector.setForeground(new java.awt.Color(0, 0, 0));
         txtcontactodirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtcontactodirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -325,6 +334,8 @@ public class Registro_Director extends javax.swing.JFrame {
         });
         jpanelbackground.add(txtcontactodirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 160, 210, -1));
 
+        txtdireccion_director.setBackground(new java.awt.Color(255, 255, 255));
+        txtdireccion_director.setForeground(new java.awt.Color(0, 0, 0));
         txtdireccion_director.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtdireccion_director.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -336,30 +347,41 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("DIRECCIÓN:");
-        jpanelbackground.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, -1, 20));
+        jpanelbackground.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 200, 90, 20));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("CONTACTO:");
-        jpanelbackground.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, -1, -1));
+        jpanelbackground.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 90, -1));
 
+        txtcontraseñadirector.setBackground(new java.awt.Color(255, 255, 255));
+        txtcontraseñadirector.setForeground(new java.awt.Color(0, 0, 0));
         txtcontraseñadirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtcontraseñadirector.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcontraseñadirectorActionPerformed(evt);
+            }
+        });
         jpanelbackground.add(txtcontraseñadirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 210, 20));
 
+        txtusuariodirector.setBackground(new java.awt.Color(255, 255, 255));
+        txtusuariodirector.setForeground(new java.awt.Color(0, 0, 0));
         txtusuariodirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpanelbackground.add(txtusuariodirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 240, 210, 20));
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("NOMBRE DE USUARIO:");
-        jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, -1, 20));
+        jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 240, 160, 20));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("CONTRASEÑA:");
-        jpanelbackground.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 280, 160, 20));
+        jpanelbackground.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, 100, 20));
 
-        cbmciudaddirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
+        cbmciudaddirector.setBackground(new java.awt.Color(255, 255, 255));
+        cbmciudaddirector.setForeground(new java.awt.Color(0, 0, 0));
+        cbmciudaddirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "guayaquil", "machala", "quevedo" }));
         cbmciudaddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbmciudaddirector.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -376,14 +398,16 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CIUDAD:");
-        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, -1, 20));
+        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 320, 60, 20));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("SEXO:");
-        jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, -1, 20));
+        jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 50, 20));
 
-        cmbsexodirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
+        cmbsexodirector.setBackground(new java.awt.Color(255, 255, 255));
+        cmbsexodirector.setForeground(new java.awt.Color(0, 0, 0));
+        cmbsexodirector.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "masculino", "femenino" }));
         cmbsexodirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbsexodirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -392,10 +416,17 @@ public class Registro_Director extends javax.swing.JFrame {
         });
         jpanelbackground.add(cmbsexodirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 280, 140, 20));
 
+        txtedaddirector.setBackground(new java.awt.Color(255, 255, 255));
+        txtedaddirector.setForeground(new java.awt.Color(0, 0, 0));
         txtedaddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtedaddirector.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtedaddirectorActionPerformed(evt);
+            }
+        });
+        txtedaddirector.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtedaddirectorKeyTyped(evt);
             }
         });
         jpanelbackground.add(txtedaddirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 200, 60, 30));
@@ -403,17 +434,24 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDAD:");
-        jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, -1, -1));
+        jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 50, -1));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("NOMBRE:");
-        jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, 20));
+        jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 70, 20));
 
+        txtnom_director.setBackground(new java.awt.Color(255, 255, 255));
+        txtnom_director.setForeground(new java.awt.Color(0, 0, 0));
         txtnom_director.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtnom_director.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnom_directorActionPerformed(evt);
+            }
+        });
+        txtnom_director.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnom_directorKeyTyped(evt);
             }
         });
         jpanelbackground.add(txtnom_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 210, 20));
@@ -465,7 +503,7 @@ public class Registro_Director extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("C.I. DIRECTOR:");
-        jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, 20));
+        jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 110, 20));
 
         tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -495,7 +533,9 @@ public class Registro_Director extends javax.swing.JFrame {
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 730, 230));
 
+        txtiddirector.setBackground(new java.awt.Color(255, 255, 255));
         txtiddirector.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtiddirector.setForeground(new java.awt.Color(0, 0, 0));
         txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtiddirector.setEnabled(false);
@@ -609,6 +649,31 @@ j1.setBackground(new Color(153,0,0));
         txtiddirector.setText(String.valueOf(id_com));
     }// TODO add your handling code here:
     }//GEN-LAST:event_tblcomunidadMouseClicked
+
+    private void txtci_directorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_directorKeyTyped
+        // TODO add your handling code here:
+        if(txtci_director.getText().length()>=10 && !Character.isDigit(evt.getKeyChar())){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtci_directorKeyTyped
+
+    private void txtedaddirectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedaddirectorKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar())){
+       evt.consume();
+        }
+    }//GEN-LAST:event_txtedaddirectorKeyTyped
+
+    private void txtcontraseñadirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraseñadirectorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcontraseñadirectorActionPerformed
+
+    private void txtnom_directorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_directorKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isLetter(evt.getKeyChar())){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtnom_directorKeyTyped
 
     /**
      * @param args the command line arguments

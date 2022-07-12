@@ -263,7 +263,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         jPanel2.add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 720, 170, 40));
 
+        txtidcomunidad.setBackground(java.awt.Color.white);
         txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtidcomunidad.setForeground(new java.awt.Color(0, 0, 0));
         txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtidcomunidad.setEnabled(false);
@@ -287,6 +289,8 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel8.setText("AÑO FUNCIONAMIENTO:");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, -1, 20));
 
+        txtNom_finca.setBackground(java.awt.Color.white);
+        txtNom_finca.setForeground(new java.awt.Color(0, 0, 0));
         txtNom_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_finca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,7 +304,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel5.setText("NOMBRE:");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 160, -1, 20));
 
-        cmbCiudad_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
+        cmbCiudad_finca.setBackground(java.awt.Color.white);
+        cmbCiudad_finca.setForeground(new java.awt.Color(0, 0, 0));
+        cmbCiudad_finca.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "guayaquil", "machala", "quevedo" }));
         cmbCiudad_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbCiudad_finca.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -324,6 +330,8 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel9.setText("DIRECCIÓN:");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 160, 90, 20));
 
+        txtDir_finca.setBackground(java.awt.Color.white);
+        txtDir_finca.setForeground(new java.awt.Color(0, 0, 0));
         txtDir_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtDir_finca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -163,7 +163,7 @@ public class Registro_Cobros extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("FECHA DE VENCIMIENTO:");
-        jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 170, -1, -1));
+        jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 170, -1, -1));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
@@ -173,18 +173,32 @@ public class Registro_Cobros extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("CANTIDAD:");
-        jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
+        jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 370, -1, -1));
 
         jdcfechacobro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpanelbackground.add(jdcfechacobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, 140));
 
         jdcfechavence.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jpanelbackground.add(jdcfechavence, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, -1, 140));
+        jpanelbackground.add(jdcfechavence, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 190, -1, 140));
 
+        txtcantidadcobro.setBackground(new java.awt.Color(255, 255, 255));
+        txtcantidadcobro.setForeground(new java.awt.Color(0, 0, 0));
         txtcantidadcobro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jpanelbackground.add(txtcantidadcobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 360, 70, 40));
+        txtcantidadcobro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcantidadcobroActionPerformed(evt);
+            }
+        });
+        txtcantidadcobro.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtcantidadcobroKeyTyped(evt);
+            }
+        });
+        jpanelbackground.add(txtcantidadcobro, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, 70, 40));
 
+        txadescripcion_cobro.setBackground(new java.awt.Color(255, 255, 255));
         txadescripcion_cobro.setColumns(20);
+        txadescripcion_cobro.setForeground(new java.awt.Color(0, 0, 0));
         txadescripcion_cobro.setRows(5);
         txadescripcion_cobro.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txadescripcion_cobro);
@@ -220,28 +234,32 @@ public class Registro_Cobros extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("PRESIDENTE:");
-        jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, -1, -1));
+        jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 450, -1, -1));
 
+        txtidpresidente.setBackground(new java.awt.Color(255, 255, 255));
+        txtidpresidente.setForeground(new java.awt.Color(0, 0, 0));
         txtidpresidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidpresidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidpresidenteActionPerformed(evt);
             }
         });
-        jpanelbackground.add(txtidpresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 430, 80, 30));
+        jpanelbackground.add(txtidpresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 440, 80, 30));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("PROPIETARIO:");
-        jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
+        jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, -1, -1));
 
+        txtidpropietario1.setBackground(new java.awt.Color(255, 255, 255));
+        txtidpropietario1.setForeground(new java.awt.Color(0, 0, 0));
         txtidpropietario1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidpropietario1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidpropietario1ActionPerformed(evt);
             }
         });
-        jpanelbackground.add(txtidpropietario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 430, 80, 30));
+        jpanelbackground.add(txtidpropietario1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 440, 80, 30));
 
         btnRegistrar_director.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_director.setForeground(new java.awt.Color(0, 0, 51));
@@ -336,6 +354,16 @@ j1.setBackground(new Color(153,0,0));
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed
         // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_directorActionPerformed
+
+    private void txtcantidadcobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadcobroActionPerformed
+
+    }//GEN-LAST:event_txtcantidadcobroActionPerformed
+
+    private void txtcantidadcobroKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtcantidadcobroKeyTyped
+  if(!Character.isDigit(evt.getKeyChar())){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtcantidadcobroKeyTyped
 
     /**
      * @param args the command line arguments

@@ -89,7 +89,7 @@ public class Submenu_Registro extends javax.swing.JFrame {
                 btnregistro_fincaActionPerformed(evt);
             }
         });
-        jpanelbackground.add(btnregistro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 140, 100, 70));
+        jpanelbackground.add(btnregistro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 140, 110, 70));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -119,7 +119,7 @@ public class Submenu_Registro extends javax.swing.JFrame {
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("REGISTRAR FINCA");
-        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 210, 130, 20));
+        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 130, 20));
 
         btnregistrocomunidad.setBackground(new java.awt.Color(255, 255, 255));
         btnregistrocomunidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/comunidad.png"))); // NOI18N
