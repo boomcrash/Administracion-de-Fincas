@@ -1,0 +1,18 @@
+proyecto de finca.
+
+Para ejecutar el proyecto se necesita un jar
+jcalendar 1.4
+
+nota: todos loos complementos necesarios se encuentran 
+ubicados en la carpeta PROYECTO_CSO\jar .
+
+
+Ademas, en la misma direccion se encuentra agregada la
+base de datos que ha sido utilizada para el proyecto 
+de tal manera que pueda ser usada en caso de que el servidor
+deje de funcionar.
+
+
+
+
+
