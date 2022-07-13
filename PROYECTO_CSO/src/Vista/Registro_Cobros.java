@@ -78,9 +78,10 @@ public class Registro_Cobros extends javax.swing.JFrame {
         tblpresidentes.setModel(modelo);
         Conexion connect=new Conexion();
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        ResultSet rs=null;
         CallableStatement myCall = null;
         
-        ResultSet rs=null;
+        
         try {
             myCall=(CallableStatement) conexion.prepareCall("{call getPresidentes()}");
             rs=myCall.executeQuery();
