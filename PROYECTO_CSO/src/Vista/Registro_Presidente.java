@@ -29,8 +29,8 @@ public class Registro_Presidente extends javax.swing.JFrame {
      }
      
      public void limpiar(){
-                txtnom_propietario.setText("");
-                txtci_propietario.setText("");
+                txtnom_presidente.setText("");
+                txtci_presidente.setText("");
                 txtDireccion_propietario.setText("");
                 txtedadpresidente.setText("");
                 txtCod_comunidad.setText("");
@@ -74,7 +74,7 @@ public class Registro_Presidente extends javax.swing.JFrame {
    }
       public void ingresarPresidente(){
         
-        if(!txtnom_propietario.getText().isEmpty()&&!txtci_propietario.getText().isEmpty()&&!txtedadpresidente.getText().isEmpty()
+        if(!txtnom_presidente.getText().isEmpty()&&!txtci_presidente.getText().isEmpty() && txtci_presidente.getText().length()==10 &&!txtedadpresidente.getText().isEmpty()
                 &&!cbmsexopresidente.getSelectedItem().toString().isEmpty()&&!txtDireccion_propietario.getText().isEmpty()
                 &&!txtCod_comunidad.getText().isEmpty()&&!cmbCiudad_presidente.getSelectedItem().toString().isEmpty()
                 &&!txtidcomunidad.getText().toString().isEmpty())
@@ -87,9 +87,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 try {
 
                         ps2=(PreparedStatement) conexion.prepareStatement("insert into Presidente (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id) values(?,?,?,?,?,?,?,?)");
-                        ps2.setString(1, txtnom_propietario.getText().toString());
+                        ps2.setString(1, txtnom_presidente.getText().toString());
                         ps2.setInt(2,Integer.parseInt(txtedadpresidente.getText().toString()));
-                        ps2.setString(3,txtci_propietario.getText().toString());
+                        ps2.setString(3,txtci_presidente.getText().toString());
                         ps2.setString(4, cbmsexopresidente.getSelectedItem().toString());
                         ps2.setString(5, txtCod_comunidad.getText().toString());
                         ps2.setString(6,cmbCiudad_presidente.getSelectedItem().toString());
@@ -122,8 +122,8 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        txtnom_propietario = new javax.swing.JTextField();
-        txtci_propietario = new javax.swing.JTextField();
+        txtnom_presidente = new javax.swing.JTextField();
+        txtci_presidente = new javax.swing.JTextField();
         cmbCiudad_presidente = new javax.swing.JComboBox<>();
         cbmsexopresidente = new javax.swing.JComboBox<>();
         jLabel9 = new javax.swing.JLabel();
@@ -175,33 +175,38 @@ public class Registro_Presidente extends javax.swing.JFrame {
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("C.I. PROPIETARIO:");
-        jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(34, 286, -1, 20));
+        jLabel6.setText("C.I. PRESIDENTE:");
+        jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("CIUDAD:");
         jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 330, -1, 20));
 
-        txtnom_propietario.setBackground(java.awt.Color.white);
-        txtnom_propietario.setForeground(new java.awt.Color(0, 0, 0));
-        txtnom_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtnom_propietario.addActionListener(new java.awt.event.ActionListener() {
+        txtnom_presidente.setBackground(java.awt.Color.white);
+        txtnom_presidente.setForeground(new java.awt.Color(0, 0, 0));
+        txtnom_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtnom_presidente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnom_propietarioActionPerformed(evt);
+                txtnom_presidenteActionPerformed(evt);
             }
         });
-        jpanelbackground.add(txtnom_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 235, 210, 20));
-
-        txtci_propietario.setBackground(java.awt.Color.white);
-        txtci_propietario.setForeground(new java.awt.Color(0, 0, 0));
-        txtci_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtci_propietario.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtnom_presidente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtci_propietarioKeyTyped(evt);
+                txtnom_presidenteKeyTyped(evt);
             }
         });
-        jpanelbackground.add(txtci_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 287, 210, 20));
+        jpanelbackground.add(txtnom_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 235, 210, 20));
+
+        txtci_presidente.setBackground(java.awt.Color.white);
+        txtci_presidente.setForeground(new java.awt.Color(0, 0, 0));
+        txtci_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtci_presidente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtci_presidenteKeyTyped(evt);
+            }
+        });
+        jpanelbackground.add(txtci_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 287, 210, 20));
 
         cmbCiudad_presidente.setBackground(new java.awt.Color(255, 255, 255));
         cmbCiudad_presidente.setForeground(new java.awt.Color(0, 0, 0));
@@ -351,6 +356,11 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 txtedadpresidenteActionPerformed(evt);
             }
         });
+        txtedadpresidente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtedadpresidenteKeyTyped(evt);
+            }
+        });
         jpanelbackground.add(txtedadpresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 326, 90, 30));
 
         tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
@@ -471,9 +481,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
     this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    private void txtnom_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnom_propietarioActionPerformed
+    private void txtnom_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnom_presidenteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtnom_propietarioActionPerformed
+    }//GEN-LAST:event_txtnom_presidenteActionPerformed
 
     private void cbmsexopresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmsexopresidenteActionPerformed
         // TODO add your handling code here:
@@ -517,12 +527,26 @@ resetColor(btnCancelar_registro_presidente);
             llenarTabla();   // TODO add your handling code here:
     }//GEN-LAST:event_cmbCiudad_presidenteItemStateChanged
 
-    private void txtci_propietarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_propietarioKeyTyped
+    private void txtci_presidenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_presidenteKeyTyped
         // TODO add your handling code here:
-        if(!Character.isDigit(evt.getKeyChar()) && txtci_propietario.getText().length() !=10 ){
+          if(txtci_presidente.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
+         evt.consume();
+        }
+    }//GEN-LAST:event_txtci_presidenteKeyTyped
+
+    private void txtnom_presidenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_presidenteKeyTyped
+        // TODO add your handling code here:
+          if(Character.isDigit(evt.getKeyChar())){
         evt.consume();
         }
-    }//GEN-LAST:event_txtci_propietarioKeyTyped
+    }//GEN-LAST:event_txtnom_presidenteKeyTyped
+
+    private void txtedadpresidenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadpresidenteKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar()) || txtedadpresidente.getText().length()>=3){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtedadpresidenteKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_presidente;
@@ -552,9 +576,9 @@ resetColor(btnCancelar_registro_presidente);
     private javax.swing.JTable tblcomunidad;
     private javax.swing.JTextField txtCod_comunidad;
     private javax.swing.JTextField txtDireccion_propietario;
-    private javax.swing.JTextField txtci_propietario;
+    private javax.swing.JTextField txtci_presidente;
     private javax.swing.JTextField txtedadpresidente;
     private javax.swing.JTextField txtidcomunidad;
-    private javax.swing.JTextField txtnom_propietario;
+    private javax.swing.JTextField txtnom_presidente;
     // End of variables declaration//GEN-END:variables
 }

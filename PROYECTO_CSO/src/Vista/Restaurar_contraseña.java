@@ -33,14 +33,21 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
         jPanel1.add(jblrest_pwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 0, 504, 144));
 
         jblcorreo.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jblcorreo.setForeground(new java.awt.Color(0, 0, 0));
         jblcorreo.setText("CORREO ELECTRONICO:");
         jPanel1.add(jblcorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 162, -1, 45));
+
+        txtemail1.setBackground(new java.awt.Color(255, 255, 255));
+        txtemail1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.add(txtemail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 174, 203, -1));
 
         jblusuario.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jblusuario.setForeground(new java.awt.Color(0, 0, 0));
         jblusuario.setText("NOMBRE DE USUARIO:");
         jPanel1.add(jblusuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 225, 169, 39));
 
+        txtuser1.setBackground(new java.awt.Color(255, 255, 255));
+        txtuser1.setForeground(new java.awt.Color(0, 0, 0));
         txtuser1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtuser1ActionPerformed(evt);
@@ -48,7 +55,9 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
         });
         jPanel1.add(txtuser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(312, 234, 203, -1));
 
+        btncontinue1.setBackground(new java.awt.Color(0, 102, 102));
         btncontinue1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btncontinue1.setForeground(new java.awt.Color(0, 0, 0));
         btncontinue1.setText("CONTINUAR");
         btncontinue1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btncontinue1.addActionListener(new java.awt.event.ActionListener() {
@@ -56,7 +65,7 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
                 btncontinue1ActionPerformed(evt);
             }
         });
-        jPanel1.add(btncontinue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 310, 160, 60));
+        jPanel1.add(btncontinue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 160, 60));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
 
