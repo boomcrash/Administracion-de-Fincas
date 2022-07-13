@@ -383,8 +383,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
 
     private void txtRepresentante_EntBancariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRepresentante_EntBancariaKeyTyped
         // TODO add your handling code here:
-        if(!Character.isLetter(evt.getKeyChar())){
-       evt.consume();
+      if(Character.isDigit(evt.getKeyChar())){
+        evt.consume();
         }
     }//GEN-LAST:event_txtRepresentante_EntBancariaKeyTyped
 

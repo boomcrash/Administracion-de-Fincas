@@ -146,7 +146,7 @@ public class Registro_Director extends javax.swing.JFrame {
     }
      public void ingresarDirector(){
         
-        if(!txtnom_director.getText().isEmpty()&&!txtedaddirector.getText().isEmpty()&&!txtci_director.getText().isEmpty()
+        if(!txtnom_director.getText().isEmpty()&&!txtedaddirector.getText().isEmpty()&&!txtci_director.getText().isEmpty() && txtci_director.getText().length()==10
                 &&!cmbsexodirector.getSelectedItem().toString().isEmpty()&&!cbmciudaddirector.getSelectedItem().toString().isEmpty()
                 &&!txtiddirector.getText().isEmpty()&&!txtcontactodirector.getText().isEmpty()
                 &&!txtdireccion_director.getText().isEmpty()&&!txtusuariodirector.getText().isEmpty()
@@ -357,11 +357,6 @@ public class Registro_Director extends javax.swing.JFrame {
         txtcontraseñadirector.setBackground(new java.awt.Color(255, 255, 255));
         txtcontraseñadirector.setForeground(new java.awt.Color(0, 0, 0));
         txtcontraseñadirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtcontraseñadirector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcontraseñadirectorActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(txtcontraseñadirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 280, 210, 20));
 
         txtusuariodirector.setBackground(new java.awt.Color(255, 255, 255));
@@ -652,25 +647,21 @@ j1.setBackground(new Color(153,0,0));
 
     private void txtci_directorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_directorKeyTyped
         // TODO add your handling code here:
-        if(txtci_director.getText().length()>=10 && !Character.isDigit(evt.getKeyChar())){
-        evt.consume();
+       if(txtci_director.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
+         evt.consume();
         }
     }//GEN-LAST:event_txtci_directorKeyTyped
 
     private void txtedaddirectorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedaddirectorKeyTyped
         // TODO add your handling code here:
-        if(!Character.isDigit(evt.getKeyChar())){
+        if(!Character.isDigit(evt.getKeyChar()) || txtedaddirector.getText().length()>=3){
        evt.consume();
         }
     }//GEN-LAST:event_txtedaddirectorKeyTyped
 
-    private void txtcontraseñadirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcontraseñadirectorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcontraseñadirectorActionPerformed
-
     private void txtnom_directorKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_directorKeyTyped
         // TODO add your handling code here:
-        if(!Character.isLetter(evt.getKeyChar())){
+      if(Character.isDigit(evt.getKeyChar())){
         evt.consume();
         }
     }//GEN-LAST:event_txtnom_directorKeyTyped

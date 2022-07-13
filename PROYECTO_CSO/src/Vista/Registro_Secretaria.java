@@ -132,7 +132,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
     }
      public void ingresarSecretario(){
         
-        if(!txtnom_secretaria.getText().isEmpty()&&!txtedadsecretaria.getText().isEmpty()&&!txtci_secretaria.getText().isEmpty()
+        if(!txtnom_secretaria.getText().isEmpty()&&!txtedadsecretaria.getText().isEmpty()&&!txtci_secretaria.getText().isEmpty() && txtci_secretaria.getText().length()==10
                 &&!cmbsexosecretaria.getSelectedItem().toString().isEmpty()&&!cbmciudadsecretaria.getSelectedItem().toString().isEmpty()
                 &&!txtiddirector.getText().isEmpty()&&!txtcontactosecretaria.getText().isEmpty()
                 &&!txtDireccion_secretaria.getText().isEmpty()&&!txtusuariosecretaria.getText().isEmpty()
@@ -292,27 +292,35 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
         jPanel2.setBackground(new java.awt.Color(216, 243, 220));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Usted se encuentra en:");
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("NOMBRE:");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(63, 195, -1, 20));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("C.I. SECRETARIA:");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(13, 302, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("SEXO:");
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 356, -1, 20));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CIUDAD:");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(73, 423, -1, 20));
 
+        cbmciudadsecretaria.setBackground(new java.awt.Color(255, 255, 255));
+        cbmciudadsecretaria.setForeground(new java.awt.Color(0, 0, 0));
         cbmciudadsecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cbmciudadsecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cbmciudadsecretaria.addItemListener(new java.awt.event.ItemListener() {
@@ -325,7 +333,10 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 cbmciudadsecretariaActionPerformed(evt);
             }
         });
+        jPanel2.add(cbmciudadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 424, 140, 20));
 
+        cmbsexosecretaria.setBackground(new java.awt.Color(255, 255, 255));
+        cmbsexosecretaria.setForeground(new java.awt.Color(0, 0, 0));
         cmbsexosecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexosecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbsexosecretaria.addActionListener(new java.awt.event.ActionListener() {
@@ -333,35 +344,57 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 cmbsexosecretariaActionPerformed(evt);
             }
         });
+        jPanel2.add(cmbsexosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 357, 140, 20));
 
+        txtci_secretaria.setBackground(java.awt.Color.white);
+        txtci_secretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtci_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtci_secretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtci_secretariaActionPerformed(evt);
             }
         });
+        txtci_secretaria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtci_secretariaKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtci_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 303, 210, 20));
 
+        txtnom_secretaria.setBackground(java.awt.Color.white);
+        txtnom_secretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtnom_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtnom_secretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtnom_secretariaActionPerformed(evt);
             }
         });
+        txtnom_secretaria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtnom_secretariaKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtnom_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 196, 210, 20));
 
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("DIRECCIÓN:");
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 248, -1, 20));
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("NOMBRE DE USUARIO:");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 302, -1, 20));
 
+        txtDireccion_secretaria.setBackground(java.awt.Color.white);
+        txtDireccion_secretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtDireccion_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtDireccion_secretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtDireccion_secretariaActionPerformed(evt);
             }
         });
+        jPanel2.add(txtDireccion_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 249, 210, 20));
 
         btnRegistrar_director.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_director.setForeground(new java.awt.Color(0, 0, 51));
@@ -372,6 +405,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 btnRegistrar_directorActionPerformed(evt);
             }
         });
+        jPanel2.add(btnRegistrar_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 730, 170, 40));
 
         btnCancelar_registro_secretaria.setBackground(new java.awt.Color(255, 51, 51));
         btnCancelar_registro_secretaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -391,33 +425,55 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 btnCancelar_registro_secretariaActionPerformed(evt);
             }
         });
+        jPanel2.add(btnCancelar_registro_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 730, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("EDAD:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 249, -1, -1));
 
+        txtedadsecretaria.setBackground(java.awt.Color.white);
+        txtedadsecretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtedadsecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtedadsecretaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtedadsecretariaActionPerformed(evt);
             }
         });
+        txtedadsecretaria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtedadsecretariaKeyTyped(evt);
+            }
+        });
+        jPanel2.add(txtedadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 244, 60, 30));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("CONTACTO:");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(507, 196, -1, -1));
 
+        txtcontactosecretaria.setBackground(java.awt.Color.white);
+        txtcontactosecretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtcontactosecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtcontactosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 197, 210, -1));
 
+        txtusuariosecretaria.setBackground(java.awt.Color.white);
+        txtusuariosecretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtusuariosecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtusuariosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 304, 210, -1));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("CONTRASEÑA:");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 357, -1, -1));
 
+        txtcontraseñasecretaria.setBackground(java.awt.Color.white);
+        txtcontraseñasecretaria.setForeground(new java.awt.Color(0, 0, 0));
         txtcontraseñasecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel2.add(txtcontraseñasecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 358, 210, -1));
 
         jblregistrosecretaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jPanel2.add(jblregistrosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 220, 20));
 
         tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
@@ -445,7 +501,11 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tblcomunidad);
 
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 820, 191));
+
+        txtiddirector.setBackground(java.awt.Color.white);
         txtiddirector.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtiddirector.setForeground(new java.awt.Color(0, 0, 0));
         txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtiddirector.setEnabled(false);
@@ -454,128 +514,17 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 txtiddirectorActionPerformed(evt);
             }
         });
+        jPanel2.add(txtiddirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 473, 60, 30));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("COMUNIDAD:");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 479, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(8, 28, 21));
-        jLabel1.setText("REGISTRO SECRETARIA");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(13, 13, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel10))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbmciudadsecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(cmbsexosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel8))
-                                .addGroup(jPanel2Layout.createSequentialGroup()
-                                    .addComponent(txtci_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(txtedadsecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
-                                    .addComponent(txtnom_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(149, 149, 149)
-                                    .addComponent(jLabel12)))
-                            .addComponent(txtiddirector, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(186, 232, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jblregistrosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(633, 633, 633)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtusuariosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDireccion_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcontactosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtcontraseñasecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegistrar_director, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCancelar_registro_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(81, 81, 81))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(157, 157, 157)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 630, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jblregistrosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtnom_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12)
-                    .addComponent(txtcontactosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtedadsecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDireccion_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtci_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtusuariosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cmbsexosecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(txtcontraseñasecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cbmciudadsecretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel10)
-                    .addComponent(txtiddirector, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrar_director, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar_registro_secretaria, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(90, 90, 90))
-        );
+        jLabel1.setText("REGISTRO SECRETARIO/A");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 86, 660, 50));
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
@@ -671,6 +620,25 @@ j1.setBackground(new Color(153,0,0));
     private void cbmciudadsecretariaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaItemStateChanged
         llenarTabla();        // TODO add your handling code here:
     }//GEN-LAST:event_cbmciudadsecretariaItemStateChanged
+
+    private void txtci_secretariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_secretariaKeyTyped
+ if(txtci_secretaria.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
+         evt.consume();
+        }        
+    }//GEN-LAST:event_txtci_secretariaKeyTyped
+
+    private void txtedadsecretariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadsecretariaKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar()) || txtedadsecretaria.getText().length()>=3){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtedadsecretariaKeyTyped
+
+    private void txtnom_secretariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_secretariaKeyTyped
+          if(Character.isDigit(evt.getKeyChar())){
+        evt.consume();
+        }
+    }//GEN-LAST:event_txtnom_secretariaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_secretaria;

@@ -252,25 +252,32 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 530, 50));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("FECHA DE PAGO:");
         jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 120, 20));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DESCRIPCIÓN:");
         jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CANTIDAD:");
         jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
         jpanelbackground.add(jcdfecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
+        txadescripcion_pago.setBackground(java.awt.Color.white);
         txadescripcion_pago.setColumns(20);
+        txadescripcion_pago.setForeground(new java.awt.Color(0, 0, 0));
         txadescripcion_pago.setRows(5);
         txadescripcion_pago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txadescripcion_pago);
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, -1, -1));
 
+        txtcantidad.setBackground(java.awt.Color.white);
+        txtcantidad.setForeground(new java.awt.Color(0, 0, 0));
         txtcantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtcantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,6 +292,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 160, 90, 40));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Usted se encuentra en:");
         jpanelbackground.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
@@ -328,13 +336,17 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 410, 180));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("PRESIDENTE ");
         jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("ENTIDAD BANCARIA");
         jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
+        txtidbanco.setBackground(java.awt.Color.white);
+        txtidbanco.setForeground(new java.awt.Color(0, 0, 0));
         txtidbanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidbanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -348,7 +360,8 @@ public class Registro_Pagos extends javax.swing.JFrame {
         });
         jpanelbackground.add(txtidbanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 160, 30));
 
-        txtidpresidente1.setForeground(new java.awt.Color(255, 255, 255));
+        txtidpresidente1.setBackground(java.awt.Color.white);
+        txtidpresidente1.setForeground(new java.awt.Color(0, 0, 0));
         txtidpresidente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidpresidente1.setEnabled(false);
         txtidpresidente1.addActionListener(new java.awt.event.ActionListener() {
