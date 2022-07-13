@@ -5,6 +5,7 @@
 package Vista;
 
 import Conexion.Conexion;
+import com.mysql.jdbc.CallableStatement;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -42,11 +43,12 @@ public class Registro_Pagos extends javax.swing.JFrame {
         tblpresidentes.setModel(modelo);
         Conexion connect=new Conexion();
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        PreparedStatement ps=null,ps2=null;
+        CallableStatement myCall = null;
+        
         ResultSet rs=null;
         try {
-            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_presidente,nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id from presidente");
-            rs=ps.executeQuery();
+            myCall=(CallableStatement) conexion.prepareCall("{call getPresidentes()}");
+            rs=myCall.executeQuery();
             modelo.addColumn("id_presidente");
             modelo.addColumn("nombre");
             modelo.addColumn("edad");
@@ -68,7 +70,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
             }            
         } catch (SQLException ex) {
             System.err.println("ERROR");
-        }finally {try{ps.close();} catch (Exception e){}
+        }finally {try{myCall.close();} catch (Exception e){}
         try{rs.close();} catch (Exception e){}
         try{conexion.close();} catch (Exception e){}
         }     
@@ -78,11 +80,12 @@ public class Registro_Pagos extends javax.swing.JFrame {
         tblbancos.setModel(modelo);
         Conexion connect=new Conexion();
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        PreparedStatement ps=null,ps2=null;
+    CallableStatement myCall = null;
+        
         ResultSet rs=null;
         try {
-            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_banco,nombre,direccion,representante,comunidad_id from banco");
-            rs=ps.executeQuery();
+            myCall=(CallableStatement) conexion.prepareCall("{call getBancos()}");
+            rs=myCall.executeQuery();
             modelo.addColumn("id_banco");
             modelo.addColumn("nombre");
             modelo.addColumn("direccion");
@@ -99,7 +102,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
             }            
         } catch (SQLException ex) {
             System.err.println("ERROR");
-        }finally {try{ps.close();} catch (Exception e){}
+        }finally {try{myCall.close();} catch (Exception e){}
         try{rs.close();} catch (Exception e){}
         try{conexion.close();} catch (Exception e){}
         }     

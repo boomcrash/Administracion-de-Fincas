@@ -6,6 +6,7 @@ package Vista;
 
 import Conexion.Conexion;
 import static Vista.Login.id_Usuario;
+import com.mysql.jdbc.CallableStatement;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -43,12 +44,13 @@ public class Registro_Director extends javax.swing.JFrame {
         tblcomunidad.setModel(modelo);
         Conexion connect=new Conexion();
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        PreparedStatement ps=null,ps2=null;
+        CallableStatement myCall = null;
+        
         ResultSet rs=null;
         try {
-            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad where ciudad=?");
-            ps.setString(1,cbmciudaddirector.getSelectedItem().toString());
-            rs=ps.executeQuery();
+            myCall=(CallableStatement) conexion.prepareCall("{call getPropietariosByCiudad(?)}");
+            myCall.setString(1,cbmciudaddirector.getSelectedItem().toString());
+            rs=myCall.executeQuery();
             modelo.addColumn("id_comunidad");
             modelo.addColumn("nombre");
             modelo.addColumn("ciudad");
@@ -70,7 +72,7 @@ public class Registro_Director extends javax.swing.JFrame {
             }            
         } catch (SQLException ex) {
             System.err.println("ERROR");
-        }finally {try{ps.close();} catch (Exception e){}
+        }finally {try{myCall.close();} catch (Exception e){}
         try{rs.close();} catch (Exception e){}
         try{conexion.close();} catch (Exception e){}
         }     
