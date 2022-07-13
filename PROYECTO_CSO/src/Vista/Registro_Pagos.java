@@ -6,11 +6,13 @@ package Vista;
 
 import Conexion.Conexion;
 import java.awt.Color;
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,7 +20,7 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class Registro_Pagos extends javax.swing.JFrame {
-
+    int id_com=0,id_bank=0;
     /**
      * Creates new form Registro_Pagos
      */
@@ -27,14 +29,15 @@ public class Registro_Pagos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
           mostrarnombreventana(jblregistropago);
           this.setSize(1100, 800);
-          llenarTabla();
+          llenarTablaPresidente();
+          llenarTablaBanco();
     }
   public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
   
-    public void llenarTabla(){
+    public void llenarTablaPresidente(){
         DefaultTableModel modelo =new DefaultTableModel();
         tblpresidentes.setModel(modelo);
         Conexion connect=new Conexion();
@@ -42,7 +45,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
         PreparedStatement ps=null,ps2=null;
         ResultSet rs=null;
         try {
-            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_presidente,nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id from Comunidad");
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_presidente,nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id from presidente");
             rs=ps.executeQuery();
             modelo.addColumn("id_presidente");
             modelo.addColumn("nombre");
@@ -70,6 +73,71 @@ public class Registro_Pagos extends javax.swing.JFrame {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    public void llenarTablaBanco(){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tblbancos.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        PreparedStatement ps=null,ps2=null;
+        ResultSet rs=null;
+        try {
+            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_banco,nombre,direccion,representante,comunidad_id from banco");
+            rs=ps.executeQuery();
+            modelo.addColumn("id_banco");
+            modelo.addColumn("nombre");
+            modelo.addColumn("direccion");
+            modelo.addColumn("representante");
+            modelo.addColumn("comunidad_id");
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[5];
+                for(int i=0;i<5;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{ps.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+    
+     public void ingresarPago(){
+        
+        if(!txtcantidad.getText().isEmpty()&&!txadescripcion_pago.getText().isEmpty()&&!txtidpresidente1.getText().isEmpty()
+                &&!txtidbanco.getText().isEmpty()&&!jcdfecha_pago.getDate().toString().isEmpty())
+         {
+            Conexion conect= new Conexion();
+            Connection conexion=(Connection) conect.getconection();
+            PreparedStatement ps2=null;
+            ResultSet rs=null;
+                try {
+
+                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Pago (fecha_pago,descripcion,cantidad,presidente_id,banco_id) values(?,?,?,?,?)");
+                        ps2.setString(1,jcdfecha_pago.getDate().toString() );
+                        ps2.setString(2,txadescripcion_pago.getText().toString());
+                        ps2.setString(3,txtcantidad.getText().toString());
+                        ps2.setString(4, txtidpresidente1.getText().toString());
+                        ps2.setInt(5,Integer.parseInt(txtidbanco.getText().toString()));
+                        ps2.executeUpdate();
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE PAGO EXITOSO !");
+                        //this.dispose();
+                        //limpiar();   
+             } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
+             }finally {
+                    try{ps2.close();} catch (Exception e){}
+                    try{conexion.close();} catch (Exception e){}
+            }
+              /*panel.removeAll();
+            panel.repaint();
+                limpiar();*/
+        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -101,7 +169,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
         txtidpresidente1 = new javax.swing.JTextField();
         btnRegistrar_director = new javax.swing.JButton();
         btnCancelar_registro_director = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -185,32 +252,25 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 530, 50));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("FECHA DE PAGO:");
         jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 170, 120, 20));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("DESCRIPCIÓN:");
         jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 230, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("CANTIDAD:");
         jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, -1, -1));
         jpanelbackground.add(jcdfecha_pago, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, -1, -1));
 
-        txadescripcion_pago.setBackground(new java.awt.Color(255, 255, 255));
         txadescripcion_pago.setColumns(20);
-        txadescripcion_pago.setForeground(new java.awt.Color(0, 0, 0));
         txadescripcion_pago.setRows(5);
         txadescripcion_pago.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txadescripcion_pago);
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, -1, -1));
 
-        txtcantidad.setBackground(new java.awt.Color(255, 255, 255));
-        txtcantidad.setForeground(new java.awt.Color(0, 0, 0));
         txtcantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtcantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -225,7 +285,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(txtcantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 160, 90, 40));
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Usted se encuentra en:");
         jpanelbackground.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
@@ -241,6 +300,11 @@ public class Registro_Pagos extends javax.swing.JFrame {
 
             }
         ));
+        tblpresidentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblpresidentesMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tblpresidentes);
 
         jpanelbackground.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 470, 410, 180));
@@ -254,22 +318,23 @@ public class Registro_Pagos extends javax.swing.JFrame {
 
             }
         ));
+        tblbancos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblbancosMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(tblbancos);
 
         jpanelbackground.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 470, 410, 180));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("PRESIDENTE CI:");
+        jLabel5.setText("PRESIDENTE ");
         jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 430, -1, -1));
 
         jLabel6.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("ENTIDAD BANCARIA ruc:");
+        jLabel6.setText("ENTIDAD BANCARIA");
         jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
-        txtidbanco.setBackground(new java.awt.Color(255, 255, 255));
-        txtidbanco.setForeground(new java.awt.Color(0, 0, 0));
         txtidbanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidbanco.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -281,11 +346,11 @@ public class Registro_Pagos extends javax.swing.JFrame {
                 txtidbancoKeyTyped(evt);
             }
         });
-        jpanelbackground.add(txtidbanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 420, 160, 30));
+        jpanelbackground.add(txtidbanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 430, 160, 30));
 
-        txtidpresidente1.setBackground(new java.awt.Color(255, 255, 255));
-        txtidpresidente1.setForeground(new java.awt.Color(0, 0, 0));
+        txtidpresidente1.setForeground(new java.awt.Color(255, 255, 255));
         txtidpresidente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidpresidente1.setEnabled(false);
         txtidpresidente1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtidpresidente1ActionPerformed(evt);
@@ -296,7 +361,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
                 txtidpresidente1KeyTyped(evt);
             }
         });
-        jpanelbackground.add(txtidpresidente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 420, 150, 30));
+        jpanelbackground.add(txtidpresidente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 430, 150, 30));
 
         btnRegistrar_director.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_director.setForeground(new java.awt.Color(0, 0, 51));
@@ -328,17 +393,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
             }
         });
         jpanelbackground.add(btnCancelar_registro_director, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 670, 160, 40));
-
-        jButton2.setBackground(new java.awt.Color(45, 106, 79));
-        jButton2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("BUSCAR");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jpanelbackground.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 420, 100, 40));
 
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 800));
 
@@ -383,7 +437,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidpresidente1ActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-            // TODO add your handling code here:
+        ingresarPago();        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));
@@ -410,10 +464,6 @@ j1.setBackground(new Color(153,0,0));
         }
     }//GEN-LAST:event_txtcantidadKeyTyped
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtcantidadActionPerformed
@@ -433,6 +483,22 @@ j1.setBackground(new Color(153,0,0));
         }
     }//GEN-LAST:event_txtidbancoKeyTyped
 
+    private void tblpresidentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpresidentesMouseClicked
+        int row=tblpresidentes.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblpresidentes.getModel().getValueAt(row,0)));
+            txtidpresidente1.setText(String.valueOf(id_com));
+        }       // TODO add your handling code here:
+    }//GEN-LAST:event_tblpresidentesMouseClicked
+
+    private void tblbancosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblbancosMouseClicked
+        int row=tblbancos.getSelectedRow();
+        if(row!=-1){
+            id_bank=Integer.parseInt(String.valueOf(tblbancos.getModel().getValueAt(row,0)));
+            txtidbanco.setText(String.valueOf(id_bank));
+        }      // TODO add your handling code here:
+    }//GEN-LAST:event_tblbancosMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -443,7 +509,6 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JButton btnRegistrar_director;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
