@@ -186,13 +186,22 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("CIUDAD:");
 
+        txtNom_comunidad.setBackground(new java.awt.Color(255, 255, 255));
+        txtNom_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         txtNom_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_comunidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNom_comunidadActionPerformed(evt);
             }
         });
+        txtNom_comunidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNom_comunidadKeyTyped(evt);
+            }
+        });
 
+        cmbCiudad_comunidad.setBackground(new java.awt.Color(255, 255, 255));
+        cmbCiudad_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         cmbCiudad_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cmbCiudad_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cmbCiudad_comunidad.addActionListener(new java.awt.event.ActionListener() {
@@ -201,6 +210,8 @@ public class Registro_Comunidad extends javax.swing.JFrame {
             }
         });
 
+        cmbCanton_comunidad.setBackground(new java.awt.Color(255, 255, 255));
+        cmbCanton_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         cmbCanton_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayas", "el oro", "los rios" }));
         cmbCanton_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
@@ -214,6 +225,8 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("DIRECCIÓN:");
 
+        txtDir_comunidad.setBackground(new java.awt.Color(255, 255, 255));
+        txtDir_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         txtDir_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtDir_comunidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -249,12 +262,16 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("REFERENCIA:");
 
+        txaDescripcion_comunidad.setBackground(new java.awt.Color(255, 255, 255));
         txaDescripcion_comunidad.setColumns(20);
+        txaDescripcion_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         txaDescripcion_comunidad.setRows(5);
         txaDescripcion_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane2.setViewportView(txaDescripcion_comunidad);
 
+        txaRef_comunidad.setBackground(new java.awt.Color(255, 255, 255));
         txaRef_comunidad.setColumns(20);
+        txaRef_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         txaRef_comunidad.setRows(5);
         txaRef_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txaRef_comunidad);
@@ -426,6 +443,14 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
     ingresarComunidad();        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
+
+    private void txtNom_comunidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNom_comunidadKeyTyped
+        // TODO add your handling code here:
+        if(!Character.isDigit(evt.getKeyChar())){
+            evt.consume();
+        
+        }
+    }//GEN-LAST:event_txtNom_comunidadKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

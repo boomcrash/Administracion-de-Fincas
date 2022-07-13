@@ -18,6 +18,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
         mostrarnombreventana(jblregistrosecretaria);
+        llenarTabla();
     }
     public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();

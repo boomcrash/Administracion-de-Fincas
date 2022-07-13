@@ -29,6 +29,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
         mostrarnombreventana(jblregistropropietario);
+        llenarTabla();
     }
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
