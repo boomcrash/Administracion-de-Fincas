@@ -5,6 +5,7 @@
 package Vista;
 
 import Conexion.Conexion;
+import com.mysql.jdbc.CallableStatement;
 import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -36,14 +37,14 @@ public class Login extends javax.swing.JFrame {
         if(!txtUser.getText().isEmpty()&&!txtpassword.getText().isEmpty()){
         Conexion conect= new Conexion();
         com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
-        PreparedStatement buscador = null;
-        ResultSet dato = null;
-        //JOptionPane.showMessageDialog(null,txtpassword.getText());
-        try{
-         buscador= (PreparedStatement) conexion2.prepareStatement("select * from Usuario where usuario=? and contraseña=?");
-         buscador.setString(1,txtUser.getText());
-         buscador.setString(2,txtpassword.getText());
-         dato=buscador.executeQuery();
+        CallableStatement myCall = null;
+        
+        ResultSet dato=null;
+        try {
+            myCall=(CallableStatement) conexion2.prepareCall("{call getUserByUserAndPassword(?,?)}");
+            myCall.setString(1,txtUser.getText());
+            myCall.setString(2,txtpassword.getText());
+            dato=myCall.executeQuery();
          if(dato.next())
          {
              String id=dato.getString("id_usuario");
@@ -69,7 +70,7 @@ public class Login extends javax.swing.JFrame {
         {
             System.err.println("ERROR EN OBTENER DATOS");
         }finally{
-            try{buscador.close();} catch (Exception e){}
+            try{myCall.close();} catch (Exception e){}
              try{dato.close();} catch (Exception e){}
              try{conexion2.close();} catch (Exception e){}
         }

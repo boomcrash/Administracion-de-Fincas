@@ -2,6 +2,7 @@
 package Vista;
 
 import Conexion.Conexion;
+import com.mysql.jdbc.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -35,28 +36,27 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         Conexion conect= new Conexion();
         Connection conexion=(Connection) conect.getconection();
          
-        PreparedStatement ps2=null;
-        ResultSet rs=null;
-            try {
+        CallableStatement myCall = null;
+        
+        try {
+                    myCall=(CallableStatement) conexion.prepareCall("{call putComunidad(?,?,?,?,?,?,?,?)}");
                     
-
-                    ps2=(PreparedStatement) conexion.prepareStatement("insert into Comunidad (nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado) values(?,?,?,?,?,?,?,?)");
-                    ps2.setString(1, txtNom_comunidad.getText().toString());
-                    ps2.setString(2, cmbCiudad_comunidad.getSelectedItem().toString());
-                    ps2.setString(3,cmbCanton_comunidad.getSelectedItem().toString());
-                    ps2.setString(4, jcdFundacion_comunidad.getDate().toString());
-                    ps2.setString(5, txtDir_comunidad.getText().toString());
-                    ps2.setString(6,txaRef_comunidad.getText().toString());
-                    ps2.setString(7,txaDescripcion_comunidad.getText().toString());
-                    ps2.setString(8,"A".toString());
-                    ps2.executeUpdate();
+                    myCall.setString(1, txtNom_comunidad.getText().toString());
+                    myCall.setString(2, cmbCiudad_comunidad.getSelectedItem().toString());
+                    myCall.setString(3,cmbCanton_comunidad.getSelectedItem().toString());
+                    myCall.setString(4, jcdFundacion_comunidad.getDate().toString());
+                    myCall.setString(5, txtDir_comunidad.getText().toString());
+                    myCall.setString(6,txaRef_comunidad.getText().toString());
+                    myCall.setString(7,txaDescripcion_comunidad.getText().toString());
+                    myCall.setString(8,"A".toString());
+                    myCall.executeUpdate();
                     JOptionPane.showMessageDialog(null, "REGISTRO DE COMUNIDAD EXITOSO !");
                     //this.dispose();
                     limpiar();   
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
          }finally {
-                try{ps2.close();} catch (Exception e){}
+                try{myCall.close();} catch (Exception e){}
                 try{conexion.close();} catch (Exception e){}
         }
           /*panel.removeAll();

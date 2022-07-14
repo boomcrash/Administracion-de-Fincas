@@ -2,6 +2,7 @@
 package Vista;
 
 import Conexion.Conexion;
+import com.mysql.jdbc.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -34,11 +35,13 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         tblcomunidad.setModel(modelo);
         Conexion connect=new Conexion();
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        PreparedStatement ps=null,ps2=null;
+        CallableStatement myCall = null;
+        
         ResultSet rs=null;
         try {
-            ps=(com.mysql.jdbc.PreparedStatement) conexion.prepareStatement("select id_comunidad,nombre,ciudad,canton,fecha_fundacion,direccion,referencia,descripcion,estado from Comunidad");
-            rs=ps.executeQuery();
+            myCall=(CallableStatement) conexion.prepareCall("{call getComunidades()}");
+            rs=myCall.executeQuery();
+
             modelo.addColumn("id_comunidad");
             modelo.addColumn("nombre");
             modelo.addColumn("ciudad");
@@ -60,7 +63,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
             }            
         } catch (SQLException ex) {
             System.err.println("ERROR");
-        }finally {try{ps.close();} catch (Exception e){}
+        }finally {try{myCall.close();} catch (Exception e){}
         try{rs.close();} catch (Exception e){}
         try{conexion.close();} catch (Exception e){}
         }     
@@ -71,25 +74,25 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 &&!txtidcomunidad.getText().isEmpty())
          {
             Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-
-            PreparedStatement ps2=null;
-            ResultSet rs=null;
-                try {
-
-                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Banco (nombre,direccion,representante,comunidad_id) values(?,?,?,?)");
-                        ps2.setString(1, txtNom_EntBancaria.getText().toString());
-                        ps2.setString(2,txtDir_EntBancaria.getText().toString());
-                        ps2.setString(3, txtRepresentante_EntBancaria.getText().toString());
-                        ps2.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        ps2.executeUpdate();
+        Connection conexion=(Connection) conect.getconection();
+         
+        CallableStatement myCall = null;
+        
+        try {
+                    myCall=(CallableStatement) conexion.prepareCall("{call putBanco(?,?,?,?)}");
+                    
+                        myCall.setString(1, txtNom_EntBancaria.getText().toString());
+                        myCall.setString(2,txtDir_EntBancaria.getText().toString());
+                        myCall.setString(3, txtRepresentante_EntBancaria.getText().toString());
+                        myCall.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        myCall.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE BANCO EXITOSO !");
                         //this.dispose();
                         limpiar();   
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
-                    try{ps2.close();} catch (Exception e){}
+                    try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
               /*panel.removeAll();
