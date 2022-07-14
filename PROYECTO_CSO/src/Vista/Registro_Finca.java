@@ -72,26 +72,26 @@ public class Registro_Finca extends javax.swing.JFrame {
                 &&!cmbCiudad_finca.getSelectedItem().toString().isEmpty()&&!jcdFundacion_finca.getDate().toString().isEmpty())
          {
             Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-
-            PreparedStatement ps2=null;
-            ResultSet rs=null;
-                try {
-
-                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Finca (nombre,ciudad,direccion,AnioFuncionamiento,propietario_id) values(?,?,?,?,?)");
-                        ps2.setString(1, txtNom_finca.getText().toString());
-                        ps2.setString(2,cmbCiudad_finca.getSelectedItem().toString());
-                        ps2.setString(3,txtDir_finca.getText().toString());
-                        ps2.setString(4, jcdFundacion_finca.getDate().toString());
-                        ps2.setInt(5,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        ps2.executeUpdate();
+        Connection conexion=(Connection) conect.getconection();
+         
+        CallableStatement myCall = null;
+        
+        try {
+                    myCall=(CallableStatement) conexion.prepareCall("{call putFinca(?,?,?,?,?)}");
+                    
+                        myCall.setString(1, txtNom_finca.getText().toString());
+                        myCall.setString(2,cmbCiudad_finca.getSelectedItem().toString());
+                        myCall.setString(3,txtDir_finca.getText().toString());
+                        myCall.setString(4, jcdFundacion_finca.getDate().toString());
+                        myCall.setInt(5,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        myCall.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE FINCA EXITOSO !");
                         //this.dispose();
                         limpiar();   
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
-                    try{ps2.close();} catch (Exception e){}
+                    try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
               /*panel.removeAll();

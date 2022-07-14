@@ -48,7 +48,7 @@ public class Registro_Director extends javax.swing.JFrame {
         
         ResultSet rs=null;
         try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getPropietariosByCiudad(?)}");
+            myCall=(CallableStatement) conexion.prepareCall("{call getComunidadByCiudad(?)}");
             myCall.setString(1,cbmciudaddirector.getSelectedItem().toString());
             rs=myCall.executeQuery();
             modelo.addColumn("id_comunidad");

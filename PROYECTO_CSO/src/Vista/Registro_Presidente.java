@@ -82,29 +82,29 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 &&!txtidcomunidad.getText().toString().isEmpty())
          {
             Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-
-            PreparedStatement ps2=null;
-            ResultSet rs=null;
-                try {
-
-                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Presidente (nombre,edad,cedula,sexo,contacto,ciudad,direccion,comunidad_id) values(?,?,?,?,?,?,?,?)");
-                        ps2.setString(1, txtnom_presidente.getText().toString());
-                        ps2.setInt(2,Integer.parseInt(txtedadpresidente.getText().toString()));
-                        ps2.setString(3,txtci_presidente.getText().toString());
-                        ps2.setString(4, cbmsexopresidente.getSelectedItem().toString());
-                        ps2.setString(5, txtCod_comunidad.getText().toString());
-                        ps2.setString(6,cmbCiudad_presidente.getSelectedItem().toString());
-                        ps2.setString(7,txtDireccion_propietario.getText().toString());
-                        ps2.setInt(8,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        ps2.executeUpdate();
+        Connection conexion=(Connection) conect.getconection();
+         
+        CallableStatement myCall = null;
+        
+        try {
+                    myCall=(CallableStatement) conexion.prepareCall("{call putPresidente(?,?,?,?,?,?,?,?)}");
+                    
+                        myCall.setString(1, txtnom_presidente.getText().toString());
+                        myCall.setInt(2,Integer.parseInt(txtedadpresidente.getText().toString()));
+                        myCall.setString(3,txtci_presidente.getText().toString());
+                        myCall.setString(4, cbmsexopresidente.getSelectedItem().toString());
+                        myCall.setString(5, txtCod_comunidad.getText().toString());
+                        myCall.setString(6,cmbCiudad_presidente.getSelectedItem().toString());
+                        myCall.setString(7,txtDireccion_propietario.getText().toString());
+                        myCall.setInt(8,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        myCall.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE PRESIDENTE EXITOSO !");
                         //this.dispose();
                         limpiar();   
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
-                    try{ps2.close();} catch (Exception e){}
+                    try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
               /*panel.removeAll();

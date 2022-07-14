@@ -74,25 +74,25 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 &&!txtidcomunidad.getText().isEmpty())
          {
             Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-
-            PreparedStatement ps2=null;
-            ResultSet rs=null;
-                try {
-
-                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Banco (nombre,direccion,representante,comunidad_id) values(?,?,?,?)");
-                        ps2.setString(1, txtNom_EntBancaria.getText().toString());
-                        ps2.setString(2,txtDir_EntBancaria.getText().toString());
-                        ps2.setString(3, txtRepresentante_EntBancaria.getText().toString());
-                        ps2.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        ps2.executeUpdate();
+        Connection conexion=(Connection) conect.getconection();
+         
+        CallableStatement myCall = null;
+        
+        try {
+                    myCall=(CallableStatement) conexion.prepareCall("{call putBanco(?,?,?,?)}");
+                    
+                        myCall.setString(1, txtNom_EntBancaria.getText().toString());
+                        myCall.setString(2,txtDir_EntBancaria.getText().toString());
+                        myCall.setString(3, txtRepresentante_EntBancaria.getText().toString());
+                        myCall.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
+                        myCall.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE BANCO EXITOSO !");
                         //this.dispose();
                         limpiar();   
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
-                    try{ps2.close();} catch (Exception e){}
+                    try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
               /*panel.removeAll();

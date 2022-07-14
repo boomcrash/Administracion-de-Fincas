@@ -117,26 +117,27 @@ public class Registro_Cobros extends javax.swing.JFrame {
                 &&!txtidpresidente.getText().isEmpty()&&!jdcfechacobro.getDate().toString().isEmpty()&&!jdcfechavence.getDate().toString().isEmpty())
          {
             Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-            PreparedStatement ps2=null;
-            ResultSet rs=null;
-                try {
-
-                        ps2=(PreparedStatement) conexion.prepareStatement("insert into Cobro (fecha_cobro,fecha_vencimiento,descripcion,cantidad,propietario_id,presidente_id) values(?,?,?,?,?,?)");
-                        ps2.setString(1,jdcfechacobro.getDate().toString() );
-                        ps2.setString(2,jdcfechavence.getDate().toString() );
-                        ps2.setString(3,txadescripcion_cobro.getText().toString());
-                        ps2.setString(4, txtcantidadcobro.getText().toString());
-                        ps2.setInt(5,Integer.parseInt(txtidpropietario1.getText().toString()));
-                        ps2.setInt(6,Integer.parseInt(txtidpresidente.getText().toString()));
-                        ps2.executeUpdate();
+        Connection conexion=(Connection) conect.getconection();
+         
+        CallableStatement myCall = null;
+        
+        try {
+                    myCall=(CallableStatement) conexion.prepareCall("{call putCobro(?,?,?,?,?,?)}");
+                    
+                        myCall.setString(1,jdcfechacobro.getDate().toString() );
+                        myCall.setString(2,jdcfechavence.getDate().toString() );
+                        myCall.setString(3,txadescripcion_cobro.getText().toString());
+                        myCall.setString(4, txtcantidadcobro.getText().toString());
+                        myCall.setInt(5,Integer.parseInt(txtidpropietario1.getText().toString()));
+                        myCall.setInt(6,Integer.parseInt(txtidpresidente.getText().toString()));
+                        myCall.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE COBRO EXITOSO !");
                         //this.dispose();
                         //limpiar();   
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
-                    try{ps2.close();} catch (Exception e){}
+                    try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
               /*panel.removeAll();
