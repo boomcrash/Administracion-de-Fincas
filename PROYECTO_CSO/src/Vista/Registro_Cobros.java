@@ -6,6 +6,8 @@ package Vista;
 
 import Conexion.Conexion;
 import com.mysql.jdbc.CallableStatement;
+import controlador.TablasRegistroController;
+import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,8 +32,10 @@ public class Registro_Cobros extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1100, 800);
         mostrarnombreventana(jblregistrocobros);
-        llenarTablaPropietario();
-        llenarTablaPresidente();
+        TablasRegistroController.llenarTablaPropietario(tblpropietario);
+        TablasRegistroController.llenarTablaPresidente(tblpresidentes);
+        //llenarTablaPropietario();
+        //llenarTablaPresidente();
     }
  public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
@@ -483,7 +487,8 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_btnCancelar_registro_directorMouseExited
 
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed
-        // TODO add your handling code here
+    VentanasController.cerrarRegistroCobros();
+    VentanasController.abrirInicio();// TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_directorActionPerformed
 
     private void txtcantidadcobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadcobroActionPerformed

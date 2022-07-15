@@ -3,6 +3,7 @@ package Vista;
 
 import Conexion.Conexion;
 import com.mysql.jdbc.CallableStatement;
+import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -593,7 +594,8 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_btnCancelar_registro_secretariaMouseExited
 
     private void btnCancelar_registro_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_secretariaActionPerformed
-        // TODO add your handling code here
+    VentanasController.cerrarRegistro_Secretaria();
+    VentanasController.abrirInicio();        // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_secretariaActionPerformed
 
     private void txtedadsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtedadsecretariaActionPerformed

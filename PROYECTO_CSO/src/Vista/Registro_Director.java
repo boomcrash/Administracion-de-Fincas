@@ -7,6 +7,7 @@ package Vista;
 import Conexion.Conexion;
 import static Vista.Login.id_Usuario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -621,7 +622,8 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_btnCancelar_registro_directorMouseExited
 
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed
-        // TODO add your handling code here
+    VentanasController.cerrarRegistroDirector();
+    VentanasController.abrirInicio();        // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_directorActionPerformed
 
     private void txtci_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtci_directorActionPerformed

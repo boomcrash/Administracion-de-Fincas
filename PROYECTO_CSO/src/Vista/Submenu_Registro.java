@@ -4,6 +4,8 @@
  */
 package Vista;
 
+import controlador.VentanasController;
+
 /**
  *
  * @author User
@@ -233,64 +235,56 @@ public class Submenu_Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
-    Inicio init = new Inicio();
-    init.setVisible(true);
-    this.setVisible(false);
+    
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirInicio();
     }//GEN-LAST:event_btnreturnActionPerformed
 
     private void btnregistro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_presidenteActionPerformed
-    Registro_Presidente registropresidente = new Registro_Presidente();
-    registropresidente.setVisible(true);
-    this.setVisible(false);
+    
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroPresidente();
     }//GEN-LAST:event_btnregistro_presidenteActionPerformed
 
     private void btnregistro_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_fincaActionPerformed
-    Registro_Finca registrofinca = new Registro_Finca();
-    registrofinca.setVisible(true);
-    this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroFinca();
     }//GEN-LAST:event_btnregistro_fincaActionPerformed
 
     private void btnregistro_entbancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_entbancariaActionPerformed
-       Registro_Entidad_Bancaria registroentidadbancaria = new Registro_Entidad_Bancaria();
-       registroentidadbancaria.setVisible(true);
-       this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroBanco();
     }//GEN-LAST:event_btnregistro_entbancariaActionPerformed
 
     private void btnregistrocomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrocomunidadActionPerformed
-        Registro_Comunidad registrocomunidad = new Registro_Comunidad();
-       registrocomunidad.setVisible(true);
-       this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroComunidad();
     }//GEN-LAST:event_btnregistrocomunidadActionPerformed
 
     private void btnregistrarsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarsecretariaActionPerformed
-   Registro_Secretaria registrosecretaria = new Registro_Secretaria();
-   registrosecretaria.setVisible(true);
-   this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistro_Secretaria();
    
     }//GEN-LAST:event_btnregistrarsecretariaActionPerformed
 
     private void btnregistrardirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrardirectorActionPerformed
-   Registro_Director registrodirector = new Registro_Director();
-   registrodirector.setVisible(true);
-   this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroDirector();
     }//GEN-LAST:event_btnregistrardirectorActionPerformed
 
     private void btnRegistro_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistro_propietarioActionPerformed
-    Registro_Propietario registropropietario = new Registro_Propietario();
-    registropropietario.setVisible(true);
-    this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroPropietario();
     }//GEN-LAST:event_btnRegistro_propietarioActionPerformed
 
     private void btnregistro_pagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_pagosActionPerformed
-Registro_Pagos registropagos = new Registro_Pagos();
-registropagos.setVisible(true);
-this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroPagos();
     }//GEN-LAST:event_btnregistro_pagosActionPerformed
 
     private void btnregistro_cobrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_cobrosActionPerformed
-   Registro_Cobros registrocobros = new Registro_Cobros();
-   registrocobros.setVisible(true);
-   this.setVisible(false);
+    VentanasController.cerrarSubmenuRegistro();
+    VentanasController.abrirRegistroCobros();
     }//GEN-LAST:event_btnregistro_cobrosActionPerformed
 
     /**

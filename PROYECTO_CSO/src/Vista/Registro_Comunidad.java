@@ -3,6 +3,7 @@ package Vista;
 
 import Conexion.Conexion;
 import com.mysql.jdbc.CallableStatement;
+import controlador.VentanasController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -408,7 +409,8 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDir_comunidadActionPerformed
 
     private void btnCancelar_registro_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_fincaActionPerformed
-        // TODO add your handling code here:
+    VentanasController.cerrarRegistroComunidad();
+    VentanasController.abrirInicio();        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar_registro_fincaActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

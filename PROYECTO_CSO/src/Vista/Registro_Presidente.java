@@ -3,6 +3,7 @@ package Vista;
 
 import Conexion.Conexion;
 import com.mysql.jdbc.CallableStatement;
+import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -447,7 +448,8 @@ public class Registro_Presidente extends javax.swing.JFrame {
     }//GEN-LAST:event_cmbCiudad_presidenteActionPerformed
 
     private void btnCancelar_registro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteActionPerformed
-        // TODO add your handling code here
+    VentanasController.cerrarRegistroPresidente();
+    VentanasController.abrirInicio();        // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_presidenteActionPerformed
 
     private void txtDireccion_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccion_propietarioActionPerformed

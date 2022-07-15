@@ -3,6 +3,7 @@ package Vista;
 
 import Conexion.Conexion;
 import com.mysql.jdbc.CallableStatement;
+import controlador.VentanasController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -365,7 +366,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void btnCancelar_registro_EntBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_EntBancariaActionPerformed
-        // TODO add your handling code here:
+    VentanasController.cerrarRegistroBanco();
+    VentanasController.abrirInicio();        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar_registro_EntBancariaActionPerformed
 
     private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
