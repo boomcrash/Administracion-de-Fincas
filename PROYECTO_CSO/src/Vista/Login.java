@@ -28,58 +28,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-    }
-    
-    public void validarIngreso(){
-        if(txtUser.getText().isEmpty()){
-            txtUser.setBackground(Color.red);
-        }
-        if(txtpassword.getText().isEmpty()){
-             txtpassword.setBackground(Color.red);
-        }
-        if(!txtUser.getText().isEmpty()&&!txtpassword.getText().isEmpty()){
-        Conexion conect= new Conexion();
-        com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet dato=null;
-        try {
-            myCall=(CallableStatement) conexion2.prepareCall("{call getUserByUserAndPassword(?,?)}");
-            myCall.setString(1,txtUser.getText());
-            myCall.setString(2,txtpassword.getText());
-            dato=myCall.executeQuery();
-         if(dato.next())
-         {
-             String id=dato.getString("id_usuario");
-
-             if(txtUser.getText().equalsIgnoreCase(dato.getString("usuario"))&&txtpassword.getText().equalsIgnoreCase(dato.getString("contraseña")))
-             {
-                 try{
-                    if(dato.getString("tipo_usuario_id").equalsIgnoreCase("1")){
-                             System.out.println(id);
-                             id_Usuario=Integer.parseInt(id);
-                    }else if(dato.getString("tipo_usuario_id").equalsIgnoreCase("2")){
-                             System.out.println(id);
-                             id_Usuario=Integer.parseInt(id);
-                    }
-                    dispose();
-                    new Inicio().setVisible(true);
-                 }catch(Exception e){
-                     System.out.println("error de obtener id");
-                 }
-             }
-          }
-        }catch(SQLException ex)
-        {
-            System.err.println("ERROR EN OBTENER DATOS");
-        }finally{
-            try{myCall.close();} catch (Exception e){}
-             try{dato.close();} catch (Exception e){}
-             try{conexion2.close();} catch (Exception e){}
-        }
-        }
-        
-    }
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.

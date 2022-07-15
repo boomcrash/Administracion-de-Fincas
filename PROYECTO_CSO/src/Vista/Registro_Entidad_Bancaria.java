@@ -3,6 +3,7 @@ package Vista;
 
 import Conexion.Conexion;
 import com.mysql.jdbc.CallableStatement;
+import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -17,9 +18,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     public Registro_Entidad_Bancaria() {
         initComponents();
         this.setLocationRelativeTo(null);
-        llenarTabla();
+        TablasRegistroController.llenarTablaComunidad(tblcomunidad);
         mostrarnombreventana(jblRegistroentbancaria);
-        llenarTabla();
     }
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
@@ -31,44 +31,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 txtRepresentante_EntBancaria.setText("");
                 txtidcomunidad.setText("");
      }
-     public void llenarTabla(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblcomunidad.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getComunidades()}");
-            rs=myCall.executeQuery();
 
-            modelo.addColumn("id_comunidad");
-            modelo.addColumn("nombre");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("canton");
-            modelo.addColumn("fecha_fundacion");
-            modelo.addColumn("direccion");
-            modelo.addColumn("referencia");
-            modelo.addColumn("descripcion");
-            modelo.addColumn("estado");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
       public void ingresarBanco(){
         
         if(!txtNom_EntBancaria.getText().isEmpty()&&!txtDir_EntBancaria.getText().isEmpty()&&!txtRepresentante_EntBancaria.getText().isEmpty()

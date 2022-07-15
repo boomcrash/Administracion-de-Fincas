@@ -7,6 +7,7 @@ package Vista;
 import Conexion.Conexion;
 import static Vista.Login.id_Usuario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
@@ -29,9 +30,8 @@ public class Registro_Director extends javax.swing.JFrame {
      */
     public Registro_Director() {
         initComponents();
-            this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
         mostrarnombreventana(jblregistrodirector);
-        llenarTabla();
     }
     
      public void mostrarnombreventana(JLabel j){
@@ -40,44 +40,7 @@ public class Registro_Director extends javax.swing.JFrame {
      }
      
      
-   public void llenarTabla(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblcomunidad.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getComunidadByCiudad(?)}");
-            myCall.setString(1,cbmciudaddirector.getSelectedItem().toString());
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_comunidad");
-            modelo.addColumn("nombre");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("canton");
-            modelo.addColumn("fecha_fundacion");
-            modelo.addColumn("direccion");
-            modelo.addColumn("referencia");
-            modelo.addColumn("descripcion");
-            modelo.addColumn("estado");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
+   
    
      public void limpiar(){
                 txtnom_director.setText("");
@@ -605,7 +568,7 @@ public class Registro_Director extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnom_directorActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-    ingresarDirector();        // TODO add your handling code here:
+        ingresarDirector();        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));
@@ -639,7 +602,7 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_txtiddirectorActionPerformed
 
     private void cbmciudaddirectorItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudaddirectorItemStateChanged
-    llenarTabla();        // TODO add your handling code here:
+        TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad,cbmciudaddirector);    // TODO add your handling code here:
     }//GEN-LAST:event_cbmciudaddirectorItemStateChanged
 
     private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
