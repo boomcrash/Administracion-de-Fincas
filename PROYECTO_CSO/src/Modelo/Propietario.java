@@ -5,6 +5,19 @@ import java.util.Date;
 
 public class Propietario extends Persona {
 
+    public String getId_comunidad() {
+        return id_comunidad;
+    }
+
+    public void setId_comunidad(String id_comunidad) {
+        this.id_comunidad = id_comunidad;
+    }
+
+    String id_comunidad;
+    public Propietario(String id_comunidad,String nombre, int edad, String cedula, String sexo, String contacto, String ciudad, String direccion) {
+        super(nombre, edad, cedula, sexo, contacto, ciudad, direccion);
+        this.id_comunidad = id_comunidad;
+    }
     @Override
     public String getNombre() {
         return nombre;

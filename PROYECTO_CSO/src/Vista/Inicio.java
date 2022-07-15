@@ -1,5 +1,6 @@
 
 package Vista;
+import controlador.VentanasController;
 import java.awt.Color;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -166,19 +167,17 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-
-    this.setVisible(true);
-    mostrarnombreventana(jblWindow);
+        try{VentanasController.cerrarInicio();}catch(Exception e){}
+        VentanasController.abrirInicio();
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-
+       
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-    Submenu_Registro subregistro = new Submenu_Registro();
-    subregistro.setVisible(true);
-    this.setVisible(false);
+     VentanasController.cerrarInicio();
+        VentanasController.abrirSubmenuRegistro();
     }//GEN-LAST:event_btnRegistroActionPerformed
  
     private void btnClose_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClose_SesionActionPerformed

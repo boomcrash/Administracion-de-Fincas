@@ -2,7 +2,11 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Banco;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroBancoController;
+import controlador.TablasRegistroController;
+import controlador.VentanasController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,9 +20,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     public Registro_Entidad_Bancaria() {
         initComponents();
         this.setLocationRelativeTo(null);
-        llenarTabla();
+        TablasRegistroController.llenarTablaComunidad(tblcomunidad);
         mostrarnombreventana(jblRegistroentbancaria);
-        llenarTabla();
     }
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
@@ -30,77 +33,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 txtRepresentante_EntBancaria.setText("");
                 txtidcomunidad.setText("");
      }
-     public void llenarTabla(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblcomunidad.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getComunidades()}");
-            rs=myCall.executeQuery();
 
-            modelo.addColumn("id_comunidad");
-            modelo.addColumn("nombre");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("canton");
-            modelo.addColumn("fecha_fundacion");
-            modelo.addColumn("direccion");
-            modelo.addColumn("referencia");
-            modelo.addColumn("descripcion");
-            modelo.addColumn("estado");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
-      public void ingresarBanco(){
-        
-        if(!txtNom_EntBancaria.getText().isEmpty()&&!txtDir_EntBancaria.getText().isEmpty()&&!txtRepresentante_EntBancaria.getText().isEmpty()
-                &&!txtidcomunidad.getText().isEmpty())
-         {
-            Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putBanco(?,?,?,?)}");
-                    
-                        myCall.setString(1, txtNom_EntBancaria.getText().toString());
-                        myCall.setString(2,txtDir_EntBancaria.getText().toString());
-                        myCall.setString(3, txtRepresentante_EntBancaria.getText().toString());
-                        myCall.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE BANCO EXITOSO !");
-                        //this.dispose();
-                        limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
+      
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -365,7 +299,8 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void btnCancelar_registro_EntBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_EntBancariaActionPerformed
-        // TODO add your handling code here:
+    VentanasController.cerrarRegistroBanco();
+    VentanasController.abrirInicio();        // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar_registro_EntBancariaActionPerformed
 
     private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
@@ -381,7 +316,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidcomunidadActionPerformed
 
     private void btnRegistrar_EntBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_EntBancariaActionPerformed
-    ingresarBanco();        // TODO add your handling code here:
+    RegistroBancoController.registrarBanco(new Banco(txtNom_EntBancaria.getText(),txtDir_EntBancaria.getText(),txtRepresentante_EntBancaria.getText(),txtidcomunidad.getText()));        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_EntBancariaActionPerformed
 
     private void txtRepresentante_EntBancariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRepresentante_EntBancariaKeyTyped

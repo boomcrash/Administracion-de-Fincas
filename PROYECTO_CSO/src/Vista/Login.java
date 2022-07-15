@@ -5,7 +5,10 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Usuario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.LoginController;
+import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -25,58 +28,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         this.setLocationRelativeTo(null);
-    }
-    
-    public void validarIngreso(){
-        if(txtUser.getText().isEmpty()){
-            txtUser.setBackground(Color.red);
-        }
-        if(txtpassword.getText().isEmpty()){
-             txtpassword.setBackground(Color.red);
-        }
-        if(!txtUser.getText().isEmpty()&&!txtpassword.getText().isEmpty()){
-        Conexion conect= new Conexion();
-        com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet dato=null;
-        try {
-            myCall=(CallableStatement) conexion2.prepareCall("{call getUserByUserAndPassword(?,?)}");
-            myCall.setString(1,txtUser.getText());
-            myCall.setString(2,txtpassword.getText());
-            dato=myCall.executeQuery();
-         if(dato.next())
-         {
-             String id=dato.getString("id_usuario");
-
-             if(txtUser.getText().equalsIgnoreCase(dato.getString("usuario"))&&txtpassword.getText().equalsIgnoreCase(dato.getString("contraseña")))
-             {
-                 try{
-                    if(dato.getString("tipo_usuario_id").equalsIgnoreCase("1")){
-                             System.out.println(id);
-                             id_Usuario=Integer.parseInt(id);
-                    }else if(dato.getString("tipo_usuario_id").equalsIgnoreCase("2")){
-                             System.out.println(id);
-                             id_Usuario=Integer.parseInt(id);
-                    }
-                    dispose();
-                    new Inicio().setVisible(true);
-                 }catch(Exception e){
-                     System.out.println("error de obtener id");
-                 }
-             }
-          }
-        }catch(SQLException ex)
-        {
-            System.err.println("ERROR EN OBTENER DATOS");
-        }finally{
-            try{myCall.close();} catch (Exception e){}
-             try{dato.close();} catch (Exception e){}
-             try{conexion2.close();} catch (Exception e){}
-        }
-        }
-        
-    }
+    }    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -191,13 +143,13 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        validarIngreso();
+        LoginController.iniciarSesion(new Usuario(txtUser.getText(),txtpassword.getText()),txtUser,txtpassword);
+        //validarIngreso();
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnrestaurarpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestaurarpwdActionPerformed
-    Restaurar_contraseña restaurar = new Restaurar_contraseña();
-    restaurar.setVisible(true);
-    this.setVisible(false);
+    VentanasController.cerrarLogin();
+    VentanasController.abrirRestaurarContraseña();
     }//GEN-LAST:event_btnrestaurarpwdActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(102,255,255));
@@ -221,40 +173,7 @@ j1.setBackground(new Color(204,255,255));
         resetColor(btnLogin);
     }//GEN-LAST:event_btnLoginMouseExited
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Login().setVisible(true);
-            }
-        });
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnrestaurarpwd;

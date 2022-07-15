@@ -5,7 +5,11 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Cobros;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroCobrosController;
+import controlador.TablasRegistroController;
+import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,122 +34,17 @@ public class Registro_Cobros extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setSize(1100, 800);
         mostrarnombreventana(jblregistrocobros);
-        llenarTablaPropietario();
-        llenarTablaPresidente();
+        TablasRegistroController.llenarTablaPropietario(tblpropietario);
+        TablasRegistroController.llenarTablaPresidente(tblpresidentes);
+        //llenarTablaPropietario();
+        //llenarTablaPresidente();
     }
  public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
  
-     public void llenarTablaPropietario(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblpropietario.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();      
-        ResultSet rs=null;
-        CallableStatement myCall = null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getPropietarios()}");    
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_propietario");
-            modelo.addColumn("nombre");
-            modelo.addColumn("edad");
-            modelo.addColumn("cedula");
-            modelo.addColumn("sexo");
-            modelo.addColumn("contacto");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("direccion");
-            modelo.addColumn("comunidad_id");
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
-    public void llenarTablaPresidente(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblpresidentes.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        ResultSet rs=null;
-        CallableStatement myCall = null;
-        
-        
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getPresidentes()}");
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_presidente");
-            modelo.addColumn("nombre");
-            modelo.addColumn("edad");
-            modelo.addColumn("cedula");
-            modelo.addColumn("sexo");
-            modelo.addColumn("contacto");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("direccion");
-            modelo.addColumn("comunidad_id");
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
     
-     public void ingresarCobro(){
-        
-        if(!txadescripcion_cobro.getText().isEmpty()&&!txtcantidadcobro.getText().isEmpty()&&!txtidpropietario1.getText().isEmpty()
-                &&!txtidpresidente.getText().isEmpty()&&!jdcfechacobro.getDate().toString().isEmpty()&&!jdcfechavence.getDate().toString().isEmpty())
-         {
-            Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putCobro(?,?,?,?,?,?)}");
-                    
-                        myCall.setString(1,jdcfechacobro.getDate().toString() );
-                        myCall.setString(2,jdcfechavence.getDate().toString() );
-                        myCall.setString(3,txadescripcion_cobro.getText().toString());
-                        myCall.setString(4, txtcantidadcobro.getText().toString());
-                        myCall.setInt(5,Integer.parseInt(txtidpropietario1.getText().toString()));
-                        myCall.setInt(6,Integer.parseInt(txtidpresidente.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE COBRO EXITOSO !");
-                        //this.dispose();
-                        //limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -466,7 +365,7 @@ public class Registro_Cobros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidpropietario1ActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        ingresarCobro();        // TODO add your handling code here:
+    RegistroCobrosController.registrarCobro(new Cobros(txadescripcion_cobro.getText().toString(),txtcantidadcobro.getText().toString(),jdcfechacobro.getDate().toString(),jdcfechavence.getDate().toString(),txtidpropietario1.getText().toString(),txtidpresidente.getText().toString()));            // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));
@@ -483,7 +382,8 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_btnCancelar_registro_directorMouseExited
 
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed
-        // TODO add your handling code here
+    VentanasController.cerrarRegistroCobros();
+    VentanasController.abrirInicio();// TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_directorActionPerformed
 
     private void txtcantidadcobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadcobroActionPerformed

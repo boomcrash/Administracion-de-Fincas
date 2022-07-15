@@ -8,10 +8,18 @@ public class Persona {
     public String contacto;
     public String ciudad;
     public String direccion;
-    public Date fechaRegistro;
-    public Persona(){
+
+    public Persona(String nombre, int edad, String cedula, String sexo, String contacto, String ciudad, String direccion) {
+        this.nombre = nombre;
+        this.edad = edad;
+        this.cedula = cedula;
+        this.sexo = sexo;
+        this.contacto = contacto;
+        this.ciudad = ciudad;
+        this.direccion = direccion;
     }
 
+    
     public String getNombre() {
         return nombre;
     }
