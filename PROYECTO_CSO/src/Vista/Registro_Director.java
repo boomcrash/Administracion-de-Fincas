@@ -5,8 +5,11 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Director;
+import Modelo.Usuario;
 import static Vista.Login.id_Usuario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroDirectorController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.awt.Color;
@@ -52,109 +55,9 @@ public class Registro_Director extends javax.swing.JFrame {
                 txtusuariodirector.setText("");
                 txtcontraseñadirector.setText("");
      }
-     public int consultarUsuario(){
-        int id=0;
-        Conexion conect= new Conexion();
-        com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet dato=null;
-        try {
-            myCall=(CallableStatement) conexion2.prepareCall("{call getUsuarioByTipo(?,?,?)}");
-            myCall.setString(1,txtusuariodirector.getText().toString());
-            myCall.setString(2,txtcontraseñadirector.getText().toString());
-            myCall.setInt(3,2);
-            dato=myCall.executeQuery();
-         if(dato.next())
-         {
-             id=Integer.parseInt(dato.getString("id_usuario"));
-         }
-        }catch(SQLException ex)
-        {
-            System.err.println("ERROR EN OBTENER DATOS");
-        }finally{
-            try{myCall.close();} catch (Exception e){}
-             try{dato.close();} catch (Exception e){}
-             try{conexion2.close();} catch (Exception e){}
-        }
-       return id;
-        
-    }
-     public int registrarUsuario(){
-         if(!txtusuariodirector.getText().isEmpty()&&!txtcontraseñadirector.getText().isEmpty())
-         {
-            Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-            CallableStatement myCall = null;
-        
-        
-        try {
-                        myCall=(CallableStatement) conexion.prepareCall("{call putUsuario(?,?,?)}");
-                        
-                        myCall.setString(1, txtusuariodirector.getText().toString());
-                        myCall.setString(2, txtcontraseñadirector.getText().toString());
-                        myCall.setInt(3,2);
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE USUARIO EXITOSO !");
-                        //this.dispose();
-                        
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-         }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-         
-        return consultarUsuario();
-    }
-     public void ingresarDirector(){
-        
-        if(!txtnom_director.getText().isEmpty()&&!txtedaddirector.getText().isEmpty()&&!txtci_director.getText().isEmpty() && txtci_director.getText().length()==10
-                &&!cmbsexodirector.getSelectedItem().toString().isEmpty()&&!cbmciudaddirector.getSelectedItem().toString().isEmpty()
-                &&!txtiddirector.getText().isEmpty()&&!txtcontactodirector.getText().isEmpty()
-                &&!txtdireccion_director.getText().isEmpty()&&!txtusuariodirector.getText().isEmpty()
-                &&!txtcontraseñadirector.getText().isEmpty())
-         {
-            Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-            CallableStatement myCall = null;
-        
-        
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call putDirector(?,?,?,?,?,?,?,?,?)}");
-                        int  id=registrarUsuario();
-                        int edad= Integer.parseInt(txtedaddirector.getText().toString().trim());
-                        int id_dire=Integer.parseInt(txtiddirector.getText().toString().trim());
-                     
-                        myCall.setString(1, txtnom_director.getText().toString());
-                        myCall.setInt(2,edad);
-                        myCall.setString(3,txtci_director.getText().toString());
-                        myCall.setString(4, cmbsexodirector.getSelectedItem().toString());
-                        myCall.setString(5, txtcontactodirector.getText().toString());
-                        myCall.setString(6,cbmciudaddirector.getSelectedItem().toString());
-                        myCall.setString(7,txtdireccion_director.getText().toString());
-                        myCall.setInt(8,id_dire);
-                        myCall.setInt(9,id);
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE DIRECTOR EXITOSO !");
-                        //this.dispose();
-                        limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
 
-    }
+
+     
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -568,7 +471,7 @@ public class Registro_Director extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnom_directorActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        ingresarDirector();        // TODO add your handling code here:
+        RegistroDirectorController.registrarDirector(new Director(txtiddirector.getText(), txtnom_director.getText(), Integer.parseInt(txtedaddirector.getText()), txtci_director.getText(), cmbsexodirector.getSelectedItem().toString(), txtcontactodirector.getText(), cbmciudaddirector.getSelectedItem().toString(), txtdireccion_director.getText()), new Usuario(txtusuariodirector.getText(), txtcontraseñadirector.getText(), 1));        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));

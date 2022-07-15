@@ -2,7 +2,11 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Secretario;
+import Modelo.Usuario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroSecretariaController;
+import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
@@ -20,51 +24,14 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
         mostrarnombreventana(jblregistrosecretaria);
-        llenarTabla();
+        TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
     public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
     
-      public void llenarTabla(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblcomunidad.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getComunidadByCiudad(?)}");
-            myCall.setString(1,cbmciudadsecretaria.getSelectedItem().toString().trim());
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_comunidad");
-            modelo.addColumn("nombre");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("canton");
-            modelo.addColumn("fecha_fundacion");
-            modelo.addColumn("direccion");
-            modelo.addColumn("referencia");
-            modelo.addColumn("descripcion");
-            modelo.addColumn("estado");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
+      
   public void limpiar(){
                 txtnom_secretaria.setText("");
                 txtedadsecretaria.setText("");
@@ -75,109 +42,8 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 txtusuariosecretaria.setText("");
                 txtcontraseñasecretaria.setText("");
      }
-     public int consultarUsuario(){
-        int id=0;
-        Conexion conect= new Conexion();
-       com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet dato=null;
-        try {
-            myCall=(CallableStatement) conexion2.prepareCall("{call getUsuarioByTipo(?,?,?)}");
-            myCall.setString(1,txtusuariosecretaria.getText().toString());
-            myCall.setString(2,txtcontraseñasecretaria.getText().toString());
-            myCall.setInt(3,1);
-            dato=myCall.executeQuery();
-         if(dato.next())
-         {
-             id=Integer.parseInt(dato.getString("id_usuario"));
-         }
-        }catch(SQLException ex)
-        {
-            System.err.println("ERROR EN OBTENER DATOS");
-        }finally{
-            try{myCall.close();} catch (Exception e){}
-             try{dato.close();} catch (Exception e){}
-             try{conexion2.close();} catch (Exception e){}
-        }
-       return id;
-        
-    }
-     public int registrarUsuario(){
-         if(!txtusuariosecretaria.getText().isEmpty()&&!txtcontraseñasecretaria.getText().isEmpty())
-         {
-            Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-            CallableStatement myCall = null;
-        
-        
-        try {
-                        myCall=(CallableStatement) conexion.prepareCall("{call putUsuario(?,?,?)}");
-                        myCall.setString(1, txtusuariosecretaria.getText().toString());
-                        myCall.setString(2, txtcontraseñasecretaria.getText().toString());
-                        myCall.setInt(3,1);
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE USUARIO EXITOSO !");
-                        //this.dispose();
-                        
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-         }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-         
-        return consultarUsuario();
-    }
-     public void ingresarSecretario(){
-        
-        if(!txtnom_secretaria.getText().isEmpty()&&!txtedadsecretaria.getText().isEmpty()&&!txtci_secretaria.getText().isEmpty() && txtci_secretaria.getText().length()==10
-                &&!cmbsexosecretaria.getSelectedItem().toString().isEmpty()&&!cbmciudadsecretaria.getSelectedItem().toString().isEmpty()
-                &&!txtiddirector.getText().isEmpty()&&!txtcontactosecretaria.getText().isEmpty()
-                &&!txtDireccion_secretaria.getText().isEmpty()&&!txtusuariosecretaria.getText().isEmpty()
-                &&!txtcontraseñasecretaria.getText().isEmpty())
-         {
-
-            Conexion conect= new Conexion();
-            Connection conexion=(Connection) conect.getconection();
-            CallableStatement myCall = null;
-        
-        
-        try {
-                        myCall=(CallableStatement) conexion.prepareCall("{call putSecretario(?,?,?,?,?,?,?,?,?)}");
-                        
-                        int  id=registrarUsuario();
-                        int edad= Integer.parseInt(txtedadsecretaria.getText().toString().trim());
-                        int id_dire=Integer.parseInt(txtiddirector.getText().toString().trim());
-                        myCall.setString(1, txtnom_secretaria.getText().toString());
-                        myCall.setInt(2,edad);
-                        myCall.setString(3,txtci_secretaria.getText().toString());
-                        myCall.setString(4, cmbsexosecretaria.getSelectedItem().toString());
-                        myCall.setString(5, txtcontactosecretaria.getText().toString());
-                        myCall.setString(6,cbmciudadsecretaria.getSelectedItem().toString());
-                        myCall.setString(7,txtDireccion_secretaria.getText().toString());
-                        myCall.setInt(8,id_dire);
-                        myCall.setInt(9,id);
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE SECRETARIO EXITOSO !");
-                        //this.dispose();
-                        limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
+     
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -603,7 +469,7 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_txtedadsecretariaActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-      ingresarSecretario();  // TODO add your handling code here:
+      RegistroSecretariaController.registrarSecretario(new Secretario(txtiddirector.getText(), txtnom_secretaria.getText(), Integer.parseInt(txtedadsecretaria.getText()), txtci_secretaria.getText(), cmbsexosecretaria.getSelectedItem().toString(), txtcontactosecretaria.getText(), cbmciudadsecretaria.getSelectedItem().toString(), txtDireccion_secretaria.getText()), new Usuario(txtusuariosecretaria.getText(), txtcontraseñasecretaria.getText(), 2));  // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 
     private void txtci_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtci_secretariaActionPerformed
@@ -623,7 +489,7 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_txtiddirectorActionPerformed
 
     private void cbmciudadsecretariaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaItemStateChanged
-        llenarTabla();        // TODO add your handling code here:
+        TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);       // TODO add your handling code here:
     }//GEN-LAST:event_cbmciudadsecretariaItemStateChanged
 
     private void txtci_secretariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_secretariaKeyTyped

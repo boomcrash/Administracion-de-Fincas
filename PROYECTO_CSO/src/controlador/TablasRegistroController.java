@@ -166,4 +166,75 @@ public class TablasRegistroController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    public static void llenarTablaPropietarioByCiudad(JTable tablita,JComboBox combo){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tablita.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+        CallableStatement myCall = null;
+        
+        ResultSet rs=null;
+        try {
+            myCall=(CallableStatement) conexion.prepareCall("{call getPropietariosByCiudad(?)}");
+            myCall.setString(1,combo.getSelectedItem().toString());
+            rs=myCall.executeQuery();
+            
+            modelo.addColumn("id_propietario");
+            modelo.addColumn("nombre");
+            modelo.addColumn("edad");
+            modelo.addColumn("cedula");
+            modelo.addColumn("sexo");
+            modelo.addColumn("contacto");
+            modelo.addColumn("ciudad");
+            modelo.addColumn("direccion");
+            modelo.addColumn("comunidad_id");     
+            
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[9];
+                for(int i=0;i<9;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{myCall.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
+    public static void llenarTablaBanco(JTable tablita){
+        DefaultTableModel modelo =new DefaultTableModel();
+        tablita.setModel(modelo);
+        Conexion connect=new Conexion();
+        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
+    CallableStatement myCall = null;
+        
+        ResultSet rs=null;
+        try {
+            myCall=(CallableStatement) conexion.prepareCall("{call getBancos()}");
+            rs=myCall.executeQuery();
+            modelo.addColumn("id_banco");
+            modelo.addColumn("nombre");
+            modelo.addColumn("direccion");
+            modelo.addColumn("representante");
+            modelo.addColumn("comunidad_id");
+            
+            System.out.println("ejecuta");
+            while(rs.next()){
+                Object fila[]=new Object[5];
+                for(int i=0;i<5;i++){
+                    fila[i]=rs.getObject(i+1);                    
+                }
+                modelo.addRow(fila);
+            }            
+        } catch (SQLException ex) {
+            System.err.println("ERROR");
+        }finally {try{myCall.close();} catch (Exception e){}
+        try{rs.close();} catch (Exception e){}
+        try{conexion.close();} catch (Exception e){}
+        }     
+   }
 }

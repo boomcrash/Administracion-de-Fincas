@@ -5,7 +5,10 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Pago;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroPagoController;
+import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
@@ -31,118 +34,16 @@ public class Registro_Pagos extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
           mostrarnombreventana(jblregistropago);
           this.setSize(1100, 800);
-          llenarTablaPresidente();
-          llenarTablaBanco();
+          TablasRegistroController.llenarTablaPresidente(tblpresidentes);
+          TablasRegistroController.llenarTablaBanco(tblbancos);
     }
+    
   public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
-  
-    public void llenarTablaPresidente(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblpresidentes.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getPresidentes()}");
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_presidente");
-            modelo.addColumn("nombre");
-            modelo.addColumn("edad");
-            modelo.addColumn("cedula");
-            modelo.addColumn("sexo");
-            modelo.addColumn("contacto");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("direccion");
-            modelo.addColumn("comunidad_id");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
-    public void llenarTablaBanco(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblbancos.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-    CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getBancos()}");
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_banco");
-            modelo.addColumn("nombre");
-            modelo.addColumn("direccion");
-            modelo.addColumn("representante");
-            modelo.addColumn("comunidad_id");
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[5];
-                for(int i=0;i<5;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
     
-     public void ingresarPago(){
-        
-        if(!txtcantidad.getText().isEmpty()&&!txadescripcion_pago.getText().isEmpty()&&!txtidpresidente1.getText().isEmpty()
-                &&!txtidbanco.getText().isEmpty()&&!jcdfecha_pago.getDate().toString().isEmpty())
-         {
-            Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putPago(?,?,?,?,?)}");
-                    
-                        myCall.setString(1,jcdfecha_pago.getDate().toString() );
-                        myCall.setString(2,txadescripcion_pago.getText().toString());
-                        myCall.setString(3,txtcantidad.getText().toString());
-                        myCall.setString(4, txtidpresidente1.getText().toString());
-                        myCall.setInt(5,Integer.parseInt(txtidbanco.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE PAGO EXITOSO !");
-                        //this.dispose();
-                        //limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
+     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -455,7 +356,7 @@ public class Registro_Pagos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidpresidente1ActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        ingresarPago();        // TODO add your handling code here:
+        RegistroPagoController.registrarPago(new Pago(txadescripcion_pago.getText(), txtcantidad.getText(), jcdfecha_pago.getDate(), txtidpresidente1.getText(), txtidbanco.getText()));        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));

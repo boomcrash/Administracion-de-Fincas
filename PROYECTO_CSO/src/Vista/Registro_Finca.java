@@ -2,7 +2,10 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Finca;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroFincaController;
+import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -28,79 +31,6 @@ public class Registro_Finca extends javax.swing.JFrame {
                 txtDir_finca.setText("");
                 txtidcomunidad.setText("");
      }
-     public void llenarTabla(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblcomunidad.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getPropietariosByCiudad(?)}");
-            myCall.setString(1,cmbCiudad_finca.getSelectedItem().toString());
-            rs=myCall.executeQuery();
-            
-            modelo.addColumn("id_propietario");
-            modelo.addColumn("nombre");
-            modelo.addColumn("edad");
-            modelo.addColumn("cedula");
-            modelo.addColumn("sexo");
-            modelo.addColumn("contacto");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("direccion");
-            modelo.addColumn("comunidad_id");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
-      public void ingresarFinca(){
-        
-        if(!txtNom_finca.getText().isEmpty()&&!txtDir_finca.getText().isEmpty()&&!txtidcomunidad.getText().isEmpty()
-                &&!cmbCiudad_finca.getSelectedItem().toString().isEmpty()&&!jcdFundacion_finca.getDate().toString().isEmpty())
-         {
-            Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putFinca(?,?,?,?,?)}");
-                    
-                        myCall.setString(1, txtNom_finca.getText().toString());
-                        myCall.setString(2,cmbCiudad_finca.getSelectedItem().toString());
-                        myCall.setString(3,txtDir_finca.getText().toString());
-                        myCall.setString(4, jcdFundacion_finca.getDate().toString());
-                        myCall.setInt(5,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE FINCA EXITOSO !");
-                        //this.dispose();
-                        limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -413,11 +343,11 @@ public class Registro_Finca extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidcomunidadActionPerformed
 
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
-        ingresarFinca();// TODO add your handling code here:
+        RegistroFincaController.registrarFinca(new Finca(txtNom_finca.getText(), cmbCiudad_finca.getSelectedItem().toString(), txtDir_finca.getText(), jcdFundacion_finca.getDate(), txtidcomunidad.getText()));// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
     private void cmbCiudad_fincaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCiudad_fincaItemStateChanged
-        llenarTabla();        // TODO add your handling code here:
+        TablasRegistroController.llenarTablaPropietarioByCiudad(tblcomunidad,cmbCiudad_finca);     // TODO add your handling code here:
     }//GEN-LAST:event_cmbCiudad_fincaItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

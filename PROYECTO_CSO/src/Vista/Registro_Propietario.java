@@ -5,7 +5,10 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Propietario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroPropietarioController;
+import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.awt.Color;
 import java.sql.Connection;
@@ -31,7 +34,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
         initComponents();
          this.setLocationRelativeTo(null);
         mostrarnombreventana(jblregistropropietario);
-        llenarTabla();
+        TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
      public void mostrarnombreventana(JLabel j){
         String formulario = getClass().getSimpleName();
@@ -46,82 +49,8 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 txtcontactopropietario.setText("");
                 txtDireccion_propietario.setText("");
      }
-     public void llenarTabla(){
-        DefaultTableModel modelo =new DefaultTableModel();
-        tblcomunidad.setModel(modelo);
-        Conexion connect=new Conexion();
-        com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
-        CallableStatement myCall = null;
-        
-        ResultSet rs=null;
-        try {
-            myCall=(CallableStatement) conexion.prepareCall("{call getPropietariosByCiudad(?)}");
-            myCall.setString(1,cbmciudadsecretaria.getSelectedItem().toString());
-            rs=myCall.executeQuery();
-            modelo.addColumn("id_comunidad");
-            modelo.addColumn("nombre");
-            modelo.addColumn("ciudad");
-            modelo.addColumn("canton");
-            modelo.addColumn("fecha_fundacion");
-            modelo.addColumn("direccion");
-            modelo.addColumn("referencia");
-            modelo.addColumn("descripcion");
-            modelo.addColumn("estado");     
-            
-            
-            System.out.println("ejecuta");
-            while(rs.next()){
-                Object fila[]=new Object[9];
-                for(int i=0;i<9;i++){
-                    fila[i]=rs.getObject(i+1);                    
-                }
-                modelo.addRow(fila);
-            }            
-        } catch (SQLException ex) {
-            System.err.println("ERROR");
-        }finally {try{myCall.close();} catch (Exception e){}
-        try{rs.close();} catch (Exception e){}
-        try{conexion.close();} catch (Exception e){}
-        }     
-   }
-      public void ingresarPropietario(){
-        
-        if(!txtnom_propietario.getText().isEmpty()&&!txtcontactopropietario.getText().isEmpty()&&!txtedadpropietario.getText().isEmpty()
-                &&!cmbsexopropietario.getSelectedItem().toString().isEmpty()&&!txtci_propietario.getText().isEmpty() && txtci_propietario.getText().length()==10
-                &&!txtidcomunidad.getText().isEmpty()&&!cbmciudadsecretaria.getSelectedItem().toString().isEmpty()
-                &&!txtcontactopropietario.getText().toString().isEmpty()&&!txtDireccion_propietario.getText().toString().isEmpty())
-         {
-            Conexion conect= new Conexion();
-       Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putPropietario(?,?,?,?,?,?,?,?)}");
-                        myCall.setString(1, txtnom_propietario.getText().toString());
-                        myCall.setInt(2,Integer.parseInt(txtedadpropietario.getText().toString()));
-                        myCall.setString(3,txtci_propietario.getText().toString());
-                        myCall.setString(4, cmbsexopropietario.getSelectedItem().toString());
-                        myCall.setString(5, txtcontactopropietario.getText().toString());
-                        myCall.setString(6,cbmciudadsecretaria.getSelectedItem().toString());
-                        myCall.setString(7,txtDireccion_propietario.getText().toString());
-                        myCall.setInt(8,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE PROPIETARIO EXITOSO !");
-                        //this.dispose();
-                        limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
+    
+      
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -497,7 +426,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
     }//GEN-LAST:event_cbmciudadsecretariaActionPerformed
 
     private void btnRegistrar_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_propietarioActionPerformed
-        ingresarPropietario();// TODO add your handling code here:
+        RegistroPropietarioController.registrarPropietario(new Propietario(txtidcomunidad.getText(), txtnom_propietario.getText(), Integer.parseInt(txtedadpropietario.getText()), txtci_propietario.getText(), cmbsexopropietario.getSelectedItem().toString(), txtcontactopropietario.getText(), txtDireccion_propietario.getText(), cbmciudadsecretaria.getSelectedItem().toString()));// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_propietarioActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));
@@ -528,7 +457,7 @@ j1.setBackground(new Color(153,0,0));
     }//GEN-LAST:event_tblcomunidadMouseClicked
 
     private void cbmciudadsecretariaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaItemStateChanged
-        llenarTabla();// TODO add your handling code here:
+        TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);// TODO add your handling code here:
     }//GEN-LAST:event_cbmciudadsecretariaItemStateChanged
 
     private void txtci_propietarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_propietarioKeyTyped

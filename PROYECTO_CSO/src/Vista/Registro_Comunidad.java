@@ -2,7 +2,10 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Comunidad;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroCobrosController;
+import controlador.RegistroComunidadController;
 import controlador.VentanasController;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -30,43 +33,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         txaRef_comunidad.setText("");
         txaDescripcion_comunidad.setText("");
    }
-
-   public void ingresarComunidad(){
-    if(!txtNom_comunidad.getText().isEmpty()&&!txtDir_comunidad.getText().isEmpty()&&!txaRef_comunidad.getText().isEmpty()&&!txaDescripcion_comunidad.getText().isEmpty())
-     {
-        Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putComunidad(?,?,?,?,?,?,?,?)}");
-                    
-                    myCall.setString(1, txtNom_comunidad.getText().toString());
-                    myCall.setString(2, cmbCiudad_comunidad.getSelectedItem().toString());
-                    myCall.setString(3,cmbCanton_comunidad.getSelectedItem().toString());
-                    myCall.setString(4, jcdFundacion_comunidad.getDate().toString());
-                    myCall.setString(5, txtDir_comunidad.getText().toString());
-                    myCall.setString(6,txaRef_comunidad.getText().toString());
-                    myCall.setString(7,txaDescripcion_comunidad.getText().toString());
-                    myCall.setString(8,"A".toString());
-                    myCall.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "REGISTRO DE COMUNIDAD EXITOSO !");
-                    //this.dispose();
-                    limpiar();   
-         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
-         }finally {
-                try{myCall.close();} catch (Exception e){}
-                try{conexion.close();} catch (Exception e){}
-        }
-          /*panel.removeAll();
-        panel.repaint();
-        limpiar();*/
-     }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-        
-   }
-       
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -443,7 +410,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
-    ingresarComunidad();        // TODO add your handling code here:
+        RegistroComunidadController.registrarComunidad(new Comunidad(txtNom_comunidad.getText(),cmbCiudad_comunidad.getSelectedItem().toString(),cmbCanton_comunidad.getSelectedItem().toString(),jcdFundacion_comunidad.getDate(),txtDir_comunidad.getText(),txaRef_comunidad.getText(),txaDescripcion_comunidad.getText(),"A"));       // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
     private void txtNom_comunidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNom_comunidadKeyTyped

@@ -5,7 +5,9 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Cobros;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroCobrosController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.awt.Color;
@@ -42,41 +44,7 @@ public class Registro_Cobros extends javax.swing.JFrame {
        j.setText(formulario.replace("_", " "));
      }
  
-     public void ingresarCobro(){
-        
-        if(!txadescripcion_cobro.getText().isEmpty()&&!txtcantidadcobro.getText().isEmpty()&&!txtidpropietario1.getText().isEmpty()
-                &&!txtidpresidente.getText().isEmpty()&&!jdcfechacobro.getDate().toString().isEmpty()&&!jdcfechavence.getDate().toString().isEmpty())
-         {
-            Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putCobro(?,?,?,?,?,?)}");
-                    
-                        myCall.setString(1,jdcfechacobro.getDate().toString() );
-                        myCall.setString(2,jdcfechavence.getDate().toString() );
-                        myCall.setString(3,txadescripcion_cobro.getText().toString());
-                        myCall.setString(4, txtcantidadcobro.getText().toString());
-                        myCall.setInt(5,Integer.parseInt(txtidpropietario1.getText().toString()));
-                        myCall.setInt(6,Integer.parseInt(txtidpresidente.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE COBRO EXITOSO !");
-                        //this.dispose();
-                        //limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -397,7 +365,7 @@ public class Registro_Cobros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidpropietario1ActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        ingresarCobro();        // TODO add your handling code here:
+    RegistroCobrosController.registrarCobro(new Cobros(txadescripcion_cobro.getText().toString(),txtcantidadcobro.getText().toString(),jdcfechacobro.getDate().toString(),jdcfechavence.getDate().toString(),txtidpropietario1.getText().toString(),txtidpresidente.getText().toString()));            // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(255,51,51));

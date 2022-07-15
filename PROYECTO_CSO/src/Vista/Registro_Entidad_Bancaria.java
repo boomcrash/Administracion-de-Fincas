@@ -2,7 +2,9 @@
 package Vista;
 
 import Conexion.Conexion;
+import Modelo.Banco;
 import com.mysql.jdbc.CallableStatement;
+import controlador.RegistroBancoController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
 import java.sql.Connection;
@@ -32,39 +34,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
                 txtidcomunidad.setText("");
      }
 
-      public void ingresarBanco(){
-        
-        if(!txtNom_EntBancaria.getText().isEmpty()&&!txtDir_EntBancaria.getText().isEmpty()&&!txtRepresentante_EntBancaria.getText().isEmpty()
-                &&!txtidcomunidad.getText().isEmpty())
-         {
-            Conexion conect= new Conexion();
-        Connection conexion=(Connection) conect.getconection();
-         
-        CallableStatement myCall = null;
-        
-        try {
-                    myCall=(CallableStatement) conexion.prepareCall("{call putBanco(?,?,?,?)}");
-                    
-                        myCall.setString(1, txtNom_EntBancaria.getText().toString());
-                        myCall.setString(2,txtDir_EntBancaria.getText().toString());
-                        myCall.setString(3, txtRepresentante_EntBancaria.getText().toString());
-                        myCall.setInt(4,Integer.parseInt(txtidcomunidad.getText().toString()));
-                        myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE BANCO EXITOSO !");
-                        //this.dispose();
-                        limpiar();   
-             } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
-             }finally {
-                    try{myCall.close();} catch (Exception e){}
-                    try{conexion.close();} catch (Exception e){}
-            }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-
-    }
+      
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -346,7 +316,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidcomunidadActionPerformed
 
     private void btnRegistrar_EntBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_EntBancariaActionPerformed
-    ingresarBanco();        // TODO add your handling code here:
+    RegistroBancoController.registrarBanco(new Banco(txtNom_EntBancaria.getText(),txtDir_EntBancaria.getText(),txtRepresentante_EntBancaria.getText(),txtidcomunidad.getText()));        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_EntBancariaActionPerformed
 
     private void txtRepresentante_EntBancariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRepresentante_EntBancariaKeyTyped

@@ -54,7 +54,7 @@ public class LoginController {
                                  id_Usuario=Integer.parseInt(id);
                         }
                         VentanasController.cerrarLogin();
-                        VentanasController.abrirSubmenuRegistro();
+                        VentanasController.abrirInicio();
                         new Inicio().setVisible(true);
                      }catch(Exception e){
                          System.out.println("ERROR DE CONSULTA");
