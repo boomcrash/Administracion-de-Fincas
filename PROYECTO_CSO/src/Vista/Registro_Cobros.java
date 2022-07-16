@@ -7,6 +7,7 @@ package Vista;
 import Conexion.Conexion;
 import Modelo.Cobros;
 import com.mysql.jdbc.CallableStatement;
+import controlador.CamposController;
 import controlador.RegistroCobrosController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
@@ -26,6 +27,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Registro_Cobros extends javax.swing.JFrame {
     int id_pro=0,id_pre=0;
+    CamposController campo = new CamposController();
     /**
      * Creates new form Registro_Cobros
      */
@@ -33,16 +35,13 @@ public class Registro_Cobros extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(1100, 800);
-        mostrarnombreventana(jblregistrocobros);
+       campo. mostrarnombreventana(jblregistrocobros);
         TablasRegistroController.llenarTablaPropietario(tblpropietario);
         TablasRegistroController.llenarTablaPresidente(tblpresidentes);
         //llenarTablaPropietario();
         //llenarTablaPresidente();
     }
- public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario.replace("_", " "));
-     }
+ 
  
     
     /**

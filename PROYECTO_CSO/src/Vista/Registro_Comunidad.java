@@ -4,6 +4,7 @@ package Vista;
 import Conexion.Conexion;
 import Modelo.Comunidad;
 import com.mysql.jdbc.CallableStatement;
+import controlador.CamposController;
 import controlador.RegistroCobrosController;
 import controlador.RegistroComunidadController;
 import controlador.VentanasController;
@@ -16,7 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Registro_Comunidad extends javax.swing.JFrame {
-
+CamposController campo = new CamposController();
     public Registro_Comunidad() {
         initComponents();
             this.setLocationRelativeTo(null);
@@ -26,13 +27,6 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         String formulario = getClass().getSimpleName();
        j.setText(formulario.replace("_", " "));
      }
-   
-   public void limpiar(){
-        txtNom_comunidad.setText("");
-        txtDir_comunidad.setText("");
-        txaRef_comunidad.setText("");
-        txaDescripcion_comunidad.setText("");
-   }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -70,12 +64,12 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setBackground(new java.awt.Color(45, 106, 79));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -90,9 +84,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(45, 106, 79));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -102,9 +96,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 100, 40));
 
-        jButton1.setBackground(new java.awt.Color(45, 106, 79));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -114,9 +108,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 100, 40));
 
-        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -126,9 +120,9 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 0, 100, 40));
 
-        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -140,7 +134,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
-        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setText("CANTÓN:");
@@ -231,7 +225,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         lblregistrocomunidad.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
 
         lblRegistro_comunidad.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        lblRegistro_comunidad.setForeground(new java.awt.Color(8, 28, 21));
+        lblRegistro_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         lblRegistro_comunidad.setText("REGISTRO DE COMUNIDAD");
 
         javax.swing.GroupLayout jpanelbackgroundLayout = new javax.swing.GroupLayout(jpanelbackground);
@@ -390,7 +384,8 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
-        RegistroComunidadController.registrarComunidad(new Comunidad(txtNom_comunidad.getText(),cmbCiudad_comunidad.getSelectedItem().toString(),cmbCanton_comunidad.getSelectedItem().toString(),jcdFundacion_comunidad.getDate(),txtDir_comunidad.getText(),txaRef_comunidad.getText(),txaDescripcion_comunidad.getText(),"A"));       // TODO add your handling code here:
+        RegistroComunidadController.registrarComunidad(new Comunidad(txtNom_comunidad.getText(),cmbCiudad_comunidad.getSelectedItem().toString(),cmbCanton_comunidad.getSelectedItem().toString(),jcdFundacion_comunidad.getDate(),txtDir_comunidad.getText(),txaRef_comunidad.getText(),txaDescripcion_comunidad.getText(),"A")); 
+      campo.limpiar(jpanelbackground);
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
     private void txtNom_comunidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNom_comunidadKeyTyped

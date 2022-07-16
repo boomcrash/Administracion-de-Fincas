@@ -40,7 +40,7 @@ public class RegistroComunidadController {
                     myCall.executeUpdate();
                     JOptionPane.showMessageDialog(null, "REGISTRO DE COMUNIDAD EXITOSO !");
                     //this.dispose();
-                    //limpiar();   
+                   //limpiar();   
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
          }finally {

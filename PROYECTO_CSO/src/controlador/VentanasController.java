@@ -69,11 +69,5 @@ public class VentanasController {
     public static void abrirSubmenuRegistro(){ventanaSubmenu_Registro.setVisible(true);}
     public static void cerrarSubmenuRegistro(){ventanaSubmenu_Registro.setVisible(false);}
     
-    public void limpiar(JPanel panel){
-        for(Object o : panel.getComponents()) {
-            if(o instanceof JTextField){
-                 ((JTextField) o).setText(" ");
-            }
-        }
-    }
+   
 }
