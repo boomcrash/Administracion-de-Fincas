@@ -408,7 +408,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
     private javax.swing.JButton btnRegistrar_finca;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JComboBox<String> cmbCanton_comunidad;
-    private javax.swing.JComboBox<String> cmbCiudad_comunidad;
+    public javax.swing.JComboBox<String> cmbCiudad_comunidad;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

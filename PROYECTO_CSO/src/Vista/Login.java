@@ -65,8 +65,6 @@ public class Login extends javax.swing.JFrame {
         jblUser.setText("Usuario");
         jPanel2.add(jblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        txtUser.setBackground(new java.awt.Color(255, 255, 255));
-        txtUser.setForeground(new java.awt.Color(0, 0, 0));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -76,7 +74,6 @@ public class Login extends javax.swing.JFrame {
 
         btnLogin.setBackground(new java.awt.Color(204, 255, 255));
         btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnLogin.setText("INICIAR SESIÓN");
         btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -98,14 +95,10 @@ public class Login extends javax.swing.JFrame {
         jblpassword.setForeground(new java.awt.Color(8, 28, 21));
         jblpassword.setText("Contraseña");
         jPanel2.add(jblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
-
-        txtpassword.setBackground(new java.awt.Color(255, 255, 255));
-        txtpassword.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 390, 40));
 
         btnrestaurarpwd.setBackground(new java.awt.Color(204, 255, 255));
         btnrestaurarpwd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnrestaurarpwd.setForeground(new java.awt.Color(0, 0, 0));
         btnrestaurarpwd.setText("Restaurar contraseña");
         btnrestaurarpwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnrestaurarpwd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,7 +176,7 @@ j1.setBackground(new Color(204,255,255));
     private javax.swing.JLabel jbliconlogin;
     private javax.swing.JLabel jblpassword;
     private javax.swing.JPanel jpanelbackground;
-    private javax.swing.JTextField txtUser;
-    private javax.swing.JPasswordField txtpassword;
+    public javax.swing.JTextField txtUser;
+    public javax.swing.JPasswordField txtpassword;
     // End of variables declaration//GEN-END:variables
 }
