@@ -13,10 +13,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de Comunidad
  * @author GAMER
  */
 public class RegistroComunidadController {
+    /**
+     * metodo encargado de registrar las comunidades en la abse de datos recibiendo como parametro comunidad
+     * @param comunidad objeto de la clase Comunidad
+     */
     public static void registrarComunidad(Comunidad comunidad){
     if(!comunidad.getNombre().isEmpty()&&!comunidad.getDireccion().isEmpty()&&!comunidad.getReferencia().isEmpty()&&!comunidad.getDescripcion().isEmpty()&&
             !comunidad.getAñodefundacion().toString().isEmpty()&&!comunidad.getCiudad().isEmpty()&&!comunidad.getCanton().isEmpty())

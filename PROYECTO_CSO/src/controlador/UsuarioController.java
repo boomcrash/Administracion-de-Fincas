@@ -14,10 +14,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro y consulta de Usuario
  * @author GAMER
  */
 public class UsuarioController {
+    /**
+     * metodo que se encarga de consultar a los usuarios recibiendo como parametro un objeto de Usuario y retornando el id de  usuario
+     * @param user objeto de Usuario
+     * @return id de usuario
+     */
         public static int consultarUsuario(Usuario user){
             int id=0;
             Conexion conect= new Conexion();
@@ -46,7 +51,11 @@ public class UsuarioController {
            return id;
 
         }
-        
+        /**
+         * metodo que registra a los usuarios en la base de datos recibiendo como parametro un objeto de Usuario y retornando user de consultar usuario
+         * @param user objeto de Usuario
+         * @return  consultar usuario (user)
+         */
         public static int registrarUsuario(Usuario user){
             if(!user.getUsuario().isEmpty()&&!user.getContraseña().isEmpty())
             {

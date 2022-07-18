@@ -1,5 +1,6 @@
 
 package Vista;
+import controlador.CamposController;
 import controlador.VentanasController;
 import java.awt.Color;
 import javax.swing.JButton;
@@ -14,17 +15,14 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
-
+CamposController campo = new CamposController();
     public Inicio() {
+        
         initComponents();
         this.setLocationRelativeTo(null);
-        mostrarnombreventana(jblWindow);
+       campo.mostrarnombreventana(jblWindow);
     }
     
-    public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario);
-   }
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -47,12 +45,13 @@ public class Inicio extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnConsultas.setBackground(new java.awt.Color(45, 106, 79));
+        btnConsultas.setBackground(new java.awt.Color(255, 255, 255));
         btnConsultas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnConsultas.setForeground(new java.awt.Color(255, 255, 255));
+        btnConsultas.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultas.setText("CONSULTAS");
         btnConsultas.setBorder(null);
         btnConsultas.addActionListener(new java.awt.event.ActionListener() {
@@ -62,9 +61,9 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(btnConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 100, 40));
 
-        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -74,16 +73,11 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(45, 106, 79));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -91,9 +85,9 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(45, 106, 79));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -103,9 +97,9 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 100, 40));
 
-        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -117,19 +111,19 @@ public class Inicio extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
-        jPanel2.setBackground(new java.awt.Color(216, 243, 220));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jblWindow.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jPanel2.add(jblWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 80, 20));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Usted se encuentra en:");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BIENVENIDO!.");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 470, 70));
 
@@ -193,21 +187,12 @@ this.setVisible(true);
 }
     }//GEN-LAST:event_btnClose_SesionActionPerformed
 
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-
-    }//GEN-LAST:event_jButton3MouseEntered
-public void setColor(JButton j){
-j.setBackground(new Color(153,0,0)); 
-}
-public void resetColor(JButton j1){
-j1.setBackground(new Color(255,51,51));
-}
     private void btnClose_SesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClose_SesionMouseEntered
-        setColor(btnClose_Sesion);
+   campo.setColor(btnClose_Sesion);
     }//GEN-LAST:event_btnClose_SesionMouseEntered
 
     private void btnClose_SesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClose_SesionMouseExited
-        resetColor(btnClose_Sesion);
+    campo.resetColor(btnClose_Sesion);
     }//GEN-LAST:event_btnClose_SesionMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

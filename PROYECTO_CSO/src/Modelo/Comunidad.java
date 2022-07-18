@@ -2,7 +2,7 @@
 package Modelo;
 import java.util.Date;
 /**
- * 
+*clase Cobros representa los cobros que se van a registrar en el sistema
  * @author User
  */
 public class Comunidad {

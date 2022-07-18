@@ -4,6 +4,7 @@ package Vista;
 import Conexion.Conexion;
 import Modelo.Finca;
 import com.mysql.jdbc.CallableStatement;
+import controlador.CamposController;
 import controlador.RegistroFincaController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
@@ -17,15 +18,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Finca extends javax.swing.JFrame {
     int id_com=0;
+    CamposController campo = new CamposController();
     public Registro_Finca() {
         initComponents();
           this.setLocationRelativeTo(null);
-        mostrarnombreventana(jblregistrofinca);
+        campo.mostrarnombreventana(jblregistrofinca);
     }
-  public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario.replace("_", " "));
-     }
+    
          public void limpiar(){
                 txtNom_finca.setText("");
                 txtDir_finca.setText("");
@@ -60,16 +59,20 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtDir_finca = new javax.swing.JTextField();
         jblregistrofinca = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(45, 106, 79));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -79,9 +82,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
 
-        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -91,9 +94,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(45, 106, 79));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,9 +111,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(45, 106, 79));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -120,9 +123,9 @@ public class Registro_Finca extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
 
-        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -138,15 +141,17 @@ public class Registro_Finca extends javax.swing.JFrame {
         jLabel10.setText("Usted se encuentra en:");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
-        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
+        jpanelbackground.setForeground(new java.awt.Color(0, 0, 0));
         jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("REGISTRO DE FINCA");
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 520, 50));
 
-        tblcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        tblcomunidad.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)), null));
         tblcomunidad.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
         tblcomunidad.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -263,6 +268,15 @@ public class Registro_Finca extends javax.swing.JFrame {
         jblregistrofinca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jpanelbackground.add(jblregistrofinca, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 270, 20));
 
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, -1, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 300px.png"))); // NOI18N
+        jpanelbackground.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 670, 100, 90));
+
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
         pack();
@@ -347,6 +361,9 @@ public class Registro_Finca extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

@@ -4,6 +4,7 @@ package Vista;
 import Conexion.Conexion;
 import Modelo.Presidente;
 import com.mysql.jdbc.CallableStatement;
+import controlador.CamposController;
 import controlador.RegistroPresidenteController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
@@ -22,17 +23,16 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Presidente extends javax.swing.JFrame {
     int id_com=0;
+    
     public Registro_Presidente() {
+        CamposController campo = new CamposController();
         initComponents();
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cmbCiudad_presidente);
         this.setLocationRelativeTo(null);
-        mostrarnombreventana(jblRegistropresidente);
+        campo.mostrarnombreventana(jblRegistropresidente);
+        
     }
-     public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario.replace("_", " "));
-     }
-     
+   
      public void limpiar(){
                 txtnom_presidente.setText("");
                 txtci_presidente.setText("");
@@ -77,20 +77,26 @@ public class Registro_Presidente extends javax.swing.JFrame {
         txtidcomunidad = new javax.swing.JTextField();
         btnRegistrar_presidente = new javax.swing.JButton();
         btnCancelar_registro_presidente = new javax.swing.JButton();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
+        jpanelbackground.setForeground(new java.awt.Color(0, 0, 0));
         jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("REGISTRO DEL PRESIDENTE");
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 720, 50));
 
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("DE LA COMUNIDAD");
         jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 500, 50));
 
@@ -181,12 +187,13 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jLabel12.setText("EDAD:");
         jpanelbackground.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(116, 325, -1, 30));
 
-        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(45, 106, 79));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -196,9 +203,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
 
-        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -208,9 +215,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(45, 106, 79));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -225,9 +232,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(45, 106, 79));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -237,9 +244,9 @@ public class Registro_Presidente extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
 
-        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -341,6 +348,15 @@ public class Registro_Presidente extends javax.swing.JFrame {
             }
         });
         jpanelbackground.add(btnCancelar_registro_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(679, 721, 160, 40));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 300px.png"))); // NOI18N
+        jpanelbackground.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 640, 100, 90));
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, -1, -1));
 
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
@@ -471,11 +487,14 @@ resetColor(btnCancelar_registro_presidente);
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

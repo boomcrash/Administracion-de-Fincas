@@ -40,6 +40,7 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         jpanelbackground = new javax.swing.JPanel();
+        jLabel14 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jblUser = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
@@ -49,22 +50,31 @@ public class Login extends javax.swing.JFrame {
         btnrestaurarpwd = new javax.swing.JButton();
         jbliconlogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpanelbackground.setBackground(new java.awt.Color(27, 67, 50));
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
         jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel2.setBackground(new java.awt.Color(216, 243, 220));
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 100, 90));
+
+        jPanel2.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jblUser.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jblUser.setForeground(new java.awt.Color(8, 28, 21));
+        jblUser.setForeground(new java.awt.Color(0, 0, 0));
         jblUser.setText("Usuario");
         jPanel2.add(jblUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
+        txtUser.setBackground(new java.awt.Color(255, 255, 255));
+        txtUser.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
@@ -72,8 +82,9 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 390, 40));
 
-        btnLogin.setBackground(new java.awt.Color(204, 255, 255));
-        btnLogin.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnLogin.setBackground(new java.awt.Color(0, 0, 0));
+        btnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
         btnLogin.setText("INICIAR SESIÓN");
         btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -92,13 +103,17 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(btnLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, 390, 40));
 
         jblpassword.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jblpassword.setForeground(new java.awt.Color(8, 28, 21));
+        jblpassword.setForeground(new java.awt.Color(0, 0, 0));
         jblpassword.setText("Contraseña");
         jPanel2.add(jblpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, -1, -1));
+
+        txtpassword.setBackground(new java.awt.Color(255, 255, 255));
+        txtpassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 390, 40));
 
-        btnrestaurarpwd.setBackground(new java.awt.Color(204, 255, 255));
+        btnrestaurarpwd.setBackground(new java.awt.Color(0, 0, 0));
         btnrestaurarpwd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnrestaurarpwd.setForeground(new java.awt.Color(255, 255, 255));
         btnrestaurarpwd.setText("Restaurar contraseña");
         btnrestaurarpwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnrestaurarpwd.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -120,13 +135,25 @@ public class Login extends javax.swing.JFrame {
         jPanel2.add(jbliconlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 70, 120));
 
         jLabel2.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("INICIAR SESIÓN");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 310, 50));
 
-        jpanelbackground.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 450, 490));
+        jpanelbackground.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 450, 490));
 
-        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 599));
+        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -10, -1, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 420, -1, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 230, -1, -1));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 430, 100, 90));
+
+        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 610));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -170,6 +197,11 @@ j1.setBackground(new Color(204,255,255));
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnrestaurarpwd;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jblUser;

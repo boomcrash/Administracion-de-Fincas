@@ -13,10 +13,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de Presidente
  * @author GAMER
  */
 public class RegistroPresidenteController {
+    /**
+     * metodo que se encarga de registrar a los presidentes en la abse de datos recibiendo como parametro un objeto de la clase Presidente
+     * @param presidente objeto de la clase presidente
+     */
     public static void registrarPresidente(Presidente presidente){
         
         if(!presidente.getNombre().isEmpty()&&!presidente.getCedula().isEmpty() && presidente.getCedula().length()==10 &&!String.valueOf(presidente.getEdad()).isEmpty()

@@ -15,13 +15,22 @@ import java.sql.SQLException;
  * @author GAMER
  */
 public class ConexionController {
+    /**
+     * atributos de la clase ConexionController  para la conexion a a la base de datos
+     */
     private static String USUARIO = "boomcrash@admfinca";
     private static String CONTRASEÑA = "Camaleon_1";
     private static final String URL="jdbc:mysql://admfinca.mysql.database.azure.com:3306/admFinca?autoReconnet=true&useSSL=true";
     private static Connection  conexion=null;
-    
+    /**
+     * metodo Connection que devuelve el atributo conexion
+     * @return conexion
+     */
     public static Connection getconection()
     {
+        /**
+         *excepcion que  valida la conexion a la base de datos
+         */
         try {
 
             Class.forName("com.mysql.jdbc.Driver");

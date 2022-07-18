@@ -14,10 +14,14 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *clase que controla el contenido de las tabals de los diferentes formularios
  * @author GAMER
  */
 public class TablasRegistroController {
+    /**
+     * metodo que llena la tabla de propietarios recibiendo como parametro un objeto de JTable
+     * @param tablita objeto de JTable
+     */
     public static void llenarTablaPropietario(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -53,6 +57,10 @@ public class TablasRegistroController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    /**
+     * metodo que llena la tabla de presidentes recibiendo como parametro un objeto de JTable
+     * @param tablita objeto de JTable
+     */
     public static void llenarTablaPresidente(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -90,6 +98,11 @@ public class TablasRegistroController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    /**
+     * metodo que llena la tabla de comunidad y el combobox de ciudad recibiendo como parametros un objeto de JTable y un objeto de JComboBox
+     * @param tablita objeto de JTable
+     * @param combo objeto de JComboBox
+     */
     public static void llenarTablaComunidadByCiudad(JTable tablita,JComboBox combo){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -128,6 +141,10 @@ public class TablasRegistroController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    /**
+     * metodo que llena la tabla comunidad recibiendo como parametro un objeto de JTable
+     * @param tablita objeto de JTable
+     */
     public static void llenarTablaComunidad(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -166,6 +183,11 @@ public class TablasRegistroController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    /**
+     * metodo que llena la tabla de comunidad y el combobox de ciudad recibiendo como parametros un objeto de JTable y un objeto de JComboBox 
+     * @param tablita objeto de JTable
+     * @param combo objeto de JComboBBox
+     */
     public static void llenarTablaPropietarioByCiudad(JTable tablita,JComboBox combo){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -205,6 +227,10 @@ public class TablasRegistroController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
+    /**
+     * metodo que llena la tabla de bancos recibiendo como parametro un objeto de JTable
+     * @param tablita objeto de JTable
+     */
     public static void llenarTablaBanco(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);

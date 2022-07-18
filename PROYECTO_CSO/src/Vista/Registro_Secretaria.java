@@ -5,6 +5,7 @@ import Conexion.Conexion;
 import Modelo.Secretario;
 import Modelo.Usuario;
 import com.mysql.jdbc.CallableStatement;
+import controlador.CamposController;
 import controlador.RegistroSecretariaController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
@@ -20,17 +21,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Secretaria extends javax.swing.JFrame {
     int id_com;
+    CamposController campo = new CamposController();
+
     public Registro_Secretaria() {
         initComponents();
          this.setLocationRelativeTo(null);
-        mostrarnombreventana(jblregistrosecretaria);
+        campo.mostrarnombreventana(jblregistrosecretaria);
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
-    public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario.replace("_", " "));
-     }
-    
       
   public void limpiar(){
                 txtnom_secretaria.setText("");
@@ -87,16 +85,20 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         txtiddirector = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
+        jPanel1.setBackground(java.awt.Color.black);
+        jPanel1.setForeground(java.awt.Color.black);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(45, 106, 79));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -106,9 +108,9 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
 
-        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -118,9 +120,9 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(45, 106, 79));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,9 +137,9 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(45, 106, 79));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -147,9 +149,9 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
 
-        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -161,7 +163,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
-        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
         jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -360,10 +362,20 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         jLabel10.setText("COMUNIDAD:");
         jpanelbackground.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(39, 479, -1, -1));
 
+        jLabel1.setBackground(java.awt.Color.black);
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(8, 28, 21));
+        jLabel1.setForeground(java.awt.Color.black);
         jLabel1.setText("REGISTRO SECRETARIO/A");
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(157, 86, 660, 50));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 660, 100, 90));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 300px.png"))); // NOI18N
+        jpanelbackground.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, -1, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 700, -1, -1));
 
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
@@ -495,6 +507,9 @@ j1.setBackground(new Color(153,0,0));
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

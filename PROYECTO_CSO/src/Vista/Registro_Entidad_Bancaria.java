@@ -4,6 +4,7 @@ package Vista;
 import Conexion.Conexion;
 import Modelo.Banco;
 import com.mysql.jdbc.CallableStatement;
+import controlador.CamposController;
 import controlador.RegistroBancoController;
 import controlador.TablasRegistroController;
 import controlador.VentanasController;
@@ -17,16 +18,14 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     int id_com=0;
+    CamposController campo = new CamposController();
     public Registro_Entidad_Bancaria() {
         initComponents();
         this.setLocationRelativeTo(null);
         TablasRegistroController.llenarTablaComunidad(tblcomunidad);
-        mostrarnombreventana(jblRegistroentbancaria);
+        campo.mostrarnombreventana(jblRegistroentbancaria);
     }
-     public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario.replace("_", " "));
-     }
+    
      public void limpiar(){
                 txtNom_EntBancaria.setText("");
                 txtDir_EntBancaria.setText("");
@@ -62,25 +61,24 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         tblcomunidad = new javax.swing.JTable();
         txtidcomunidad = new javax.swing.JTextField();
         lblRegistro_ent_bancaria = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jpanelbackground.setBackground(new java.awt.Color(216, 243, 220));
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
         jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblNom_entidadbancaria.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblNom_entidadbancaria.setForeground(new java.awt.Color(0, 0, 0));
         lblNom_entidadbancaria.setText("NOMBRE DE LA ENTIDAD BANCARIA:");
         jpanelbackground.add(lblNom_entidadbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 220, -1, 20));
 
         lblrepresentante_entbancaria.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        lblrepresentante_entbancaria.setForeground(new java.awt.Color(0, 0, 0));
         lblrepresentante_entbancaria.setText("REPRESENTANTE DE LA ENTIDAD BANCARIA:");
         jpanelbackground.add(lblrepresentante_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(64, 323, -1, 20));
 
-        txtNom_EntBancaria.setBackground(java.awt.Color.white);
-        txtNom_EntBancaria.setForeground(new java.awt.Color(0, 0, 0));
         txtNom_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,8 +87,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jpanelbackground.add(txtNom_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 221, 300, 20));
 
-        txtRepresentante_EntBancaria.setBackground(java.awt.Color.white);
-        txtRepresentante_EntBancaria.setForeground(new java.awt.Color(0, 0, 0));
         txtRepresentante_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtRepresentante_EntBancaria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
@@ -100,16 +96,15 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jpanelbackground.add(txtRepresentante_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 324, 300, 20));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("DIRECCIÓN:");
         jpanelbackground.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 268, -1, 20));
 
-        jPanel1.setBackground(new java.awt.Color(8, 28, 21));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(45, 106, 79));
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(null);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -119,9 +114,9 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 100, 40));
 
-        btnInicio.setBackground(new java.awt.Color(45, 106, 79));
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(255, 255, 255));
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -131,9 +126,9 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(45, 106, 79));
+        jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
         jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -148,9 +143,9 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(45, 106, 79));
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
         jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(255, 255, 255));
+        jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -160,9 +155,9 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 100, 40));
 
-        btnRegistro.setBackground(new java.awt.Color(45, 106, 79));
+        btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -174,8 +169,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
 
         jpanelbackground.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
-        txtDir_EntBancaria.setBackground(java.awt.Color.white);
-        txtDir_EntBancaria.setForeground(new java.awt.Color(0, 0, 0));
         txtDir_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jpanelbackground.add(txtDir_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 269, 300, 20));
 
@@ -202,7 +195,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jpanelbackground.add(btnCancelar_registro_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 728, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Usted se encuentra en:");
         jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
@@ -210,7 +202,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jpanelbackground.add(jblRegistroentbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 230, 20));
 
         jLabel1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("COMUNIDAD:");
         jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(193, 392, -1, 20));
 
@@ -242,9 +233,7 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 435, 730, 230));
 
-        txtidcomunidad.setBackground(java.awt.Color.white);
         txtidcomunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
-        txtidcomunidad.setForeground(new java.awt.Color(0, 0, 0));
         txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtidcomunidad.setEnabled(false);
@@ -256,9 +245,18 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         jpanelbackground.add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 387, 60, 30));
 
         lblRegistro_ent_bancaria.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
-        lblRegistro_ent_bancaria.setForeground(new java.awt.Color(8, 28, 21));
+        lblRegistro_ent_bancaria.setForeground(new java.awt.Color(0, 0, 0));
         lblRegistro_ent_bancaria.setText("REGISTRO ENTIDAD BANCARIA");
         jpanelbackground.add(lblRegistro_ent_bancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(94, 98, 792, 50));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 300px.png"))); // NOI18N
+        jpanelbackground.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, -1, -1));
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, -1, -1));
+
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 670, 100, 90));
 
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
@@ -335,6 +333,9 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;

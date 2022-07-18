@@ -20,7 +20,12 @@ import javax.swing.JTextField;
  * @author GAMER
  */
 public class LoginController {
-    
+    /**
+     * metodo iniciarSesion que recibe como parametros user, user2 que es el nombre de usuario y pass que es la contraseña del usuario de los textfield del formulario login
+     * @param user objeto de la clase usuario
+     * @param user2 objeto de la clase JTextField
+     * @param pass objeto de la clase JTextField
+     */
      public static void iniciarSesion(Usuario user,JTextField user2,JTextField pass){
         if(user.getUsuario().isEmpty()){
             user2.setBackground(Color.red);
@@ -32,7 +37,7 @@ public class LoginController {
             Conexion conect= new Conexion();
             com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
             CallableStatement myCall = null;
-
+            
             ResultSet dato=null;
             try {
                 myCall=(CallableStatement) conexion2.prepareCall("{call getUserByUserAndPassword(?,?)}");

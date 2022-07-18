@@ -13,11 +13,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de Propietario 
  * @author GAMER
  */
 public class RegistroPropietarioController {
-    
+    /**
+     * metodo encargado de registrar a ls propietarios en la base de datos recibiendo como parametro un objeto de la clase Propietario
+     * @param propietario  objeto de la clase Propietario
+     */
     public static void registrarPropietario(Propietario propietario){
         
         if(!propietario.getNombre().isEmpty()&&!propietario.getContacto().isEmpty()&&!String.valueOf(propietario.getEdad()).isEmpty()

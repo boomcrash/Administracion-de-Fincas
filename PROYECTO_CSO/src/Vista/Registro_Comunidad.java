@@ -21,12 +21,8 @@ CamposController campo = new CamposController();
     public Registro_Comunidad() {
         initComponents();
             this.setLocationRelativeTo(null);
-        mostrarnombreventana(lblregistrocomunidad);
+        campo.mostrarnombreventana(lblregistrocomunidad);
     }
-   public void mostrarnombreventana(JLabel j){
-        String formulario = getClass().getSimpleName();
-       j.setText(formulario.replace("_", " "));
-     }
    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -60,6 +56,9 @@ CamposController campo = new CamposController();
         jLabel13 = new javax.swing.JLabel();
         lblregistrocomunidad = new javax.swing.JLabel();
         lblRegistro_comunidad = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -135,15 +134,19 @@ CamposController campo = new CamposController();
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
         jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
+        jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setText("CANTÓN:");
+        jpanelbackground.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 310, -1, 20));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("NOMBRE:");
+        jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 149, -1, 20));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel7.setText("CIUDAD:");
+        jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 232, -1, 20));
 
         txtNom_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtNom_comunidad.addActionListener(new java.awt.event.ActionListener() {
@@ -156,6 +159,7 @@ CamposController campo = new CamposController();
                 txtNom_comunidadKeyTyped(evt);
             }
         });
+        jpanelbackground.add(txtNom_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 210, 20));
 
         cmbCiudad_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayaquil", "machala", "quevedo" }));
         cmbCiudad_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -164,17 +168,22 @@ CamposController campo = new CamposController();
                 cmbCiudad_comunidadActionPerformed(evt);
             }
         });
+        jpanelbackground.add(cmbCiudad_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 233, 140, 20));
 
         cmbCanton_comunidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "guayas", "el oro", "los rios" }));
         cmbCanton_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelbackground.add(cmbCanton_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 311, 140, 20));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setText("FECHA DE FUNDACIÓN:");
+        jpanelbackground.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 407, -1, 20));
 
         jcdFundacion_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jpanelbackground.add(jcdFundacion_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(233, 418, -1, 140));
 
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel9.setText("DIRECCIÓN:");
+        jpanelbackground.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 149, -1, 20));
 
         txtDir_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtDir_comunidad.addActionListener(new java.awt.event.ActionListener() {
@@ -182,9 +191,11 @@ CamposController campo = new CamposController();
                 txtDir_comunidadActionPerformed(evt);
             }
         });
+        jpanelbackground.add(txtDir_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 150, 210, 20));
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel11.setText("DESCRIPCIÓN :");
+        jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 310, -1, 20));
 
         btnRegistrar_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnRegistrar_finca.setForeground(new java.awt.Color(0, 0, 51));
@@ -195,6 +206,7 @@ CamposController campo = new CamposController();
                 btnRegistrar_fincaActionPerformed(evt);
             }
         });
+        jpanelbackground.add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 729, 170, 40));
 
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         btnCancelar_registro_finca.setForeground(new java.awt.Color(153, 0, 0));
@@ -205,132 +217,46 @@ CamposController campo = new CamposController();
                 btnCancelar_registro_fincaActionPerformed(evt);
             }
         });
+        jpanelbackground.add(btnCancelar_registro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 729, 160, 40));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setText("REFERENCIA:");
+        jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 233, -1, -1));
 
         txaDescripcion_comunidad.setColumns(20);
         txaDescripcion_comunidad.setRows(5);
         txaDescripcion_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane2.setViewportView(txaDescripcion_comunidad);
 
+        jpanelbackground.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 310, -1, -1));
+
         txaRef_comunidad.setColumns(20);
         txaRef_comunidad.setRows(5);
         txaRef_comunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jScrollPane1.setViewportView(txaRef_comunidad);
 
+        jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 232, -1, 50));
+
         jLabel13.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel13.setText("Usted se encuentra en:");
+        jpanelbackground.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 200, 20));
 
         lblregistrocomunidad.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
+        jpanelbackground.add(lblregistrocomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 180, 20));
 
         lblRegistro_comunidad.setFont(new java.awt.Font("Rockwell", 1, 48)); // NOI18N
         lblRegistro_comunidad.setForeground(new java.awt.Color(0, 0, 0));
         lblRegistro_comunidad.setText("REGISTRO DE COMUNIDAD");
+        jpanelbackground.add(lblRegistro_comunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(113, 81, 690, 50));
 
-        javax.swing.GroupLayout jpanelbackgroundLayout = new javax.swing.GroupLayout(jpanelbackground);
-        jpanelbackground.setLayout(jpanelbackgroundLayout);
-        jpanelbackgroundLayout.setHorizontalGroup(
-            jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(lblregistrocomunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addGap(42, 42, 42)
-                                .addComponent(jcdFundacion_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                                .addGap(120, 120, 120)
-                                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cmbCanton_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbCiudad_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(180, 180, 180)
-                                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel11)
-                                    .addComponent(jLabel2))
-                                .addGap(106, 106, 106)
-                                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDir_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5))
-                        .addGap(48, 48, 48)
-                        .addComponent(txtNom_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(110, 110, 110)
-                        .addComponent(jLabel9))
-                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                        .addGap(113, 113, 113)
-                        .addComponent(lblRegistro_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 690, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(180, 180, 180))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpanelbackgroundLayout.createSequentialGroup()
-                .addComponent(btnRegistrar_finca, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnCancelar_registro_finca, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(204, 204, 204))
-        );
-        jpanelbackgroundLayout.setVerticalGroup(
-            jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblregistrocomunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(1, 1, 1)
-                .addComponent(lblRegistro_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(txtNom_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(txtDir_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                        .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                                .addGap(140, 140, 140)
-                                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cmbCanton_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel2)
-                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cmbCiudad_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(25, 25, 25)
-                        .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jcdFundacion_comunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                                .addGap(51, 51, 51)
-                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jpanelbackgroundLayout.createSequentialGroup()
-                        .addGap(140, 140, 140)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 171, Short.MAX_VALUE)
-                .addGroup(jpanelbackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRegistrar_finca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCancelar_registro_finca, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31))
-        );
+        jLabel14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 100px.png"))); // NOI18N
+        jpanelbackground.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 600, 100, 90));
+
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 300px.png"))); // NOI18N
+        jpanelbackground.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, 520, -1, -1));
+
+        jLabel16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 200px.png"))); // NOI18N
+        jpanelbackground.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 680, -1, -1));
 
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 800));
 
@@ -409,6 +335,9 @@ CamposController campo = new CamposController();
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

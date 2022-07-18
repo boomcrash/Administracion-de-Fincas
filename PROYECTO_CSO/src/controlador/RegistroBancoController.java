@@ -13,10 +13,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de Banco
  * @author GAMER
  */
 public class RegistroBancoController {
+    /**
+     * metodo encargado de registrar Banco en la base de datos recibiendo como parametro banco
+     * @param banco objeto de la clase Banco
+     */
     public static void registrarBanco(Banco banco){
         
         if(!banco.getNombre().isEmpty()&&!banco.getDireccion().isEmpty()&&!banco.getRepresentante().isEmpty()
