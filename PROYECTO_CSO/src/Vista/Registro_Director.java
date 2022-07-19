@@ -38,20 +38,6 @@ public class Registro_Director extends javax.swing.JFrame {
         CamposController.mostrarnombreventana(jblregistrodirector,jpanelbackground);
     }
     
-     public void limpiar(){
-                txtnom_director.setText("");
-                txtedaddirector.setText("");
-                txtci_director.setText("");
-                txtiddirector.setText("");
-                txtcontactodirector.setText("");
-                txtdireccion_director.setText("");
-                txtusuariodirector.setText("");
-                txtcontraseñadirector.setText("");
-     }
-
-
-     
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -434,7 +420,9 @@ public class Registro_Director extends javax.swing.JFrame {
     }//GEN-LAST:event_txtnom_directorActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-        RegistroDirectorController.registrarDirector(new Director(txtiddirector.getText(), txtnom_director.getText(), Integer.parseInt(txtedaddirector.getText()), txtci_director.getText(), cmbsexodirector.getSelectedItem().toString(), txtcontactodirector.getText(), cbmciudaddirector.getSelectedItem().toString(), txtdireccion_director.getText()), new Usuario(txtusuariodirector.getText(), txtcontraseñadirector.getText(), 1));        // TODO add your handling code here:
+        RegistroDirectorController.registrarDirector(new Director(txtiddirector.getText(), txtnom_director.getText(), Integer.parseInt(txtedaddirector.getText()), txtci_director.getText(), cmbsexodirector.getSelectedItem().toString(), txtcontactodirector.getText(), cbmciudaddirector.getSelectedItem().toString(), txtdireccion_director.getText()), new Usuario(txtusuariodirector.getText(), txtcontraseñadirector.getText(), 1)); 
+       CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 
     private void btnCancelar_registro_directorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorMouseEntered

@@ -20,7 +20,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Formulario de registro de Presidente
+ * @author User
+ */
 public class Registro_Presidente extends javax.swing.JFrame {
     int id_com=0;
     
@@ -31,15 +34,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         CamposController.mostrarnombreventana(jblRegistropresidente,jpanelbackground);
         
     }
-   
-     public void limpiar(){
-                txtnom_presidente.setText("");
-                txtci_presidente.setText("");
-                txtDireccion_propietario.setText("");
-                txtedadpresidente.setText("");
-                txtCod_comunidad.setText("");
-     }
-     
       
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -116,11 +110,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jpanelbackground.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(485, 330, -1, 20));
 
         txtnom_presidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtnom_presidente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnom_presidenteActionPerformed(evt);
-            }
-        });
         txtnom_presidente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnom_presidenteKeyTyped(evt);
@@ -143,20 +132,10 @@ public class Registro_Presidente extends javax.swing.JFrame {
                 cmbCiudad_presidenteItemStateChanged(evt);
             }
         });
-        cmbCiudad_presidente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbCiudad_presidenteActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(cmbCiudad_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 331, 140, 20));
 
         cbmsexopresidente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { " ", "masculino", "femenino" }));
         cbmsexopresidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        cbmsexopresidente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmsexopresidenteActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(cbmsexopresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 389, 140, 20));
 
         jLabel9.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -164,11 +143,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jpanelbackground.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 234, -1, 20));
 
         txtDireccion_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtDireccion_propietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccion_propietarioActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(txtDireccion_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 235, 210, 20));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -195,11 +169,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
 
         btnInicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -219,16 +188,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
@@ -236,11 +195,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
@@ -265,11 +219,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         jpanelbackground.add(jblRegistropresidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 60, 260, 20));
 
         txtedadpresidente.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtedadpresidente.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtedadpresidenteActionPerformed(evt);
-            }
-        });
         txtedadpresidente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtedadpresidenteKeyTyped(evt);
@@ -310,11 +259,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
         txtidcomunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidcomunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtidcomunidad.setEnabled(false);
-        txtidcomunidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidcomunidadActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(txtidcomunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(176, 447, 60, 30));
 
         btnRegistrar_presidente.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -362,40 +306,16 @@ public class Registro_Presidente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cmbCiudad_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbCiudad_presidenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbCiudad_presidenteActionPerformed
-
     private void btnCancelar_registro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteActionPerformed
     VentanasController.cerrarRegistroPresidente();
     VentanasController.abrirInicio();        // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_presidenteActionPerformed
-
-    private void txtDireccion_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccion_propietarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccion_propietarioActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
    Inicio inicio = new Inicio();
    inicio.setVisible(true);
    this.setVisible(false);
     }//GEN-LAST:event_btnInicioActionPerformed
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
     this.setVisible(true);
@@ -404,14 +324,6 @@ public class Registro_Presidente extends javax.swing.JFrame {
     this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    private void txtnom_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnom_presidenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnom_presidenteActionPerformed
-
-    private void cbmsexopresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmsexopresidenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbmsexopresidenteActionPerformed
-
     private void btnCancelar_registro_presidenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseEntered
 CamposController.setColor(btnCancelar_registro_presidente);
     }//GEN-LAST:event_btnCancelar_registro_presidenteMouseEntered
@@ -419,10 +331,6 @@ CamposController.setColor(btnCancelar_registro_presidente);
     private void btnCancelar_registro_presidenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseExited
 CamposController.resetColor(btnCancelar_registro_presidente);
     }//GEN-LAST:event_btnCancelar_registro_presidenteMouseExited
-
-    private void txtedadpresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtedadpresidenteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtedadpresidenteActionPerformed
 
     private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
         int row=tblcomunidad.getSelectedRow();
@@ -433,34 +341,32 @@ CamposController.resetColor(btnCancelar_registro_presidente);
         }// TODO add your handling code here:
     }//GEN-LAST:event_tblcomunidadMouseClicked
 
-    private void txtidcomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidcomunidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidcomunidadActionPerformed
-
     private void btnRegistrar_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_presidenteActionPerformed
-     RegistroPresidenteController.registrarPresidente(new Presidente(txtidcomunidad.getText(), txtnom_presidente.getText(), Integer.parseInt(txtci_presidente.getText()), txtci_presidente.getText(), cbmsexopresidente.getSelectedItem().toString(), txtCod_comunidad.getText(), cmbCiudad_presidente.getSelectedItem().toString(), txtDireccion_propietario.getText()));  // TODO add your handling code here:
+     RegistroPresidenteController.registrarPresidente(new Presidente(txtidcomunidad.getText(), txtnom_presidente.getText(), Integer.parseInt(txtci_presidente.getText()), txtci_presidente.getText(), cbmsexopresidente.getSelectedItem().toString(), txtCod_comunidad.getText(), cmbCiudad_presidente.getSelectedItem().toString(), txtDireccion_propietario.getText())); 
+     CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_presidenteActionPerformed
 
     private void cmbCiudad_presidenteItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCiudad_presidenteItemStateChanged
-            TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cmbCiudad_presidente);  // TODO add your handling code here:
+       TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cmbCiudad_presidente);  // TODO add your handling code here:
     }//GEN-LAST:event_cmbCiudad_presidenteItemStateChanged
 
     private void txtci_presidenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_presidenteKeyTyped
-        // TODO add your handling code here:
+        // validacion del campo cedula
           if(txtci_presidente.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
          evt.consume();
         }
     }//GEN-LAST:event_txtci_presidenteKeyTyped
 
     private void txtnom_presidenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtnom_presidenteKeyTyped
-        // TODO add your handling code here:
+        // validacion del campo nombre
           if(Character.isDigit(evt.getKeyChar())){
         evt.consume();
         }
     }//GEN-LAST:event_txtnom_presidenteKeyTyped
 
     private void txtedadpresidenteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtedadpresidenteKeyTyped
-        // TODO add your handling code here:
+        // validacion del campo edad
         if(!Character.isDigit(evt.getKeyChar()) || txtedadpresidente.getText().length()>=3){
         evt.consume();
         }

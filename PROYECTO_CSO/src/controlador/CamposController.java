@@ -55,5 +55,4 @@ public static void resetColor(JButton j1){
 j1.setBackground(new Color(153,0,0));
 }
 
-
 }

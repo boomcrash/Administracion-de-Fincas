@@ -319,6 +319,7 @@ public class Registro_Comunidad extends javax.swing.JFrame {
 
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
         RegistroComunidadController.registrarComunidad(new Comunidad(txtNom_comunidad.getText(),cmbCiudad_comunidad.getSelectedItem().toString(),cmbCanton_comunidad.getSelectedItem().toString(),jcdFundacion_comunidad.getDate(),txtDir_comunidad.getText(),txaRef_comunidad.getText(),txaDescripcion_comunidad.getText(),"A")); 
+        CamposController.limpiar(jpanelbackground);
       //campo.limpiar(jpanelbackground);
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
@@ -326,7 +327,6 @@ public class Registro_Comunidad extends javax.swing.JFrame {
         // TODO add your handling code here:
         if(!Character.isLetter(evt.getKeyChar())){
             evt.consume();
-        
         }
     }//GEN-LAST:event_txtNom_comunidadKeyTyped
 

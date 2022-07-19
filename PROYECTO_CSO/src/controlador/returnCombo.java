@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controlador;
-
 import Vista.Registro_Comunidad;
 import javax.swing.JComboBox;
 
@@ -13,6 +12,10 @@ import javax.swing.JComboBox;
  * @author GAMER
  */
 public class returnCombo {
+    /**
+     * metodo que retorna un JComboBox con datos
+     * @return JComboBox
+     */
   public JComboBox returnCombo(){
         Registro_Comunidad cm=new Registro_Comunidad();
         return cm.cmbCiudad_comunidad;

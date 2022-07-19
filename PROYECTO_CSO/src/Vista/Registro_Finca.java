@@ -24,12 +24,6 @@ public class Registro_Finca extends javax.swing.JFrame {
         CamposController.mostrarnombreventana(jblregistrofinca,jpanelbackground);
     }
     
-         public void limpiar(){
-                txtNom_finca.setText("");
-                txtDir_finca.setText("");
-                txtidcomunidad.setText("");
-     }
-
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -237,6 +231,11 @@ public class Registro_Finca extends javax.swing.JFrame {
                 txtNom_fincaActionPerformed(evt);
             }
         });
+        txtNom_finca.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNom_fincaKeyTyped(evt);
+            }
+        });
         jpanelbackground.add(txtNom_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 160, 200, 20));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -351,7 +350,9 @@ public class Registro_Finca extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidcomunidadActionPerformed
 
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
-        RegistroFincaController.registrarFinca(new Finca(txtNom_finca.getText(), cmbCiudad_finca.getSelectedItem().toString(), txtDir_finca.getText(), jcdFundacion_finca.getDate(), txtidcomunidad.getText()));// TODO add your handling code here:
+        RegistroFincaController.registrarFinca(new Finca(txtNom_finca.getText(), cmbCiudad_finca.getSelectedItem().toString(), txtDir_finca.getText(), jcdFundacion_finca.getDate(), txtidcomunidad.getText()));
+        CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
     private void cmbCiudad_fincaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCiudad_fincaItemStateChanged
@@ -367,6 +368,13 @@ CamposController.setColor(btnCancelar_registro_finca);
 CamposController.resetColor(btnCancelar_registro_finca);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar_registro_fincaMouseExited
+
+    private void txtNom_fincaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNom_fincaKeyTyped
+       if(!Character.isLetter(evt.getKeyChar())){
+            evt.consume();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNom_fincaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_finca;

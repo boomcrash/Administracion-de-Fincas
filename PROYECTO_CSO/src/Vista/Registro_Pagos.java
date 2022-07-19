@@ -119,11 +119,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
                 jButton3MouseEntered(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 100, 40));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
@@ -131,11 +126,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,11 +169,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 230, -1, -1));
 
         txtcantidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtcantidad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtcantidadActionPerformed(evt);
-            }
-        });
         txtcantidad.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtcantidadKeyTyped(evt);
@@ -243,11 +228,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jpanelbackground.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 430, -1, -1));
 
         txtidbanco.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtidbanco.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidbancoActionPerformed(evt);
-            }
-        });
         txtidbanco.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtidbancoKeyTyped(evt);
@@ -257,11 +237,6 @@ public class Registro_Pagos extends javax.swing.JFrame {
 
         txtidpresidente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtidpresidente1.setEnabled(false);
-        txtidpresidente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtidpresidente1ActionPerformed(evt);
-            }
-        });
         txtidpresidente1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtidpresidente1KeyTyped(evt);
@@ -328,28 +303,12 @@ public class Registro_Pagos extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3MouseEntered
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         this.setVisible(true);
         Submenu_Registro submenuregistro = new Submenu_Registro();
         submenuregistro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
-
-    private void txtidbancoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidbancoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidbancoActionPerformed
-
-    private void txtidpresidente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtidpresidente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtidpresidente1ActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
         RegistroPagoController.registrarPago(new Pago(txadescripcion_pago.getText(), txtcantidad.getText(), jcdfecha_pago.getDate(), txtidpresidente1.getText(), txtidbanco.getText()));        // TODO add your handling code here:
@@ -375,15 +334,10 @@ public class Registro_Pagos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_txtcantidadKeyTyped
 
-    private void txtcantidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtcantidadActionPerformed
-
     private void txtidpresidente1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtidpresidente1KeyTyped
     if(txtidpresidente1.getText().length() >= 10 && !Character.isDigit(evt.getKeyChar())){
     evt.consume();
-}
-
+    }
         // TODO add your handling code here:
     }//GEN-LAST:event_txtidpresidente1KeyTyped
 

@@ -28,19 +28,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         CamposController.mostrarnombreventana(jblregistrosecretaria,jpanelbackground);
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
-      
-  public void limpiar(){
-                txtnom_secretaria.setText("");
-                txtedadsecretaria.setText("");
-                txtci_secretaria.setText("");
-                txtiddirector.setText("");
-                txtcontactosecretaria.setText("");
-                txtDireccion_secretaria.setText("");
-                txtusuariosecretaria.setText("");
-                txtcontraseñasecretaria.setText("");
-     }
-     
-     
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -192,28 +180,13 @@ public class Registro_Secretaria extends javax.swing.JFrame {
                 cbmciudadsecretariaItemStateChanged(evt);
             }
         });
-        cbmciudadsecretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmciudadsecretariaActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(cbmciudadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 424, 140, 20));
 
         cmbsexosecretaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexosecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        cmbsexosecretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbsexosecretariaActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(cmbsexosecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 357, 140, 20));
 
         txtci_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtci_secretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtci_secretariaActionPerformed(evt);
-            }
-        });
         txtci_secretaria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtci_secretariaKeyTyped(evt);
@@ -222,11 +195,6 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         jpanelbackground.add(txtci_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 303, 210, 20));
 
         txtnom_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtnom_secretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnom_secretariaActionPerformed(evt);
-            }
-        });
         txtnom_secretaria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnom_secretariaKeyTyped(evt);
@@ -243,11 +211,6 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         jpanelbackground.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 302, -1, 20));
 
         txtDireccion_secretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtDireccion_secretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccion_secretariaActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(txtDireccion_secretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(633, 249, 210, 20));
 
         btnRegistrar_director.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
@@ -286,11 +249,6 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 249, -1, -1));
 
         txtedadsecretaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtedadsecretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtedadsecretariaActionPerformed(evt);
-            }
-        });
         txtedadsecretaria.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtedadsecretariaKeyTyped(evt);
@@ -350,11 +308,6 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
         txtiddirector.setEnabled(false);
-        txtiddirector.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtiddirectorActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(txtiddirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 473, 60, 30));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -410,22 +363,6 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    private void cbmciudadsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbmciudadsecretariaActionPerformed
-
-    private void cmbsexosecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbsexosecretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbsexosecretariaActionPerformed
-
-    private void txtnom_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnom_secretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnom_secretariaActionPerformed
-
-    private void txtDireccion_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccion_secretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccion_secretariaActionPerformed
-
     private void btnCancelar_registro_secretariaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_secretariaMouseEntered
         CamposController.setColor(btnCancelar_registro_secretaria);
     }//GEN-LAST:event_btnCancelar_registro_secretariaMouseEntered
@@ -439,17 +376,11 @@ public class Registro_Secretaria extends javax.swing.JFrame {
     VentanasController.abrirInicio();        // TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_secretariaActionPerformed
 
-    private void txtedadsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtedadsecretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtedadsecretariaActionPerformed
-
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-      RegistroSecretariaController.registrarSecretario(new Secretario(txtiddirector.getText(), txtnom_secretaria.getText(), Integer.parseInt(txtedadsecretaria.getText()), txtci_secretaria.getText(), cmbsexosecretaria.getSelectedItem().toString(), txtcontactosecretaria.getText(), cbmciudadsecretaria.getSelectedItem().toString(), txtDireccion_secretaria.getText()), new Usuario(txtusuariosecretaria.getText(), txtcontraseñasecretaria.getText(), 2));  // TODO add your handling code here:
+      RegistroSecretariaController.registrarSecretario(new Secretario(txtiddirector.getText(), txtnom_secretaria.getText(), Integer.parseInt(txtedadsecretaria.getText()), txtci_secretaria.getText(), cmbsexosecretaria.getSelectedItem().toString(), txtcontactosecretaria.getText(), cbmciudadsecretaria.getSelectedItem().toString(), txtDireccion_secretaria.getText()), new Usuario(txtusuariosecretaria.getText(), txtcontraseñasecretaria.getText(), 2));
+      CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
-
-    private void txtci_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtci_secretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtci_secretariaActionPerformed
 
     private void tblcomunidadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblcomunidadMouseClicked
         int row=tblcomunidad.getSelectedRow();
@@ -458,10 +389,6 @@ public class Registro_Secretaria extends javax.swing.JFrame {
             txtiddirector.setText(String.valueOf(id_com));
         }// TODO add your handling code here:
     }//GEN-LAST:event_tblcomunidadMouseClicked
-
-    private void txtiddirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtiddirectorActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtiddirectorActionPerformed
 
     private void cbmciudadsecretariaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaItemStateChanged
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);       // TODO add your handling code here:

@@ -365,7 +365,9 @@ public class Registro_Cobros extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidpropietario1ActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-    RegistroCobrosController.registrarCobro(new Cobros(txadescripcion_cobro.getText().toString(),txtcantidadcobro.getText().toString(),jdcfechacobro.getDate().toString(),jdcfechavence.getDate().toString(),txtidpropietario1.getText().toString(),txtidpresidente.getText().toString()));            // TODO add your handling code here:
+    RegistroCobrosController.registrarCobro(new Cobros(txadescripcion_cobro.getText().toString(),txtcantidadcobro.getText().toString(),jdcfechacobro.getDate().toString(),jdcfechavence.getDate().toString(),txtidpropietario1.getText().toString(),txtidpresidente.getText().toString()));          
+    CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
 
     private void btnCancelar_registro_directorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorMouseEntered
@@ -377,8 +379,9 @@ public class Registro_Cobros extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar_registro_directorMouseExited
 
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed
-    VentanasController.cerrarRegistroCobros();
-    VentanasController.abrirInicio();// TODO add your handling code here
+     VentanasController.cerrarRegistroCobros();
+    VentanasController.abrirInicio();
+// TODO add your handling code here
     }//GEN-LAST:event_btnCancelar_registro_directorActionPerformed
 
     private void txtcantidadcobroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcantidadcobroActionPerformed

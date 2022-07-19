@@ -24,15 +24,6 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         TablasRegistroController.llenarTablaComunidad(tblcomunidad);
         CamposController.mostrarnombreventana(jblRegistroentbancaria,jpanelbackground);
     }
-    
-     public void limpiar(){
-                txtNom_EntBancaria.setText("");
-                txtDir_EntBancaria.setText("");
-                txtRepresentante_EntBancaria.setText("");
-                txtidcomunidad.setText("");
-     }
-
-      
      
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -82,6 +73,11 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         txtNom_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtNom_EntBancariaActionPerformed(evt);
+            }
+        });
+        txtNom_EntBancaria.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNom_EntBancariaKeyTyped(evt);
             }
         });
         jpanelbackground.add(txtNom_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 221, 300, 20));
@@ -322,7 +318,9 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     }//GEN-LAST:event_txtidcomunidadActionPerformed
 
     private void btnRegistrar_EntBancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_EntBancariaActionPerformed
-    RegistroBancoController.registrarBanco(new Banco(txtNom_EntBancaria.getText(),txtDir_EntBancaria.getText(),txtRepresentante_EntBancaria.getText(),txtidcomunidad.getText()));        // TODO add your handling code here:
+    RegistroBancoController.registrarBanco(new Banco(txtNom_EntBancaria.getText(),txtDir_EntBancaria.getText(),txtRepresentante_EntBancaria.getText(),txtidcomunidad.getText()));   
+    CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_EntBancariaActionPerformed
 
     private void txtRepresentante_EntBancariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtRepresentante_EntBancariaKeyTyped
@@ -341,6 +339,13 @@ CamposController.setColor(btnCancelar_registro_EntBancaria);
 CamposController.resetColor(btnCancelar_registro_EntBancaria);
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCancelar_registro_EntBancariaMouseExited
+
+    private void txtNom_EntBancariaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNom_EntBancariaKeyTyped
+    if(!Character.isLetter(evt.getKeyChar())){
+            evt.consume();
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNom_EntBancariaKeyTyped
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_EntBancaria;

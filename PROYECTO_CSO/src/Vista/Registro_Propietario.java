@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *Formulario de registro de Propietario
  * @author User
  */
 public class Registro_Propietario extends javax.swing.JFrame {
@@ -39,17 +39,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
    
-     public void limpiar(){
-                txtnom_propietario.setText("");
-                txtcontactopropietario.setText("");
-                txtedadpropietario.setText("");
-                txtci_propietario.setText("");
-                txtidcomunidad.setText("");
-                txtcontactopropietario.setText("");
-                txtDireccion_propietario.setText("");
-     }
-    
-      
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -105,11 +94,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(0, 0, 0));
         jButton1.setText("CONSULTAS");
         jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 0, 100, 40));
 
         btnInicio.setBackground(new java.awt.Color(255, 255, 255));
@@ -134,11 +118,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
                 jButton3MouseEntered(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 100, 40));
 
         jButton4.setBackground(new java.awt.Color(255, 255, 255));
@@ -146,11 +125,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
@@ -175,11 +149,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jpanelbackground.add(txtcontactopropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 160, 210, -1));
 
         txtDireccion_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtDireccion_propietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDireccion_propietarioActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(txtDireccion_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 220, 210, 20));
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -206,11 +175,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 160, -1, 20));
 
         txtnom_propietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtnom_propietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtnom_propietarioActionPerformed(evt);
-            }
-        });
         txtnom_propietario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtnom_propietarioKeyTyped(evt);
@@ -219,11 +183,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         jpanelbackground.add(txtnom_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 210, 20));
 
         txtedadpropietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtedadpropietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtedadpropietarioActionPerformed(evt);
-            }
-        });
         txtedadpropietario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtedadpropietarioKeyTyped(evt);
@@ -249,11 +208,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
 
         cmbsexopropietario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "masculino", "femenino" }));
         cmbsexopropietario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        cmbsexopropietario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cmbsexopropietarioActionPerformed(evt);
-            }
-        });
         jpanelbackground.add(cmbsexopropietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, 140, 20));
 
         jLabel7.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -269,11 +223,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         cbmciudadsecretaria.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 cbmciudadsecretariaItemStateChanged(evt);
-            }
-        });
-        cbmciudadsecretaria.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbmciudadsecretariaActionPerformed(evt);
             }
         });
         jpanelbackground.add(cbmciudadsecretaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 270, 140, 30));
@@ -363,10 +312,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         Inicio inicio = new Inicio();
         inicio.setVisible(true);
@@ -377,14 +322,6 @@ public class Registro_Propietario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton3MouseEntered
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
         this.setVisible(true);
         Submenu_Registro submenuregistro = new Submenu_Registro();
@@ -392,28 +329,10 @@ public class Registro_Propietario extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    private void txtDireccion_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccion_propietarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDireccion_propietarioActionPerformed
-
-    private void txtnom_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnom_propietarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtnom_propietarioActionPerformed
-
-    private void txtedadpropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtedadpropietarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtedadpropietarioActionPerformed
-
-    private void cmbsexopropietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmbsexopropietarioActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cmbsexopropietarioActionPerformed
-
-    private void cbmciudadsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmciudadsecretariaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbmciudadsecretariaActionPerformed
-
     private void btnRegistrar_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_propietarioActionPerformed
-        RegistroPropietarioController.registrarPropietario(new Propietario(txtidcomunidad.getText(), txtnom_propietario.getText(), Integer.parseInt(txtedadpropietario.getText()), txtci_propietario.getText(), cmbsexopropietario.getSelectedItem().toString(), txtcontactopropietario.getText(), txtDireccion_propietario.getText(), cbmciudadsecretaria.getSelectedItem().toString()));// TODO add your handling code here:
+        RegistroPropietarioController.registrarPropietario(new Propietario(txtidcomunidad.getText(), txtnom_propietario.getText(), Integer.parseInt(txtedadpropietario.getText()), txtci_propietario.getText(), cmbsexopropietario.getSelectedItem().toString(), txtcontactopropietario.getText(), txtDireccion_propietario.getText(), cbmciudadsecretaria.getSelectedItem().toString()));
+        CamposController.limpiar(jpanelbackground);
+// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_propietarioActionPerformed
 
     private void btnCancelar_registro_propietarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_propietarioMouseEntered
@@ -443,7 +362,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
     }//GEN-LAST:event_cbmciudadsecretariaItemStateChanged
 
     private void txtci_propietarioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtci_propietarioKeyTyped
-  if(txtci_propietario.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
+    if(txtci_propietario.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
          evt.consume();
         }
     }//GEN-LAST:event_txtci_propietarioKeyTyped
