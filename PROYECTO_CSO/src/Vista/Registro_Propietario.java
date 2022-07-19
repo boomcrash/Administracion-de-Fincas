@@ -35,7 +35,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
     public Registro_Propietario() {
         initComponents();
          this.setLocationRelativeTo(null);
-        campo.mostrarnombreventana(jblregistropropietario);
+        CamposController.mostrarnombreventana(jblregistropropietario,jpanelbackground);
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
    
@@ -415,18 +415,13 @@ public class Registro_Propietario extends javax.swing.JFrame {
     private void btnRegistrar_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_propietarioActionPerformed
         RegistroPropietarioController.registrarPropietario(new Propietario(txtidcomunidad.getText(), txtnom_propietario.getText(), Integer.parseInt(txtedadpropietario.getText()), txtci_propietario.getText(), cmbsexopropietario.getSelectedItem().toString(), txtcontactopropietario.getText(), txtDireccion_propietario.getText(), cbmciudadsecretaria.getSelectedItem().toString()));// TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_propietarioActionPerformed
-public void setColor(JButton j){
-j.setBackground(new Color(255,51,51));
-}
-public void resetColor(JButton j1){
-j1.setBackground(new Color(153,0,0));
-}
+
     private void btnCancelar_registro_propietarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_propietarioMouseEntered
-        setColor(btnCancelar_registro_propietario);
+        CamposController.setColor(btnCancelar_registro_propietario);
     }//GEN-LAST:event_btnCancelar_registro_propietarioMouseEntered
 
     private void btnCancelar_registro_propietarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_propietarioMouseExited
-        resetColor(btnCancelar_registro_propietario);
+        CamposController.resetColor(btnCancelar_registro_propietario);
     }//GEN-LAST:event_btnCancelar_registro_propietarioMouseExited
 
     private void btnCancelar_registro_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_propietarioActionPerformed

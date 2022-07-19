@@ -15,12 +15,11 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
-CamposController campo = new CamposController();
     public Inicio() {
         
         initComponents();
         this.setLocationRelativeTo(null);
-       campo.mostrarnombreventana(jblWindow);
+       CamposController.mostrarnombreventana(jblWindow, jpanelbackground);
     }
     
     
@@ -34,7 +33,7 @@ CamposController campo = new CamposController();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jpanelbackground = new javax.swing.JPanel();
         jblWindow = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -111,21 +110,21 @@ CamposController campo = new CamposController();
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
-        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jpanelbackground.setBackground(new java.awt.Color(255, 255, 255));
+        jpanelbackground.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jblWindow.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        jPanel2.add(jblWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 80, 20));
+        jpanelbackground.add(jblWindow, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 80, 20));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
         jLabel2.setText("Usted se encuentra en:");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
+        jpanelbackground.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 210, 20));
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 60)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BIENVENIDO!.");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 470, 70));
+        jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 470, 70));
 
         btnClose_Sesion.setBackground(new java.awt.Color(255, 0, 0));
         btnClose_Sesion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -145,9 +144,9 @@ CamposController campo = new CamposController();
                 btnClose_SesionActionPerformed(evt);
             }
         });
-        jPanel2.add(btnClose_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 690, 160, 40));
+        jpanelbackground.add(btnClose_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 690, 160, 40));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
+        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -188,11 +187,11 @@ this.setVisible(true);
     }//GEN-LAST:event_btnClose_SesionActionPerformed
 
     private void btnClose_SesionMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClose_SesionMouseEntered
-   campo.setColor(btnClose_Sesion);
+   CamposController.setColor(btnClose_Sesion);
     }//GEN-LAST:event_btnClose_SesionMouseEntered
 
     private void btnClose_SesionMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClose_SesionMouseExited
-    campo.resetColor(btnClose_Sesion);
+    CamposController.resetColor(btnClose_Sesion);
     }//GEN-LAST:event_btnClose_SesionMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -205,7 +204,7 @@ this.setVisible(true);
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel jblWindow;
+    private javax.swing.JPanel jpanelbackground;
     // End of variables declaration//GEN-END:variables
 }

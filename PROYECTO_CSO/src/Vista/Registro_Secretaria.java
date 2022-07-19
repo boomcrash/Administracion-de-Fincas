@@ -21,12 +21,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Secretaria extends javax.swing.JFrame {
     int id_com;
-    CamposController campo = new CamposController();
 
     public Registro_Secretaria() {
         initComponents();
          this.setLocationRelativeTo(null);
-        campo.mostrarnombreventana(jblregistrosecretaria);
+        CamposController.mostrarnombreventana(jblregistrosecretaria,jpanelbackground);
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cbmciudadsecretaria);
     }
       
@@ -426,18 +425,13 @@ public class Registro_Secretaria extends javax.swing.JFrame {
     private void txtDireccion_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccion_secretariaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDireccion_secretariaActionPerformed
-public void setColor(JButton j){
-j.setBackground(new Color(255,51,51));
-}
-public void resetColor(JButton j1){
-j1.setBackground(new Color(153,0,0));
-}
+
     private void btnCancelar_registro_secretariaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_secretariaMouseEntered
-        setColor(btnCancelar_registro_secretaria);
+        CamposController.setColor(btnCancelar_registro_secretaria);
     }//GEN-LAST:event_btnCancelar_registro_secretariaMouseEntered
 
     private void btnCancelar_registro_secretariaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_secretariaMouseExited
-        resetColor(btnCancelar_registro_secretaria);
+        CamposController.resetColor(btnCancelar_registro_secretaria);
     }//GEN-LAST:event_btnCancelar_registro_secretariaMouseExited
 
     private void btnCancelar_registro_secretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_secretariaActionPerformed

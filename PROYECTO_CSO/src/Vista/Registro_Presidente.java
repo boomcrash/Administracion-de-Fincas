@@ -25,11 +25,10 @@ public class Registro_Presidente extends javax.swing.JFrame {
     int id_com=0;
     
     public Registro_Presidente() {
-        CamposController campo = new CamposController();
         initComponents();
         TablasRegistroController.llenarTablaComunidadByCiudad(tblcomunidad, cmbCiudad_presidente);
         this.setLocationRelativeTo(null);
-        campo.mostrarnombreventana(jblRegistropresidente);
+        CamposController.mostrarnombreventana(jblRegistropresidente,jpanelbackground);
         
     }
    
@@ -412,18 +411,13 @@ public class Registro_Presidente extends javax.swing.JFrame {
     private void cbmsexopresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbmsexopresidenteActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbmsexopresidenteActionPerformed
-public void setColor(JButton j){
-j.setBackground(new Color(255,51,51));
-}
-public void resetColor(JButton j1){
-j1.setBackground(new Color(153,0,0));
-}
+
     private void btnCancelar_registro_presidenteMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseEntered
-setColor(btnCancelar_registro_presidente);
+CamposController.setColor(btnCancelar_registro_presidente);
     }//GEN-LAST:event_btnCancelar_registro_presidenteMouseEntered
 
     private void btnCancelar_registro_presidenteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_presidenteMouseExited
-resetColor(btnCancelar_registro_presidente);
+CamposController.resetColor(btnCancelar_registro_presidente);
     }//GEN-LAST:event_btnCancelar_registro_presidenteMouseExited
 
     private void txtedadpresidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtedadpresidenteActionPerformed

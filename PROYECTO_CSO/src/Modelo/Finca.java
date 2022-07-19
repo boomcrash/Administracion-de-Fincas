@@ -46,6 +46,7 @@ public class Finca {
  * metodo getCiudad que devuelve el atributo ciudad de la clase Finca
  * @return atributo ciudad de la clase Finca
  */
+    
     public String getCiudad() {
         return ciudad;
     }

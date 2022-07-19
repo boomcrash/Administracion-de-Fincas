@@ -27,14 +27,13 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Registro_Pagos extends javax.swing.JFrame {
     int id_com=0,id_bank=0;
-    CamposController campo = new CamposController();
     /**
-     * Creates new form Registro_Pagos
+     * Se crea un formulario de  Registro_Pagos
      */
     public Registro_Pagos() {
         initComponents();
         this.setLocationRelativeTo(null);
-          campo.mostrarnombreventana(jblregistropago);
+           CamposController.mostrarnombreventana(jblregistropago,jpanelbackground);
           this.setSize(1100, 800);
           TablasRegistroController.llenarTablaPresidente(tblpresidentes);
           TablasRegistroController.llenarTablaBanco(tblbancos);
@@ -355,18 +354,13 @@ public class Registro_Pagos extends javax.swing.JFrame {
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
         RegistroPagoController.registrarPago(new Pago(txadescripcion_pago.getText(), txtcantidad.getText(), jcdfecha_pago.getDate(), txtidpresidente1.getText(), txtidbanco.getText()));        // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
-public void setColor(JButton j){
-j.setBackground(new Color(255,51,51));
-}
-public void resetColor(JButton j1){
-j1.setBackground(new Color(153,0,0));
-}
+
     private void btnCancelar_registro_directorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorMouseEntered
-        setColor(btnCancelar_registro_director);
+        CamposController.setColor(btnCancelar_registro_director);
     }//GEN-LAST:event_btnCancelar_registro_directorMouseEntered
 
     private void btnCancelar_registro_directorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorMouseExited
-        resetColor(btnCancelar_registro_director);
+       CamposController. resetColor(btnCancelar_registro_director);
     }//GEN-LAST:event_btnCancelar_registro_directorMouseExited
 
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed

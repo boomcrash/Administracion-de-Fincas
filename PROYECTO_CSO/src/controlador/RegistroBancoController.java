@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controlador;
-
 import Conexion.Conexion;
 import Modelo.Banco;
 import com.mysql.jdbc.CallableStatement;
@@ -30,7 +29,6 @@ public class RegistroBancoController {
         Connection conexion=(Connection) conect.getconection();
          
         CallableStatement myCall = null;
-        
         try {
                     myCall=(CallableStatement) conexion.prepareCall("{call putBanco(?,?,?,?)}");
                     

@@ -18,12 +18,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     int id_com=0;
-    CamposController campo = new CamposController();
     public Registro_Entidad_Bancaria() {
         initComponents();
         this.setLocationRelativeTo(null);
         TablasRegistroController.llenarTablaComunidad(tblcomunidad);
-        campo.mostrarnombreventana(jblRegistroentbancaria);
+        CamposController.mostrarnombreventana(jblRegistroentbancaria,jpanelbackground);
     }
     
      public void limpiar(){
@@ -183,10 +182,19 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         });
         jpanelbackground.add(btnRegistrar_EntBancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 728, 170, 40));
 
+        btnCancelar_registro_EntBancaria.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar_registro_EntBancaria.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnCancelar_registro_EntBancaria.setForeground(new java.awt.Color(153, 0, 0));
+        btnCancelar_registro_EntBancaria.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar_registro_EntBancaria.setText("CANCELAR");
         btnCancelar_registro_EntBancaria.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnCancelar_registro_EntBancaria.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_EntBancariaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_EntBancariaMouseExited(evt);
+            }
+        });
         btnCancelar_registro_EntBancaria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelar_registro_EntBancariaActionPerformed(evt);
@@ -323,6 +331,16 @@ public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
         evt.consume();
         }
     }//GEN-LAST:event_txtRepresentante_EntBancariaKeyTyped
+
+    private void btnCancelar_registro_EntBancariaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_EntBancariaMouseEntered
+CamposController.setColor(btnCancelar_registro_EntBancaria);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar_registro_EntBancariaMouseEntered
+
+    private void btnCancelar_registro_EntBancariaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_EntBancariaMouseExited
+CamposController.resetColor(btnCancelar_registro_EntBancaria);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar_registro_EntBancariaMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_EntBancaria;

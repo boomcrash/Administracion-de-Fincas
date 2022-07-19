@@ -18,11 +18,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class Registro_Finca extends javax.swing.JFrame {
     int id_com=0;
-    CamposController campo = new CamposController();
     public Registro_Finca() {
         initComponents();
           this.setLocationRelativeTo(null);
-        campo.mostrarnombreventana(jblregistrofinca);
+        CamposController.mostrarnombreventana(jblregistrofinca,jpanelbackground);
     }
     
          public void limpiar(){
@@ -179,10 +178,19 @@ public class Registro_Finca extends javax.swing.JFrame {
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, 730, 230));
 
+        btnCancelar_registro_finca.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnCancelar_registro_finca.setForeground(new java.awt.Color(153, 0, 0));
+        btnCancelar_registro_finca.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar_registro_finca.setText("CANCELAR");
         btnCancelar_registro_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnCancelar_registro_finca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_fincaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_fincaMouseExited(evt);
+            }
+        });
         btnCancelar_registro_finca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelar_registro_fincaActionPerformed(evt);
@@ -349,6 +357,16 @@ public class Registro_Finca extends javax.swing.JFrame {
     private void cmbCiudad_fincaItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cmbCiudad_fincaItemStateChanged
         TablasRegistroController.llenarTablaPropietarioByCiudad(tblcomunidad,cmbCiudad_finca);     // TODO add your handling code here:
     }//GEN-LAST:event_cmbCiudad_fincaItemStateChanged
+
+    private void btnCancelar_registro_fincaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_fincaMouseEntered
+CamposController.setColor(btnCancelar_registro_finca);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar_registro_fincaMouseEntered
+
+    private void btnCancelar_registro_fincaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_fincaMouseExited
+CamposController.resetColor(btnCancelar_registro_finca);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar_registro_fincaMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_finca;

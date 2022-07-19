@@ -3,7 +3,7 @@ package Modelo;
 
 import java.util.Date;
 /**
- * clase Secretario que representa los secretarios que se van crear en el sistema
+ * clase Secretario que representa los secretarios que se van crear en el sistema y hereda de la clase Persona
  * @author User
  */
 public class Secretario extends Persona {

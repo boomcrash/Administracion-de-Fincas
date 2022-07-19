@@ -1,6 +1,6 @@
 package Modelo;
-/**clase Banco representa la entidad bancaria que se va a registrar en el sistema
- * 
+/**
+ * clase Banco representa la entidad bancaria que se va a registrar en el sistema
  * @author UserX
  */
 public class Banco {
@@ -80,7 +80,11 @@ public class Banco {
         this.id = id;
     }
     
-    
+    /**
+     * metodo que devuelve la informacion del Banco recibiendo como parametro un String info y devolviendo info
+     * @param info
+     * @return 
+     */
     public String getInfoBanco(String info){
     return info;
     }

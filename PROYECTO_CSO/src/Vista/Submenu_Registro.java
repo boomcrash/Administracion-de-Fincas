@@ -136,7 +136,7 @@ public class Submenu_Registro extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnreturn.setBackground(new java.awt.Color(8, 28, 21));
+        btnreturn.setBackground(new java.awt.Color(0, 0, 0));
         btnreturn.setForeground(new java.awt.Color(153, 255, 255));
         btnreturn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/undo.png"))); // NOI18N
         btnreturn.setBorder(null);

@@ -3,7 +3,7 @@ package Modelo;
 
 import java.util.Date;
 /**
- * clase Propietario que representa los propietarios que se van  aregistrar en el sistema
+ * clase Propietario que representa los propietarios que se van  aregistrar en el sistema y hereda de la clase Persona
  * @author User
  */
 public class Propietario extends Persona {

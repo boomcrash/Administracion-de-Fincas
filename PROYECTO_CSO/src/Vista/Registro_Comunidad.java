@@ -17,11 +17,10 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Registro_Comunidad extends javax.swing.JFrame {
-CamposController campo = new CamposController();
     public Registro_Comunidad() {
         initComponents();
             this.setLocationRelativeTo(null);
-        campo.mostrarnombreventana(lblregistrocomunidad);
+        CamposController.mostrarnombreventana(lblregistrocomunidad, jpanelbackground);
     }
    
     @SuppressWarnings("unchecked")
@@ -208,10 +207,19 @@ CamposController campo = new CamposController();
         });
         jpanelbackground.add(btnRegistrar_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(532, 729, 170, 40));
 
+        btnCancelar_registro_finca.setBackground(new java.awt.Color(204, 0, 0));
         btnCancelar_registro_finca.setFont(new java.awt.Font("SansSerif", 1, 18)); // NOI18N
-        btnCancelar_registro_finca.setForeground(new java.awt.Color(153, 0, 0));
+        btnCancelar_registro_finca.setForeground(new java.awt.Color(255, 255, 255));
         btnCancelar_registro_finca.setText("CANCELAR");
         btnCancelar_registro_finca.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
+        btnCancelar_registro_finca.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_fincaMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCancelar_registro_fincaMouseExited(evt);
+            }
+        });
         btnCancelar_registro_finca.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelar_registro_fincaActionPerformed(evt);
@@ -311,16 +319,26 @@ CamposController campo = new CamposController();
 
     private void btnRegistrar_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_fincaActionPerformed
         RegistroComunidadController.registrarComunidad(new Comunidad(txtNom_comunidad.getText(),cmbCiudad_comunidad.getSelectedItem().toString(),cmbCanton_comunidad.getSelectedItem().toString(),jcdFundacion_comunidad.getDate(),txtDir_comunidad.getText(),txaRef_comunidad.getText(),txaDescripcion_comunidad.getText(),"A")); 
-      campo.limpiar(jpanelbackground);
+      //campo.limpiar(jpanelbackground);
     }//GEN-LAST:event_btnRegistrar_fincaActionPerformed
 
     private void txtNom_comunidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNom_comunidadKeyTyped
         // TODO add your handling code here:
-        if(!Character.isDigit(evt.getKeyChar())){
+        if(!Character.isLetter(evt.getKeyChar())){
             evt.consume();
         
         }
     }//GEN-LAST:event_txtNom_comunidadKeyTyped
+
+    private void btnCancelar_registro_fincaMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_fincaMouseEntered
+CamposController.setColor(btnCancelar_registro_finca);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar_registro_fincaMouseEntered
+
+    private void btnCancelar_registro_fincaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_fincaMouseExited
+CamposController.resetColor(btnCancelar_registro_finca);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnCancelar_registro_fincaMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

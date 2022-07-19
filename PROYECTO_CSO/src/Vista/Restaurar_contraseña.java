@@ -1,5 +1,6 @@
 package Vista;
 
+import controlador.CamposController;
 import controlador.VentanasController;
 
 /**
@@ -22,7 +23,7 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
         jblusuario = new javax.swing.JLabel();
         txtuser1 = new javax.swing.JTextField();
         btncontinue1 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btn_cancelar_rest = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
@@ -76,16 +77,24 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
         });
         jPanel1.add(btncontinue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 290, 160, 60));
 
-        jButton1.setBackground(new java.awt.Color(255, 0, 0));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("CANCELAR");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        btn_cancelar_rest.setBackground(new java.awt.Color(255, 0, 0));
+        btn_cancelar_rest.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btn_cancelar_rest.setForeground(new java.awt.Color(255, 255, 255));
+        btn_cancelar_rest.setText("CANCELAR");
+        btn_cancelar_rest.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btn_cancelar_restMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btn_cancelar_restMouseExited(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, -1, -1));
+        btn_cancelar_rest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_cancelar_restActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btn_cancelar_rest, new org.netbeans.lib.awtextra.AbsoluteConstraints(395, 295, 120, 50));
 
         jpanelbackground.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, -1, -1));
 
@@ -110,14 +119,24 @@ public class Restaurar_contraseña extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btncontinue1ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btn_cancelar_restActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_cancelar_restActionPerformed
     VentanasController.cerrarRestaurarContraseña();
     VentanasController.abrirLogin();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btn_cancelar_restActionPerformed
+
+    private void btn_cancelar_restMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelar_restMouseEntered
+CamposController.setColor(btn_cancelar_rest);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelar_restMouseEntered
+
+    private void btn_cancelar_restMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_cancelar_restMouseExited
+CamposController.resetColor(btn_cancelar_rest);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btn_cancelar_restMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_cancelar_rest;
     private javax.swing.JButton btncontinue1;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;

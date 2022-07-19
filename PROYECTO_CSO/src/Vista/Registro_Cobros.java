@@ -27,7 +27,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Registro_Cobros extends javax.swing.JFrame {
     int id_pro=0,id_pre=0;
-    CamposController campo = new CamposController();
+    
+    
     /**
      * Creates new form Registro_Cobros
      */
@@ -35,9 +36,10 @@ public class Registro_Cobros extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setSize(1100, 800);
-       campo. mostrarnombreventana(jblregistrocobros);
         TablasRegistroController.llenarTablaPropietario(tblpropietario);
         TablasRegistroController.llenarTablaPresidente(tblpresidentes);
+        CamposController.mostrarnombreventana(jblregistrocobros, jpanelbackground);
+       
         //llenarTablaPropietario();
         //llenarTablaPresidente();
     }
@@ -365,18 +367,13 @@ public class Registro_Cobros extends javax.swing.JFrame {
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
     RegistroCobrosController.registrarCobro(new Cobros(txadescripcion_cobro.getText().toString(),txtcantidadcobro.getText().toString(),jdcfechacobro.getDate().toString(),jdcfechavence.getDate().toString(),txtidpropietario1.getText().toString(),txtidpresidente.getText().toString()));            // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
-public void setColor(JButton j){
-j.setBackground(new Color(255,51,51));
-}
-public void resetColor(JButton j1){
-j1.setBackground(new Color(153,0,0));
-}
+
     private void btnCancelar_registro_directorMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorMouseEntered
-        setColor(btnCancelar_registro_director);
+        CamposController.setColor(btnCancelar_registro_director);
     }//GEN-LAST:event_btnCancelar_registro_directorMouseEntered
 
     private void btnCancelar_registro_directorMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorMouseExited
-        resetColor(btnCancelar_registro_director);
+        CamposController.resetColor(btnCancelar_registro_director);
     }//GEN-LAST:event_btnCancelar_registro_directorMouseExited
 
     private void btnCancelar_registro_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar_registro_directorActionPerformed

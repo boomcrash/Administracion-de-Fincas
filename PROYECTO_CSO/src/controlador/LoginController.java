@@ -16,7 +16,7 @@ import java.sql.SQLException;
 import javax.swing.JTextField;
 
 /**
- *
+ *clase LoginController que controla el ingreso de los usuarios al sistema
  * @author GAMER
  */
 public class LoginController {

@@ -29,7 +29,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 
 /**
- *
+ *clase encargada de las Pruebas unitarias de los metodos del modulo registro
  * @author GAMER
  */
 public class PruebasUnitarias {
