@@ -13,23 +13,27 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de los Cobros
  * @author GAMER
  */
 public class RegistroCobrosController {
+    /**
+     * metodo que registra los Cobros en la base de datos recibiendo como parametro cobro
+     * @param cobro objeto de la clase Cobro
+     */
      public static void registrarCobro(Cobros cobro){
         
         if(!cobro.getDescripcion().isEmpty()&&!cobro.getCantidad().isEmpty()&&!cobro.getPropietario().isEmpty()
-                &&!cobro.getPresidente().isEmpty()&&!cobro.getFechaCobro().isEmpty()&&!cobro.getFechaVence().isEmpty())
+        &&!cobro.getPresidente().isEmpty()&&!cobro.getFechaCobro().isEmpty()&&!cobro.getFechaVence().isEmpty())
          {
             Conexion conect= new Conexion();
         Connection conexion=(Connection) conect.getconection();
          
         CallableStatement myCall = null;
-        
+       
         try {
                     myCall=(CallableStatement) conexion.prepareCall("{call putCobro(?,?,?,?,?,?)}");
-                    
+               
                         myCall.setString(1,cobro.getFechaCobro() );
                         myCall.setString(2,cobro.getFechaVence().toString() );
                         myCall.setString(3,cobro.getDescripcion());

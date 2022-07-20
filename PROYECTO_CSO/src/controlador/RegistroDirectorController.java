@@ -14,10 +14,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de Director
  * @author GAMER
  */
 public class RegistroDirectorController {
+    /**
+     * metodo encargado de registrar a Director en la base de datos recibiendo como parametros un objeto Director y un objeto Usuario
+     * @param director objeto de la clase Director
+     * @param user objeto de la clase Usuario
+     */
     public static void registrarDirector(Director director,Usuario user){
         
         if(!director.getNombre().isEmpty()&&!String.valueOf(director.getEdad()).isEmpty()&&!director.getCedula().isEmpty() && director.getCedula().length()==10

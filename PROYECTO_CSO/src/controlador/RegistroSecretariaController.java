@@ -14,10 +14,15 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ clase que controla el registro de Secretaria
  * @author GAMER
  */
 public class RegistroSecretariaController {
+    /**
+     * metodo encargado de registrar a las secretarias en la base de datos recibiendo como parametro un objeto de la clase Secretario y un objeto de la clase Usuario 
+     * @param secretario objeto de la clase Secretario
+     * @param user objeto de la clase Usuario
+     */
     public static void registrarSecretario(Secretario secretario,Usuario user){
         
         if(!secretario.getNombre().isEmpty()&&!String.valueOf(secretario.getEdad()).isEmpty()&&!secretario.getCedula().isEmpty() && secretario.getCedula().length()==10

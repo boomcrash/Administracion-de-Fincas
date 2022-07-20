@@ -13,10 +13,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ *clase que controla el registro de los pagos
  * @author GAMER
  */
 public class RegistroPagoController {
+    /**
+     * metodo que se encarga de registrar Pago en la base de datos recibiendo como parametro un objeto de Pago
+     * @param pago objeto de la clase Pago
+     */
     public static void registrarPago(Pago pago){
         
         if(!pago.getCantidad().isEmpty()&&!pago.getDescripcion().isEmpty()&&!pago.getId_presidente().isEmpty()

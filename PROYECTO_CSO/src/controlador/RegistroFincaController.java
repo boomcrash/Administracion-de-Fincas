@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controlador;
-
 import Conexion.Conexion;
 import Modelo.Finca;
 import com.mysql.jdbc.CallableStatement;
@@ -13,10 +12,14 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 /**
- *
+ clase que controla el registro de las fincas
  * @author GAMER
  */
 public class RegistroFincaController {
+    /**
+     * metodo que se encarga de registrar a Finca en la base de datos recibiendo como parametro un objeto Finca
+     * @param finca objeto de la clase Finca
+     */
     public static void registrarFinca(Finca finca){
         
         if(!finca.getNombre().isEmpty()&&!finca.getDireccion().isEmpty()&&!finca.getId_propietario().isEmpty()
