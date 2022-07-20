@@ -10,15 +10,15 @@ import javax.swing.JOptionPane;
  *
  * @author User
  */
-public class DatosIncompletosException  extends RuntimeException{
+public class DatosIncompletosException  extends NullPointerException{
     /**
      * Excepcion que se lanza al existir datos incompletos en los registros
      * @param mensaje 
      */
-    public DatosIncompletosException ( ){
+    public  DatosIncompletosException ( ){
         //super(mensaje);
-        JOptionPane.showMessageDialog(null, "Existen datos incompletos,Complete todos los campos");
-    
+
+     System.err.println("Existen datos incompletos,Complete todos los campos");
     }
     
 }

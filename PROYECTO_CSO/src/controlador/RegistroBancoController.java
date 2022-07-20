@@ -46,9 +46,7 @@ public class RegistroBancoController {
                     try{conexion.close();} catch (Exception e){}
             }
 
-        }
-        
-        else {
+        }else {
             /**
              * Excepcion que se lanza al no estar los datos de Banco completos
              */

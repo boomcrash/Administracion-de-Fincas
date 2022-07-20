@@ -16,7 +16,8 @@ public class NoUserException extends RuntimeException{
      * @param mensaje 
      */
     public NoUserException(){
-        JOptionPane.showMessageDialog(null, "NO EXISTE ESTE USUARIO REGISTRADO EN LA BASE DE DATOS");
+        System.out.println("NO EXISTE ESTE USUARIO REGISTRADO EN LA BASE DE DATOS");
+        
     }
     
 }

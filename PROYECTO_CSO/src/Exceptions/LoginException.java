@@ -15,8 +15,10 @@ public class LoginException extends RuntimeException {
  * Excepcion que se lanza al existir datos incompletos en los registros
  * @param mensaje 
  */
-    public LoginException() {
-        JOptionPane.showMessageDialog(null, "Existen campos vacios, ingrese los datos de Inicio de Sesión correctamente");
+    public  LoginException() {
+
+         System.err.println("Existen campos vacios, ingrese los datos de Inicio de Sesión correctamente");
+    
     }
     
 }
