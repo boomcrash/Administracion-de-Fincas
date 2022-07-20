@@ -343,7 +343,7 @@ CamposController.resetColor(btnCancelar_registro_presidente);
 
     private void btnRegistrar_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_presidenteActionPerformed
      RegistroPresidenteController.registrarPresidente(new Presidente(txtidcomunidad.getText(), txtnom_presidente.getText(), Integer.parseInt(txtci_presidente.getText()), txtci_presidente.getText(), cbmsexopresidente.getSelectedItem().toString(), txtCod_comunidad.getText(), cmbCiudad_presidente.getSelectedItem().toString(), txtDireccion_propietario.getText())); 
-     CamposController.limpiar(jpanelbackground);
+     //CamposController.limpiar(jpanelbackground);
 // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_presidenteActionPerformed
 

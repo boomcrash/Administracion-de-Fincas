@@ -60,7 +60,7 @@ public class LoginController {
                         }
                         VentanasController.cerrarLogin();
                         VentanasController.abrirInicio();
-                        new Inicio().setVisible(true);
+                        
                      }catch(Exception e){
                          System.out.println("ERROR DE CONSULTA");
                      }

@@ -331,7 +331,7 @@ public class Registro_Propietario extends javax.swing.JFrame {
 
     private void btnRegistrar_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_propietarioActionPerformed
         RegistroPropietarioController.registrarPropietario(new Propietario(txtidcomunidad.getText(), txtnom_propietario.getText(), Integer.parseInt(txtedadpropietario.getText()), txtci_propietario.getText(), cmbsexopropietario.getSelectedItem().toString(), txtcontactopropietario.getText(), txtDireccion_propietario.getText(), cbmciudadsecretaria.getSelectedItem().toString()));
-        CamposController.limpiar(jpanelbackground);
+        //CamposController.limpiar(jpanelbackground);
 // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_propietarioActionPerformed
 

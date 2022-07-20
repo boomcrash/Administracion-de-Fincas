@@ -225,9 +225,9 @@ public class Submenu_Registro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
-    
-    VentanasController.cerrarSubmenuRegistro();
+    try{VentanasController.cerrarInicio();}catch(Exception e){}
     VentanasController.abrirInicio();
+    VentanasController.cerrarSubmenuRegistro();
     }//GEN-LAST:event_btnreturnActionPerformed
 
     private void btnregistro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_presidenteActionPerformed
