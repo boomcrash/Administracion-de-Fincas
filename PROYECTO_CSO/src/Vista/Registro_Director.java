@@ -24,7 +24,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *Formulario de Registro de Directores
  * @author User
  */
 public class Registro_Director extends javax.swing.JFrame {
@@ -466,6 +466,7 @@ public class Registro_Director extends javax.swing.JFrame {
         // TODO add your handling code here:
        if(txtci_director.getText().length() >=10 || !Character.isDigit(evt.getKeyChar())){
          evt.consume();
+         
         }
     }//GEN-LAST:event_txtci_directorKeyTyped
 

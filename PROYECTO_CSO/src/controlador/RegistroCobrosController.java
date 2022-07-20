@@ -6,6 +6,7 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.DatosIncompletosException;
 import Modelo.Cobros;
 import com.mysql.jdbc.CallableStatement;
 import java.sql.Connection;
@@ -41,19 +42,21 @@ public class RegistroCobrosController {
                         myCall.setInt(5,Integer.parseInt(cobro.getPropietario()));
                         myCall.setInt(6,Integer.parseInt(cobro.getPresidente()));
                         myCall.executeUpdate();
-                        JOptionPane.showMessageDialog(null, "REGISTRO DE COBRO EXITOSO !");
-                        //this.dispose();
-                        //limpiar();   
+                        JOptionPane.showMessageDialog(null, "REGISTRO DE COBRO EXITOSO !"); 
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
                     try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+        }else {
+            /**
+             * Excepcion que se lanza al no estar los datos completos de Cobros
+             */
+             throw new DatosIncompletosException();
+        }
 
     }
+  
+  
 }

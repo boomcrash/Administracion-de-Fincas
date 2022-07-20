@@ -6,6 +6,7 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.DatosIncompletosException;
 import Modelo.Comunidad;
 import com.mysql.jdbc.CallableStatement;
 import java.sql.Connection;
@@ -42,19 +43,19 @@ public class RegistroComunidadController {
                     myCall.setString(7,comunidad.getDescripcion());
                     myCall.setString(8,"A".toString());
                     myCall.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "REGISTRO DE COMUNIDAD EXITOSO !");
-                    //this.dispose();
-                   //limpiar();   
+                    JOptionPane.showMessageDialog(null, "REGISTRO DE COMUNIDAD EXITOSO !"); 
          } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
          }finally {
                 try{myCall.close();} catch (Exception e){}
                 try{conexion.close();} catch (Exception e){}
         }
-          /*panel.removeAll();
-        panel.repaint();
-        limpiar();*/
-     }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
-        
-   }
+     }else {
+        /**
+         * Excepcion que se lanza al no estar los datos de Comunidad completos
+         */
+        throw new DatosIncompletosException();
+    }
+     
+    }
 }

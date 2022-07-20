@@ -6,6 +6,8 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.LoginException;
+import Exceptions.NoUserException;
 import Modelo.Usuario;
 import Vista.Inicio;
 import static Vista.Login.id_Usuario;
@@ -65,7 +67,8 @@ public class LoginController {
                          System.out.println("ERROR DE CONSULTA");
                      }
                  }else{
-                     System.out.println("NO EXISTE ESTE USUARIO");
+                     throw new NoUserException();
+//System.out.println("NO EXISTE ESTE USUARIO");
                  }
               }
             }catch(SQLException ex)
@@ -77,7 +80,8 @@ public class LoginController {
                  try{conexion2.close();} catch (Exception e){}
             }
         }else{
-            System.out.println("DATOS INCOMPLETOS !!");
+            throw new LoginException();
+            //System.out.println("DATOS INCOMPLETOS !!");
         }
         
     }

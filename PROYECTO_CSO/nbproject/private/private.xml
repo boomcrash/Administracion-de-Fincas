@@ -7,16 +7,23 @@
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/LoginController.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/ConexionController.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/RegistroDirectorController.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Inicio.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Secretaria.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Conexion/Conexion.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Comunidad.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/RegistroPresidenteController.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Exceptions/NoUserException.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/RegistroCobrosController.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Login.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Entidad_Bancaria.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Director.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Exceptions/LoginException.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/RegistroPropietarioController.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/RegistroSecretariaController.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Submenu_Registro.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/TablasRegistroController.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/PruebasUnitarias.java</file>
+            <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Exceptions/DatosIncompletosException.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Registro_Pagos.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/Vista/Restaurar_contraseña.java</file>
             <file>file:/C:/Users/User/Documents/proyecto/Administracion-de-Fincas/PROYECTO_CSO/src/controlador/returnCombo.java</file>

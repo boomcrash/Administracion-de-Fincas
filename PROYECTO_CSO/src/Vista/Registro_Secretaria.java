@@ -18,10 +18,15 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Formulario de Registro de Secretario
+ * @author User
+ */
 public class Registro_Secretaria extends javax.swing.JFrame {
     int id_com;
-
+/**
+ * Inicializacion de formulario de Registro de Secretario
+ */
     public Registro_Secretaria() {
         initComponents();
          this.setLocationRelativeTo(null);
@@ -69,7 +74,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         jblregistrosecretaria = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblcomunidad = new javax.swing.JTable();
-        txtiddirector = new javax.swing.JTextField();
+        txtidComunidad = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
@@ -304,11 +309,11 @@ public class Registro_Secretaria extends javax.swing.JFrame {
 
         jpanelbackground.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 520, 820, 191));
 
-        txtiddirector.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
-        txtiddirector.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        txtiddirector.setDisabledTextColor(new java.awt.Color(255, 255, 255));
-        txtiddirector.setEnabled(false);
-        jpanelbackground.add(txtiddirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 473, 60, 30));
+        txtidComunidad.setFont(new java.awt.Font("Bookman Old Style", 1, 18)); // NOI18N
+        txtidComunidad.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidComunidad.setDisabledTextColor(new java.awt.Color(255, 255, 255));
+        txtidComunidad.setEnabled(false);
+        jpanelbackground.add(txtidComunidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(148, 473, 60, 30));
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setText("COMUNIDAD:");
@@ -377,7 +382,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCancelar_registro_secretariaActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
-      RegistroSecretariaController.registrarSecretario(new Secretario(txtiddirector.getText(), txtnom_secretaria.getText(), Integer.parseInt(txtedadsecretaria.getText()), txtci_secretaria.getText(), cmbsexosecretaria.getSelectedItem().toString(), txtcontactosecretaria.getText(), cbmciudadsecretaria.getSelectedItem().toString(), txtDireccion_secretaria.getText()), new Usuario(txtusuariosecretaria.getText(), txtcontraseñasecretaria.getText(), 2));
+      RegistroSecretariaController.registrarSecretario(new Secretario(txtidComunidad.getText(), txtnom_secretaria.getText(), Integer.parseInt(txtedadsecretaria.getText()), txtci_secretaria.getText(), cmbsexosecretaria.getSelectedItem().toString(), txtcontactosecretaria.getText(), cbmciudadsecretaria.getSelectedItem().toString(), txtDireccion_secretaria.getText()), new Usuario(txtusuariosecretaria.getText(), txtcontraseñasecretaria.getText(), 2));
       CamposController.limpiar(jpanelbackground);
 // TODO add your handling code here:
     }//GEN-LAST:event_btnRegistrar_directorActionPerformed
@@ -386,7 +391,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
         int row=tblcomunidad.getSelectedRow();
         if(row!=-1){
             id_com=Integer.parseInt(String.valueOf(tblcomunidad.getModel().getValueAt(row,0)));
-            txtiddirector.setText(String.valueOf(id_com));
+            txtidComunidad.setText(String.valueOf(id_com));
         }// TODO add your handling code here:
     }//GEN-LAST:event_tblcomunidadMouseClicked
 
@@ -448,7 +453,7 @@ public class Registro_Secretaria extends javax.swing.JFrame {
     private javax.swing.JTextField txtcontactosecretaria;
     private javax.swing.JTextField txtcontraseñasecretaria;
     private javax.swing.JTextField txtedadsecretaria;
-    private javax.swing.JTextField txtiddirector;
+    private javax.swing.JTextField txtidComunidad;
     private javax.swing.JTextField txtnom_secretaria;
     private javax.swing.JTextField txtusuariosecretaria;
     // End of variables declaration//GEN-END:variables
