@@ -15,9 +15,15 @@ import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Formulario de Registro de Bancos
+ * @author User
+ */
 public class Registro_Entidad_Bancaria extends javax.swing.JFrame {
     int id_com=0;
+    /**
+     * Inicializacion del Formulario de Registro de Banco
+     */
     public Registro_Entidad_Bancaria() {
         initComponents();
         this.setLocationRelativeTo(null);

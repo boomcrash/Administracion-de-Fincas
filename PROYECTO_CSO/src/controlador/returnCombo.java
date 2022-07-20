@@ -8,7 +8,7 @@ import Vista.Registro_Comunidad;
 import javax.swing.JComboBox;
 
 /**
- *
+ *clase returnCombo
  * @author GAMER
  */
 public class returnCombo {

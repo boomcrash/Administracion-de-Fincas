@@ -6,6 +6,7 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.DatosIncompletosException;
 import Modelo.Secretario;
 import Modelo.Usuario;
 import com.mysql.jdbc.CallableStatement;
@@ -54,18 +55,19 @@ public class RegistroSecretariaController {
                         myCall.setInt(9,id);
                         myCall.executeUpdate();
                         JOptionPane.showMessageDialog(null, "REGISTRO DE SECRETARIO EXITOSO !");
-                        //this.dispose();
-                        //limpiar();   
              } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION"+ex);
              }finally {
                     try{myCall.close();} catch (Exception e){}
                     try{conexion.close();} catch (Exception e){}
             }
-              /*panel.removeAll();
-            panel.repaint();
-                limpiar();*/
-        }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+        }else {
+            /**
+             * Excepcion que se lanza al no estar los datos de Secretario completos
+             */
+             throw new DatosIncompletosException();
+            //JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");
+        }
 
     }
 }

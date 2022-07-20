@@ -16,7 +16,9 @@ import javax.swing.JOptionPane;
 
 public class Inicio extends javax.swing.JFrame {
     public Inicio() {
-        
+        /**
+         * Inicialización de componentes
+         */
         initComponents();
         this.setLocationRelativeTo(null);
        CamposController.mostrarnombreventana(jblWindow, jpanelbackground);
@@ -174,7 +176,9 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnRegistroActionPerformed
  
     private void btnClose_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClose_SesionActionPerformed
-
+/**
+ * proceso del boton cerrar sesion
+ */
 String botones[] = {"cerrar", "cancelar"};
 int eleccion = JOptionPane.showOptionDialog(this,"¿DESEA CERRAR LA SESIÓN?", null, 0,0,null, botones, this);
 if(eleccion ==JOptionPane.YES_OPTION){

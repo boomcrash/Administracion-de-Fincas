@@ -15,8 +15,14 @@ import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Formulario de Registro de Comunidades
+ * @author User
+ */
 public class Registro_Comunidad extends javax.swing.JFrame {
+    /**
+     * Inicializacion del Formulario Registro_Comunidad
+     */
     public Registro_Comunidad() {
         initComponents();
             this.setLocationRelativeTo(null);

@@ -22,7 +22,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *Formulario de Registro de Cobros
  * @author User
  */
 public class Registro_Cobros extends javax.swing.JFrame {
@@ -39,13 +39,8 @@ public class Registro_Cobros extends javax.swing.JFrame {
         TablasRegistroController.llenarTablaPropietario(tblpropietario);
         TablasRegistroController.llenarTablaPresidente(tblpresidentes);
         CamposController.mostrarnombreventana(jblregistrocobros, jpanelbackground);
-       
-        //llenarTablaPropietario();
-        //llenarTablaPresidente();
     }
  
- 
-    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -410,9 +405,6 @@ public class Registro_Cobros extends javax.swing.JFrame {
         }      // TODO add your handling code here:
     }//GEN-LAST:event_tblpresidentesMouseClicked
 
-    /**
-     * @param args the command line arguments
-     */
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCancelar_registro_director;

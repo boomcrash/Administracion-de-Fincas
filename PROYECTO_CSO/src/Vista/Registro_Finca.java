@@ -15,9 +15,15 @@ import java.sql.SQLException;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
+/**
+ * Formulario de Registro de Fincas
+ * @author User
+ */
 public class Registro_Finca extends javax.swing.JFrame {
     int id_com=0;
+    /**
+     * Inicializacion de Formulario de Registro de Finca
+     */
     public Registro_Finca() {
         initComponents();
           this.setLocationRelativeTo(null);

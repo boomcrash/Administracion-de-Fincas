@@ -22,13 +22,13 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *Formulario de Registro de Pagos
  * @author User
  */
 public class Registro_Pagos extends javax.swing.JFrame {
     int id_com=0,id_bank=0;
     /**
-     * Se crea un formulario de  Registro_Pagos
+     * Se crea un formulario de  Registro de Pagos
      */
     public Registro_Pagos() {
         initComponents();

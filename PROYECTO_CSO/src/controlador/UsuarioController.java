@@ -6,6 +6,7 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.DatosIncompletosException;
 import Modelo.Usuario;
 import com.mysql.jdbc.CallableStatement;
 import java.sql.Connection;
@@ -72,18 +73,20 @@ public class UsuarioController {
                            myCall.setInt(3,user.getTipo());
                            myCall.executeUpdate();
                            JOptionPane.showMessageDialog(null, "REGISTRO DE USUARIO EXITOSO !");
-                           //this.dispose();
-
+                           
                 } catch (SQLException ex) {
                    JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nERROR DE CONEXION");
                 }finally {
                        try{myCall.close();} catch (Exception e){}
                        try{conexion.close();} catch (Exception e){}
                }
-                 /*panel.removeAll();
-               panel.repaint();
-                   limpiar();*/
-            }else {JOptionPane.showMessageDialog(null, "ERROR DE REGISTRO !\nREVISE QUE LOS CAMPOS ESTEN LLENADOS CORRECTAMENTE.");}
+                
+            }else {
+                /**
+                 * Excepcion que se lanza al no estar los datos de Usuario completos
+                 */
+                throw new DatosIncompletosException ();
+            }
 
            return consultarUsuario(user);
         }
