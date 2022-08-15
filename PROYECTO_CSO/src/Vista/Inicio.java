@@ -167,7 +167,8 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
-       
+        VentanasController.cerrarInicio();
+        VentanasController.abrirSubmenuConsulta();
     }//GEN-LAST:event_btnConsultasActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed

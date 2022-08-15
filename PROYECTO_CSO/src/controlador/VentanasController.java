@@ -27,6 +27,31 @@ public class VentanasController {
     public static Restaurar_contraseña ventanaRestaurar_contraseña=new Restaurar_contraseña();
     public static Submenu_Registro ventanaSubmenu_Registro=new Submenu_Registro();
     
+    public static Submenu_Consulta ventanaSubmenu_Consulta=new Submenu_Consulta();
+    
+    public static ConsultarCobrosPropietarios consulta_cobro_propietario=new ConsultarCobrosPropietarios();    
+    public static ConsultarPropietario consulta_propietario=new ConsultarPropietario();    
+    public static ConsultarPresidente consulta_presidente=new ConsultarPresidente();    
+    public static ConsultarBanco consulta_banco=new ConsultarBanco();    
+
+    //consultas
+    
+    public static void abrirSubmenuConsulta(){ventanaSubmenu_Consulta.setVisible(true);}
+    public static void cerrarSubmenuConsulta(){ventanaSubmenu_Consulta.setVisible(false);}
+    
+    public static void abrirConsultarCobrosPropietarios(){consulta_cobro_propietario.setVisible(true);}
+    public static void cerrarConsultarCobrosPropietarios(){consulta_cobro_propietario.setVisible(false);}
+
+    
+    public static void abrirConsultarPropietarios(){consulta_propietario.setVisible(true);}
+    public static void cerrarConsultarPropietarios(){consulta_propietario.setVisible(false);}
+
+    public static void abrirConsultarPresidente(){consulta_presidente.setVisible(true);}
+    public static void cerrarConsultarPresidente(){consulta_presidente.setVisible(false);}
+
+    public static void abrirConsultarBanco(){consulta_banco.setVisible(true);}
+    public static void cerrarConsultarBanco(){consulta_banco.setVisible(false);}
+
     /**
      * abrir y cerrar de la ventana inicio
      */
