@@ -33,7 +33,10 @@ public class VentanasController {
     public static ConsultarPropietario consulta_propietario=new ConsultarPropietario();    
     public static ConsultarPresidente consulta_presidente=new ConsultarPresidente();    
     public static ConsultarBanco consulta_banco=new ConsultarBanco();    
-
+    public static ConsultarCobrosPropietarios consulta_cobros=new ConsultarCobrosPropietarios();  
+    public static ConsultarPagosPropietarios consulta_pagos=new ConsultarPagosPropietarios();  
+    public static ConsultarGastosComunidad consulta_gastos_comunidad=new ConsultarGastosComunidad(); 
+    public static ConsultarGastosPropietarios consulta_gastos_propietario=new ConsultarGastosPropietarios(); 
     //consultas
     
     public static void abrirSubmenuConsulta(){ventanaSubmenu_Consulta.setVisible(true);}
@@ -51,6 +54,18 @@ public class VentanasController {
 
     public static void abrirConsultarBanco(){consulta_banco.setVisible(true);}
     public static void cerrarConsultarBanco(){consulta_banco.setVisible(false);}
+    
+    public static void abrirConsultarCobros(){consulta_cobros.setVisible(true);}
+    public static void cerrarConsultarCobros(){consulta_cobros.setVisible(false);}
+    
+    public static void abrirConsultarPagos(){consulta_pagos.setVisible(true);}
+    public static void cerrarConsultarPagos(){consulta_pagos.setVisible(false);}
+    
+    public static void abrirConsultarGastosComunidad(){consulta_gastos_comunidad.setVisible(true);}
+    public static void cerrarConsultarGastosComunidad(){consulta_gastos_comunidad.setVisible(false);}
+    
+    public static void abrirConsultarGastosPropietario(){consulta_gastos_propietario.setVisible(true);}
+    public static void cerrarConsultarGastosPropietario(){consulta_gastos_propietario.setVisible(false);}
 
     /**
      * abrir y cerrar de la ventana inicio

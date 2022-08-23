@@ -5,17 +5,20 @@
  */
 package Vista;
 
+import controlador.TablaConsultaController;
+
 /**
  *
  * @author GAMER
  */
 public class ConsultarGastosComunidad extends javax.swing.JFrame {
-
+    int id_com;
     /**
      * Creates new form ConsultarGastosComunidad
      */
     public ConsultarGastosComunidad() {
         initComponents();
+        TablaConsultaController.llenarTablaGastosComunidad(tblpresidentes);
     }
 
     /**
@@ -33,6 +36,9 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblpresidentes = new javax.swing.JTable();
+        txtidpresidente1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +105,25 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 0, 100, 40));
 
+        tblpresidentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblpresidentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblpresidentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblpresidentesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblpresidentes);
+
+        txtidpresidente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidpresidente1.setEnabled(false);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -106,12 +131,24 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtidpresidente1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(620, 620, 620))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 585, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 250, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addComponent(txtidpresidente1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 316, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -145,6 +182,14 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
         submenuregistro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void tblpresidentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpresidentesMouseClicked
+        int row=tblpresidentes.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblpresidentes.getModel().getValueAt(row,0)));
+            txtidpresidente1.setText(String.valueOf(id_com));
+        }       // TODO add your handling code here:
+    }//GEN-LAST:event_tblpresidentesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -188,5 +233,8 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblpresidentes;
+    private javax.swing.JTextField txtidpresidente1;
     // End of variables declaration//GEN-END:variables
 }

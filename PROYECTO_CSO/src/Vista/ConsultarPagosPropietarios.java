@@ -5,17 +5,20 @@
  */
 package Vista;
 
+import controlador.TablaConsultaController;
+
 /**
  *
  * @author GAMER
  */
 public class ConsultarPagosPropietarios extends javax.swing.JFrame {
-
+    int id_com;
     /**
      * Creates new form ConsultarPagosPropietarios
      */
     public ConsultarPagosPropietarios() {
         initComponents();
+         TablaConsultaController.llenarTablaPagosPropietarios(tblpresidentes);
     }
 
     /**
@@ -33,6 +36,9 @@ public class ConsultarPagosPropietarios extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
+        txtidpresidente1 = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblpresidentes = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,17 +105,44 @@ public class ConsultarPagosPropietarios extends javax.swing.JFrame {
         });
         jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 0, 100, 40));
 
+        txtidpresidente1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        txtidpresidente1.setEnabled(false);
+
+        tblpresidentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        tblpresidentes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+
+            }
+        ));
+        tblpresidentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblpresidentesMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblpresidentes);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 980, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(txtidpresidente1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane2)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 250, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addComponent(txtidpresidente1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 473, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 8, Short.MAX_VALUE))
         );
 
         pack();
@@ -143,6 +176,14 @@ public class ConsultarPagosPropietarios extends javax.swing.JFrame {
         submenuregistro.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnRegistroActionPerformed
+
+    private void tblpresidentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpresidentesMouseClicked
+        int row=tblpresidentes.getSelectedRow();
+        if(row!=-1){
+            id_com=Integer.parseInt(String.valueOf(tblpresidentes.getModel().getValueAt(row,0)));
+            txtidpresidente1.setText(String.valueOf(id_com));
+        }       // TODO add your handling code here:
+    }//GEN-LAST:event_tblpresidentesMouseClicked
 
     /**
      * @param args the command line arguments
@@ -186,5 +227,8 @@ public class ConsultarPagosPropietarios extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblpresidentes;
+    private javax.swing.JTextField txtidpresidente1;
     // End of variables declaration//GEN-END:variables
 }
