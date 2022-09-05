@@ -37,6 +37,11 @@ public class VentanasController {
     public static ConsultarPagosPropietarios consulta_pagos=new ConsultarPagosPropietarios();  
     public static ConsultarGastosComunidad consulta_gastos_comunidad=new ConsultarGastosComunidad(); 
     public static ConsultarGastosPropietarios consulta_gastos_propietario=new ConsultarGastosPropietarios(); 
+    public static Reportes reportes=new Reportes(); 
+    
+    //reportes
+    public static void abrirReportes(){reportes.setVisible(true);}
+    public static void cerrarReportes(){reportes.setVisible(false);}
     //consultas
     
     public static void abrirSubmenuConsulta(){ventanaSubmenu_Consulta.setVisible(true);}

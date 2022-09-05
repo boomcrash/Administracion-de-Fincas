@@ -14,7 +14,7 @@ public class Conexion {
      * atributos de la clase Conexion
      */
     private final String USUARIO = "boomcrash@admfinca";
-    private final String CONTRASEÑA = "Camaleon_1";
+    private final String CONTRASEÑA = "Camaleon1";
     public static final String URL="jdbc:mysql://admfinca.mysql.database.azure.com:3306/admFinca?autoReconnet=true&useSSL=true";
     Connection conexion=null;
     /**
