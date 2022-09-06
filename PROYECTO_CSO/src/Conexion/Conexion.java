@@ -15,7 +15,7 @@ public class Conexion {
      */
     private final String USUARIO = "boomcrash@admfinca";
     private final String CONTRASEÑA = "Camaleon1";
-    public static final String URL="jdbc:mysql://admfinca.mysql.database.azure.com:3306/admFinca?autoReconnet=true&useSSL=true";
+    public static final String URL="jdbc:mysql://admfinca.mysql.database.azure.com:3306/admFinca?autoReconnet=true&useSSL=false";
     Connection conexion=null;
     /**
      * metodo constructor que permite crear un objeto de la clase Conexion
