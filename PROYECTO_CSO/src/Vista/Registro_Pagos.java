@@ -126,6 +126,11 @@ public class Registro_Pagos extends javax.swing.JFrame {
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
         jButton4.setText("REPORTES");
         jButton4.setBorder(null);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
@@ -290,13 +295,14 @@ public class Registro_Pagos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+VentanasController.abrirSubmenuConsulta();
+VentanasController.cerrarRegistroPagos();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
-        this.setVisible(false);
+       VentanasController.abrirInicio();
+       VentanasController.cerrarRegistroPagos();
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
@@ -304,10 +310,8 @@ public class Registro_Pagos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3MouseEntered
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        this.setVisible(true);
-        Submenu_Registro submenuregistro = new Submenu_Registro();
-        submenuregistro.setVisible(true);
-        this.setVisible(false);
+VentanasController.abrirSubmenuRegistro();
+VentanasController.cerrarRegistroPagos();
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void btnRegistrar_directorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistrar_directorActionPerformed
@@ -363,6 +367,12 @@ public class Registro_Pagos extends javax.swing.JFrame {
             txtidbanco.setText(String.valueOf(id_bank));
         }      // TODO add your handling code here:
     }//GEN-LAST:event_tblbancosMouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+VentanasController.abrirReportes();
+VentanasController.cerrarRegistroPagos();
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

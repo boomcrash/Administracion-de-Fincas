@@ -18,6 +18,8 @@ public class Submenu_Consulta extends javax.swing.JFrame {
      */
     public Submenu_Consulta() {
         initComponents();
+        this.setLocationRelativeTo(null);
+
     }
 
     /**
@@ -49,9 +51,12 @@ public class Submenu_Consulta extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel10.setText("CONSULTAR PROPIETARIO");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 516, 190, -1));
 
         btnRegistro_propietario.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro_propietario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/propietario.png"))); // NOI18N
@@ -61,9 +66,11 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnRegistro_propietarioActionPerformed(evt);
             }
         });
+        getContentPane().add(btnRegistro_propietario, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 436, 100, 80));
 
         jLabel2.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel2.setText("CONSULTAR BANCO");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 326, 160, 20));
 
         btnregistro_entbancaria.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_entbancaria.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/entidad bancaria.png"))); // NOI18N
@@ -73,6 +80,7 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnregistro_entbancariaActionPerformed(evt);
             }
         });
+        getContentPane().add(btnregistro_entbancaria, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 256, 100, 70));
 
         btnregistro_presidente.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_presidente.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/presidente (1).png"))); // NOI18N
@@ -82,9 +90,11 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnregistro_presidenteActionPerformed(evt);
             }
         });
+        getContentPane().add(btnregistro_presidente, new org.netbeans.lib.awtextra.AbsoluteConstraints(55, 86, 100, 70));
 
         jLabel5.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel5.setText("CONSULTAR PRESIDENTE");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 156, -1, 20));
 
         btnregistro_finca.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_finca.setForeground(new java.awt.Color(51, 51, 51));
@@ -95,9 +105,11 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnregistro_fincaActionPerformed(evt);
             }
         });
+        getContentPane().add(btnregistro_finca, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 86, 110, 70));
 
         jLabel4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel4.setText("PAGOS PROPIETARIOS");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 162, 159, 20));
 
         btnregistrardirector.setBackground(new java.awt.Color(255, 255, 255));
         btnregistrardirector.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/jefe.png"))); // NOI18N
@@ -107,9 +119,11 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnregistrardirectorActionPerformed(evt);
             }
         });
+        getContentPane().add(btnregistrardirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 259, 110, 70));
 
         jLabel3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel3.setText(" GASTOS COMUNIDAD");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 329, 160, 20));
 
         btnregistro_gastos_propietarios.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_gastos_propietarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/metodo-de-pago.png"))); // NOI18N
@@ -119,12 +133,15 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnregistro_gastos_propietariosActionPerformed(evt);
             }
         });
+        getContentPane().add(btnregistro_gastos_propietarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(681, 449, 110, 70));
 
         jLabel11.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel11.setText("CONSULTAR GASTOS PROPIETARIOS");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(612, 525, -1, -1));
 
         jLabel12.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel12.setText(" COBROS PROPIETARIOS");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 330, 183, -1));
 
         btnregistro_cobros.setBackground(new java.awt.Color(255, 255, 255));
         btnregistro_cobros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/cobro.png"))); // NOI18N
@@ -134,6 +151,7 @@ public class Submenu_Consulta extends javax.swing.JFrame {
                 btnregistro_cobrosActionPerformed(evt);
             }
         });
+        getContentPane().add(btnregistro_cobros, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 254, 110, 70));
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -152,172 +170,94 @@ public class Submenu_Consulta extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Rockwell", 1, 36)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("MENU CONSULTA");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 320, 80));
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 0, 370, 80));
 
         jLabel8.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("REGRESAR");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 80, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnregistro_presidente, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnRegistro_propietario, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btnregistro_entbancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(141, 141, 141)
-                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(122, 122, 122))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnregistro_cobros, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(167, 167, 167)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btnregistro_finca, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btnregistrardirector, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(20, 20, 20)
-                                .addComponent(btnregistro_gastos_propietarios, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(397, 397, 397)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 820, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnregistro_finca, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(72, 72, 72)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnregistrardirector, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, 0)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnregistro_cobros, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel12)))
-                        .addGap(100, 100, 100)
-                        .addComponent(btnregistro_gastos_propietarios, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel11))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnregistro_presidente, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(80, 80, 80)
-                        .addComponent(btnregistro_entbancaria, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(90, 90, 90)
-                        .addComponent(btnRegistro_propietario, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jLabel10)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, 865, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnRegistro_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistro_propietarioActionPerformed
-    try{
+/**    try{
         VentanasController.abrirConsultarPropietarios();
        
     }catch(Exception e){
          VentanasController.cerrarConsultarPropietarios();
         VentanasController.abrirConsultarPropietarios();
-    }
+    }**/
+VentanasController.abrirConsultarPropietarios();
+VentanasController.cerrarSubmenuConsulta();
     }//GEN-LAST:event_btnRegistro_propietarioActionPerformed
 
     private void btnregistro_entbancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_entbancariaActionPerformed
-    try{
+    /**try{
         VentanasController.abrirConsultarBanco();
         
     }catch(Exception e){
         VentanasController.cerrarConsultarBanco();
         VentanasController.abrirConsultarBanco();
-    }
+    }**/
+    VentanasController.abrirConsultarBanco();
+    VentanasController.cerrarSubmenuConsulta();
     }//GEN-LAST:event_btnregistro_entbancariaActionPerformed
 
     private void btnregistro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_presidenteActionPerformed
-    try{
+    /**try{
         VentanasController.abrirConsultarPresidente();
     }catch(Exception e){
          VentanasController.cerrarConsultarPresidente();
         VentanasController.abrirConsultarPresidente();
-    }
+    }**/
+    VentanasController.abrirConsultarPresidente();
+     VentanasController.cerrarSubmenuConsulta();
     }//GEN-LAST:event_btnregistro_presidenteActionPerformed
 
     private void btnregistro_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_fincaActionPerformed
-    try{
+   /** try{
         VentanasController.abrirConsultarPagos();
     }catch(Exception e){
          VentanasController.cerrarConsultarPagos();
         VentanasController.abrirConsultarPagos();
-    } 
+    } **/
+   VentanasController.abrirConsultarPagos();
+   VentanasController.cerrarSubmenuConsulta();
     }//GEN-LAST:event_btnregistro_fincaActionPerformed
 
     private void btnregistrardirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrardirectorActionPerformed
-    try{
+/**    try{
         VentanasController.abrirConsultarGastosComunidad();
     }catch(Exception e){
          VentanasController.cerrarConsultarGastosComunidad();
         VentanasController.abrirConsultarGastosComunidad();
-    } 
+    }**/
+VentanasController.abrirConsultarGastosComunidad();
+VentanasController.cerrarSubmenuConsulta();
     }//GEN-LAST:event_btnregistrardirectorActionPerformed
 
     private void btnregistro_gastos_propietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_gastos_propietariosActionPerformed
-    try{
+/**    try{
         VentanasController.abrirConsultarGastosPropietario();
     }catch(Exception e){
          VentanasController.cerrarConsultarGastosPropietario();
         VentanasController.abrirConsultarGastosPropietario();
-    } 
+    }**/
+VentanasController.abrirConsultarGastosPropietario();
     }//GEN-LAST:event_btnregistro_gastos_propietariosActionPerformed
 
     private void btnregistro_cobrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_cobrosActionPerformed
-    try{
+/**    try{
         VentanasController.abrirConsultarCobros();
     }catch(Exception e){
          VentanasController.cerrarConsultarCobros();
         VentanasController.abrirConsultarCobros();
-    }
+    }**/
+VentanasController.abrirConsultarCobros();
+VentanasController.cerrarSubmenuConsulta();
     }//GEN-LAST:event_btnregistro_cobrosActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed

@@ -6,6 +6,7 @@
 package Vista;
 
 import controlador.TablaConsultaController;
+import controlador.VentanasController;
 
 /**
  *
@@ -19,6 +20,7 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
     public ConsultarGastosComunidad() {
         initComponents();
         TablaConsultaController.llenarTablaGastosComunidad(tblpresidentes);
+               this.setLocationRelativeTo(null);
     }
 
     /**
@@ -155,13 +157,14 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+VentanasController.abrirSubmenuConsulta();
+VentanasController.cerrarConsultarGastosComunidad();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
-        Inicio inicio = new Inicio();
-        inicio.setVisible(true);
-        this.setVisible(false);
+VentanasController.abrirInicio();
+VentanasController.cerrarConsultarGastosComunidad();
     }//GEN-LAST:event_btnInicioActionPerformed
 
     private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
@@ -173,14 +176,14 @@ public class ConsultarGastosComunidad extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+VentanasController.abrirReportes();
+VentanasController.cerrarConsultarGastosComunidad();
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-        this.setVisible(true);
-        Submenu_Registro submenuregistro = new Submenu_Registro();
-        submenuregistro.setVisible(true);
-        this.setVisible(false);
+VentanasController.abrirSubmenuRegistro();
+VentanasController.cerrarConsultarGastosComunidad();
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     private void tblpresidentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpresidentesMouseClicked

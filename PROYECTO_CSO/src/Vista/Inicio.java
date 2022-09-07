@@ -33,13 +33,14 @@ public class Inicio extends javax.swing.JFrame {
         btnConsultas = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnreportes = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         jpanelbackground = new javax.swing.JPanel();
         jblWindow = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         btnClose_Sesion = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio");
@@ -47,12 +48,10 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 0));
-        jPanel1.setForeground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnConsultas.setBackground(new java.awt.Color(255, 255, 255));
         btnConsultas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnConsultas.setForeground(new java.awt.Color(0, 0, 0));
         btnConsultas.setText("CONSULTAS");
         btnConsultas.setBorder(null);
         btnConsultas.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +63,6 @@ public class Inicio extends javax.swing.JFrame {
 
         btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(null);
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +74,6 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
         jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
         jButton3.setText("PERFIL\n");
         jButton3.setBorder(null);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -86,21 +83,19 @@ public class Inicio extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 0, 100, 40));
 
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("REPORTES");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        btnreportes.setBackground(new java.awt.Color(255, 255, 255));
+        btnreportes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnreportes.setText("REPORTES");
+        btnreportes.setBorder(null);
+        btnreportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                btnreportesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 100, 40));
+        jPanel1.add(btnreportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(null);
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -124,9 +119,8 @@ public class Inicio extends javax.swing.JFrame {
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font("Rockwell", 1, 60)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("BIENVENIDO!.");
-        jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 470, 70));
+        jpanelbackground.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 470, 70));
 
         btnClose_Sesion.setBackground(new java.awt.Color(255, 0, 0));
         btnClose_Sesion.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -148,15 +142,19 @@ public class Inicio extends javax.swing.JFrame {
         });
         jpanelbackground.add(btnClose_Sesion, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 690, 160, 40));
 
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/logofinca1.png"))); // NOI18N
+        jpanelbackground.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 590, 300));
+
         getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 800));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
+       VentanasController.cerrarInicio();
         VentanasController.abrirReportes();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnreportesActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -205,10 +203,11 @@ this.setVisible(true);
     private javax.swing.JButton btnConsultas;
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistro;
+    private javax.swing.JButton btnreportes;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel jblWindow;
     private javax.swing.JPanel jpanelbackground;
