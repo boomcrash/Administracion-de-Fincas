@@ -5,6 +5,8 @@
  */
 package controlador;
 
+import Exceptions.LoginException;
+import Exceptions.NoUserException;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -39,7 +41,7 @@ public class PruebasUnitariasTest {
      * Test of PruebasUnitarias method, of class PruebasUnitarias.
      */
     @Test
-    public void testPruebasUnitarias() {
+    public void testPruebasUnitarias() throws NoUserException, LoginException {
         System.out.println("PruebasUnitarias");
         PruebasUnitarias instance = new PruebasUnitarias();
         instance.PruebasUnitarias();
