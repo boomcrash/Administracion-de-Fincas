@@ -23,15 +23,14 @@ public class Inicio extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
        CamposController.mostrarnombreventana(jblWindow, jpanelbackground);
     }
-    
-    
+   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         btnConsultas = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnInicio = new javax.swing.JButton();
         btnreportes = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         jpanelbackground = new javax.swing.JPanel();
@@ -61,19 +60,19 @@ public class Inicio extends javax.swing.JFrame {
                 btnConsultasActionPerformed(evt);
             }
         });
-        jPanel1.add(btnConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 100, 40));
+        jPanel1.add(btnConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("PERFIL\n");
-        jButton3.setBorder(null);
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnInicio.setBackground(new java.awt.Color(255, 255, 255));
+        btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
+        btnInicio.setText("INICIO");
+        btnInicio.setBorder(null);
+        btnInicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 100, 40));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 100, 40));
 
         btnreportes.setBackground(new java.awt.Color(255, 255, 255));
         btnreportes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -85,7 +84,7 @@ public class Inicio extends javax.swing.JFrame {
                 btnreportesActionPerformed(evt);
             }
         });
-        jPanel1.add(btnreportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 100, 40));
+        jPanel1.add(btnreportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -97,7 +96,7 @@ public class Inicio extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 0, 100, 40));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 100, 40));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 980, 50));
 
@@ -147,7 +146,7 @@ public class Inicio extends javax.swing.JFrame {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/circulo 300px.png"))); // NOI18N
         jpanelbackground.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 40, 180, 260));
 
-        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 975, 730));
+        getContentPane().add(jpanelbackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 730));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -158,9 +157,11 @@ public class Inicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnreportesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
+       VentanasController.cerrarInicio();
+        VentanasController.abrirInicio();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnInicioActionPerformed
 
     private void btnConsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultasActionPerformed
         VentanasController.cerrarInicio();
@@ -198,9 +199,9 @@ this.setVisible(true);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClose_Sesion;
     private javax.swing.JButton btnConsultas;
+    private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistro;
     private javax.swing.JButton btnreportes;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

@@ -13,10 +13,16 @@ import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
- *
+ *clase que se encarga de los metodos que cargan las tablas 
+ * de los datos registrados del modulo de connsultas 
  * @author GAMER
  */
 public class TablaConsultaController {
+    /**
+     * metodo que carga la tabla con datos registrados en el sistema
+     * perteneciente a Cobros de propietarios 
+     * @param tablita JTable tablita
+     */
      public static void llenarTablaCobroPropietarios(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -24,8 +30,6 @@ public class TablaConsultaController {
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
         ResultSet rs=null;
         CallableStatement myCall = null;
-        
-        
         try {
             myCall=(CallableStatement) conexion.prepareCall("{call getCobrosPropietarios()}");
             rs=myCall.executeQuery();
@@ -35,7 +39,6 @@ public class TablaConsultaController {
             modelo.addColumn("presidente");
             modelo.addColumn("cedula");
             modelo.addColumn("cantidad");
-            
             System.out.println("ejecuta");
             while(rs.next()){
                 Object fila[]=new Object[6];
@@ -51,7 +54,11 @@ public class TablaConsultaController {
         try{conexion.close();} catch (Exception e){}
         }     
     }
-     
+     /**
+      * metodo que carga la tabla con datos registrados en el sistema
+     * perteneciente a Pagos de propietarios 
+      * @param tablita JTable tablita
+      */
     public static void llenarTablaPagosPropietarios(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -59,8 +66,6 @@ public class TablaConsultaController {
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
         ResultSet rs=null;
         CallableStatement myCall = null;
-        
-        
         try {
             myCall=(CallableStatement) conexion.prepareCall("{call getPagosPropietarios()}");
             rs=myCall.executeQuery();
@@ -70,7 +75,6 @@ public class TablaConsultaController {
             modelo.addColumn("presidente");
             modelo.addColumn("cedula");
             modelo.addColumn("cantidad");
-            
             System.out.println("ejecuta");
             while(rs.next()){
                 Object fila[]=new Object[6];
@@ -86,7 +90,11 @@ public class TablaConsultaController {
         try{conexion.close();} catch (Exception e){}
         }     
    }
-    
+    /**
+     * metodo que carga la tabla con datos registrados en el sistema
+     * perteneciente a Gastos de comunidad 
+     * @param tablita JTable tablita
+     */
     public static void llenarTablaGastosComunidad(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -94,15 +102,12 @@ public class TablaConsultaController {
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
         ResultSet rs=null;
         CallableStatement myCall = null;
-        
-        
         try {
             myCall=(CallableStatement) conexion.prepareCall("{call getGastosComunidad()}");
             rs=myCall.executeQuery();
             modelo.addColumn("comunidad");
             modelo.addColumn("banco");
-            modelo.addColumn("gasto_total");
-            
+            modelo.addColumn("gasto_total");  
             System.out.println("ejecuta");
             while(rs.next()){
                 Object fila[]=new Object[3];
@@ -119,7 +124,11 @@ public class TablaConsultaController {
         }     
    }
     
-    
+    /**
+     * metodo que carga la tabla con datos registrados en el sistema
+     * perteneciente a Gastos de propietarios 
+     * @param tablita JTable tablita
+     */
       public static void llenarTablaGastosPropietarios(JTable tablita){
         DefaultTableModel modelo =new DefaultTableModel();
         tablita.setModel(modelo);
@@ -127,15 +136,12 @@ public class TablaConsultaController {
         com.mysql.jdbc.Connection conexion=(com.mysql.jdbc.Connection) connect.getconection();
         ResultSet rs=null;
         CallableStatement myCall = null;
-        
-        
         try {
             myCall=(CallableStatement) conexion.prepareCall("{call getGastosPropietarios()}");
             rs=myCall.executeQuery();
             modelo.addColumn("propietario");
             modelo.addColumn("ciudad");
-            modelo.addColumn("gasto_total");
-            
+            modelo.addColumn("gasto_total");  
             System.out.println("ejecuta");
             while(rs.next()){
                 Object fila[]=new Object[3];

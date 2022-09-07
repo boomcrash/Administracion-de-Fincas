@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package controlador;
-
 import Conexion.Conexion;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -18,7 +17,8 @@ import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
 
 /**
- *
+ *clase reporteController que maneja los metodos necesarios para el funcionamiento 
+ * de el modulo reportes del sistema
  * @author GAMER
  */
 public class ReporteController {
@@ -40,7 +40,10 @@ public class ReporteController {
         
         
     }
-    
+    /**
+     * metodo que abre el formulario de reporte pagos presidentes  del  
+     * modulo de reportes del sistema aplicando JasperReport
+     */
         public void abrirReportePagosPresidentes(){
         try {
             Conexion connect=new Conexion();
@@ -56,7 +59,10 @@ public class ReporteController {
             Logger.getLogger(ReporteController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-        
+        /**
+         * metodo que abre el formulario de reporte de gastos de propietarios del 
+         * modulo de reportes del sistema aplicando JasperReport
+         */
         public void abrirReporteGastosPropietarios(){
         try {
             Conexion connect=new Conexion();

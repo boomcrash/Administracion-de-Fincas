@@ -19,7 +19,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class TablasRegistroController {
     /**
-     * metodo que llena la tabla de propietarios recibiendo como parametro un objeto de JTable
+     * metodo que llena la tabla de propietarios recibiendo 
+     * como parametro un objeto de JTable
      * @param tablita objeto de JTable
      */
     public static void llenarTablaPropietario(JTable tablita){
@@ -58,7 +59,8 @@ public class TablasRegistroController {
         }     
    }
     /**
-     * metodo que llena la tabla de presidentes recibiendo como parametro un objeto de JTable
+     * metodo que llena la tabla de presidentes recibiendo 
+     * como parametro un objeto de JTable
      * @param tablita objeto de JTable
      */
     public static void llenarTablaPresidente(JTable tablita){
@@ -99,7 +101,9 @@ public class TablasRegistroController {
         }     
    }
     /**
-     * metodo que llena la tabla de comunidad y el combobox de ciudad recibiendo como parametros un objeto de JTable y un objeto de JComboBox
+     * metodo que llena la tabla de comunidad y el combobox 
+     * de ciudad recibiendo como parametros un objeto de JTable 
+     * y un objeto de JComboBox
      * @param tablita objeto de JTable
      * @param combo objeto de JComboBox
      */
@@ -184,7 +188,8 @@ public class TablasRegistroController {
         }     
    }
     /**
-     * metodo que llena la tabla de comunidad y el combobox de ciudad recibiendo como parametros un objeto de JTable y un objeto de JComboBox 
+     * metodo que llena la tabla de comunidad y el combobox de ciudad
+     * recibiendo como parametros un objeto de JTable y un objeto de JComboBox 
      * @param tablita objeto de JTable
      * @param combo objeto de JComboBBox
      */

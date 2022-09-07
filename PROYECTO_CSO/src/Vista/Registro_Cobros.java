@@ -52,10 +52,9 @@ public class Registro_Cobros extends javax.swing.JFrame {
 
         jpanelbackground = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnconsultas = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnreportes = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -93,17 +92,17 @@ public class Registro_Cobros extends javax.swing.JFrame {
         jPanel2.setForeground(new java.awt.Color(0, 0, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setText("CONSULTAS");
-        jButton1.setBorder(null);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnconsultas.setBackground(new java.awt.Color(255, 255, 255));
+        btnconsultas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnconsultas.setForeground(new java.awt.Color(0, 0, 0));
+        btnconsultas.setText("CONSULTAS");
+        btnconsultas.setBorder(null);
+        btnconsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnconsultasActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 100, 40));
+        jPanel2.add(btnconsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 100, 40));
 
         btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -115,36 +114,19 @@ public class Registro_Cobros extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel2.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 100, 40));
+        jPanel2.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setText("PERFIL\n");
-        jButton3.setBorder(null);
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnreportes.setBackground(new java.awt.Color(255, 255, 255));
+        btnreportes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnreportes.setForeground(new java.awt.Color(0, 0, 0));
+        btnreportes.setText("REPORTES");
+        btnreportes.setBorder(null);
+        btnreportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnreportesActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 100, 40));
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 0, 0));
-        jButton4.setText("REPORTES");
-        jButton4.setBorder(null);
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 100, 40));
+        jPanel2.add(btnreportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -156,7 +138,7 @@ public class Registro_Cobros extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel2.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 100, 40));
+        jPanel2.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 0, 100, 40));
 
         jpanelbackground.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1100, 50));
 
@@ -322,30 +304,22 @@ public class Registro_Cobros extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnconsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultasActionPerformed
 VentanasController.abrirSubmenuConsulta();
 VentanasController.cerrarRegistroCobros();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnconsultasActionPerformed
 
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
         VentanasController.abrirInicio();
         VentanasController.cerrarRegistroCobros();
     }//GEN-LAST:event_btnInicioActionPerformed
 
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
 VentanasController.abrirReportes();
 VentanasController.cerrarRegistroCobros();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_btnreportesActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
 VentanasController.abrirSubmenuRegistro();
@@ -412,9 +386,8 @@ VentanasController.cerrarRegistroCobros();
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistrar_director;
     private javax.swing.JButton btnRegistro;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnconsultas;
+    private javax.swing.JButton btnreportes;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;

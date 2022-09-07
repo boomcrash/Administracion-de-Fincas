@@ -9,7 +9,8 @@ import controlador.TablasRegistroController;
 import controlador.VentanasController;
 
 /**
- *
+ *formulario que muestra las tablas de consultas de los bancos 
+ * que estan registrados en el sistema
  * @author GAMER
  */
 public class ConsultarBanco extends javax.swing.JFrame {
@@ -36,10 +37,9 @@ public class ConsultarBanco extends javax.swing.JFrame {
         tblbancos = new javax.swing.JTable();
         txtidbanco = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnconsultas = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnreportes = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -70,19 +70,21 @@ public class ConsultarBanco extends javax.swing.JFrame {
         jPanel1.setBackground(java.awt.Color.black);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setText("CONSULTAS");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnconsultas.setBackground(new java.awt.Color(255, 255, 255));
+        btnconsultas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnconsultas.setForeground(new java.awt.Color(0, 0, 0));
+        btnconsultas.setText("CONSULTAS");
+        btnconsultas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnconsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnconsultasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
+        jPanel1.add(btnconsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 100, 40));
 
         btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -90,37 +92,23 @@ public class ConsultarBanco extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 0, 100, 40));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setText("PERFIL\n");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnreportes.setBackground(new java.awt.Color(255, 255, 255));
+        btnreportes.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnreportes.setForeground(new java.awt.Color(0, 0, 0));
+        btnreportes.setText("REPORTES");
+        btnreportes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnreportes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnreportesActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setText("REPORTES");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
+        jPanel1.add(btnreportes, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +116,7 @@ public class ConsultarBanco extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 0, 100, 40));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 100, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -174,78 +162,51 @@ public class ConsultarBanco extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_txtidbancoKeyTyped
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+/**
+ * boton consultas que abre la ventana de submenu consultas 
+ * y cierra la ventana de consultar bancos
+ * @param evt java.awt.event.ActionEvent evt
+ */
+    private void btnconsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultasActionPerformed
 VentanasController.abrirSubmenuConsulta();
 VentanasController.cerrarConsultarBanco();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }//GEN-LAST:event_btnconsultasActionPerformed
+/**
+ * boton inicio que lleva a la ventana principal del sistema 
+ * y cierra la ventana de consultar bancos
+ * @param evt java.awt.event.ActionEvent evt
+ */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
 VentanasController.abrirInicio();
 VentanasController.cerrarConsultarBanco();
     }//GEN-LAST:event_btnInicioActionPerformed
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+/**
+ * boton eportes que abre  el submenu de reportes del sistema 
+ * y cierra la ventana de consultar bancos
+ * @param evt java.awt.event.ActionEvent evt
+ */
+    private void btnreportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreportesActionPerformed
 VentanasController.abrirReportes();
 VentanasController.cerrarConsultarBanco();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+    }//GEN-LAST:event_btnreportesActionPerformed
+/**
+ * boton registros que abre el submenu registro del sistema 
+ * y cierra la ventana de consultar bancos
+ * @param evt java.awt.event.ActionEvent evt
+ */
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
 VentanasController.abrirSubmenuRegistro();
 VentanasController.cerrarConsultarBanco();
     }//GEN-LAST:event_btnRegistroActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ConsultarBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ConsultarBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ConsultarBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ConsultarBanco.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ConsultarBanco().setVisible(true);
-            }
-        });
-    }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistro;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnconsultas;
+    private javax.swing.JButton btnreportes;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblbancos;

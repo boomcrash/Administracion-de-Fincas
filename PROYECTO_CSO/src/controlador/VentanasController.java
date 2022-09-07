@@ -38,39 +38,56 @@ public class VentanasController {
     public static ConsultarGastosPropietarios consulta_gastos_propietario; 
     public static Reportes reportes=new Reportes(); 
     
-    //reportes
+    /**
+     * abrir y cerrar la ventana de reportes
+     */
     public static void abrirReportes(){reportes.setVisible(true);}
     public static void cerrarReportes(){try{reportes.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-    //consultas
-    
+    /**
+     * abrir y cerrar la ventana de submenuconsultas
+     */
     public static void abrirSubmenuConsulta(){ventanaSubmenu_Consulta=new Submenu_Consulta(); ventanaSubmenu_Consulta.setVisible(true);}
     public static void cerrarSubmenuConsulta(){try{ventanaSubmenu_Consulta.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-    
+    /**
+     * abrir y cerrar la ventana de consultas de cobros a propietarios
+     */
     public static void abrirConsultarCobrosPropietarios(){consulta_cobro_propietario=new ConsultarCobrosPropietarios(); consulta_cobro_propietario.setVisible(true);}
     public static void cerrarConsultarCobrosPropietarios(){try{consulta_cobro_propietario.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-
-    
+    /**
+     * abrir y cerrar ventana de consultar propietarios
+     */
     public static void abrirConsultarPropietarios(){consulta_propietario=new ConsultarPropietario();  consulta_propietario.setVisible(true);}
     public static void cerrarConsultarPropietarios(){try{consulta_propietario.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-
+/**
+ * abrir y cerrar la ventana de consultar presidentes
+ */
     public static void abrirConsultarPresidente(){consulta_presidente=new ConsultarPresidente();  consulta_presidente.setVisible(true);}
     public static void cerrarConsultarPresidente(){try{consulta_presidente.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-
+/**
+ * abrir y cerrar la ventana de consultar bancos
+ */
     public static void abrirConsultarBanco(){consulta_banco=new ConsultarBanco();   consulta_banco.setVisible(true);}
     public static void cerrarConsultarBanco(){try{consulta_banco.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-    
+    /**
+     * abrir y cerrar la ventana de consultar cobros
+     */
     public static void abrirConsultarCobros(){consulta_cobros=new ConsultarCobrosPropietarios();   consulta_cobros.setVisible(true);}
     public static void cerrarConsultarCobros(){try{consulta_cobros.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-    
+    /**
+     * abrir y cerrar la ventana de consultar pagos
+     */
     public static void abrirConsultarPagos(){consulta_pagos=new ConsultarPagosPropietarios();   consulta_pagos.setVisible(true);}
     public static void cerrarConsultarPagos(){try{consulta_pagos.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-    
+    /**
+     * abrir y cerrar la ventana de consultar los gastos de comunidad
+     */
     public static void abrirConsultarGastosComunidad(){consulta_gastos_comunidad=new ConsultarGastosComunidad();  consulta_gastos_comunidad.setVisible(true);}
     public static void cerrarConsultarGastosComunidad(){try{consulta_gastos_comunidad.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-    
+    /**
+     * abrir y cerrar la ventana de consultar gastos de propietarios
+     */
     public static void abrirConsultarGastosPropietario(){consulta_gastos_propietario=new ConsultarGastosPropietarios();  consulta_gastos_propietario.setVisible(true);}
     public static void cerrarConsultarGastosPropietario(){try{consulta_gastos_propietario.setVisible(false);}catch(Exception e){System.out.println("no esta abierta");}}
-
     /**
      * abrir y cerrar de la ventana inicio
      */

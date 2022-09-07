@@ -20,7 +20,8 @@ import javax.swing.JOptionPane;
  */
 public class UsuarioController {
     /**
-     * metodo que se encarga de consultar a los usuarios recibiendo como parametro un objeto de Usuario y retornando el id de  usuario
+     * metodo que se encarga de consultar a los usuarios recibiendo 
+     * como parametro un objeto de Usuario y retornando el id de  usuario
      * @param user objeto de Usuario
      * @return id de usuario
      */
@@ -53,7 +54,8 @@ public class UsuarioController {
 
         }
         /**
-         * metodo que registra a los usuarios en la base de datos recibiendo como parametro un objeto de Usuario y retornando user de consultar usuario
+         * metodo que registra a los usuarios en la base de datos recibiendo
+         * como parametro un objeto de Usuario y retornando user de consultar usuario
          * @param user objeto de Usuario
          * @return  consultar usuario (user)
          */
