@@ -47,7 +47,6 @@ public class Login extends javax.swing.JFrame {
         btnLogin = new javax.swing.JButton();
         jblpassword = new javax.swing.JLabel();
         txtpassword = new javax.swing.JPasswordField();
-        btnrestaurarpwd = new javax.swing.JButton();
         jbliconlogin = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
@@ -111,26 +110,6 @@ public class Login extends javax.swing.JFrame {
         txtpassword.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 390, 40));
 
-        btnrestaurarpwd.setBackground(new java.awt.Color(0, 0, 0));
-        btnrestaurarpwd.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnrestaurarpwd.setForeground(new java.awt.Color(255, 255, 255));
-        btnrestaurarpwd.setText("Restaurar contraseña");
-        btnrestaurarpwd.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        btnrestaurarpwd.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnrestaurarpwdMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                btnrestaurarpwdMouseExited(evt);
-            }
-        });
-        btnrestaurarpwd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnrestaurarpwdActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btnrestaurarpwd, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 430, 200, 40));
-
         jbliconlogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/iniciar-sesion (1).png"))); // NOI18N
         jPanel2.add(jbliconlogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, 70, 120));
 
@@ -166,25 +145,12 @@ public class Login extends javax.swing.JFrame {
         LoginController.iniciarSesion(new Usuario(txtUser.getText(),txtpassword.getText()),txtUser,txtpassword);
         //validarIngreso();
     }//GEN-LAST:event_btnLoginActionPerformed
-
-    private void btnrestaurarpwdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrestaurarpwdActionPerformed
-    VentanasController.cerrarLogin();
-    VentanasController.abrirRestaurarContraseña();
-    }//GEN-LAST:event_btnrestaurarpwdActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(102,255,255));
 }
 public void resetColor(JButton j1){
 j1.setBackground(new Color(204,255,255));
 }
-    private void btnrestaurarpwdMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrestaurarpwdMouseEntered
-        setColor(btnrestaurarpwd);
-    }//GEN-LAST:event_btnrestaurarpwdMouseEntered
-
-    private void btnrestaurarpwdMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnrestaurarpwdMouseExited
-        resetColor(btnrestaurarpwd);
-    }//GEN-LAST:event_btnrestaurarpwdMouseExited
-
     private void btnLoginMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnLoginMouseEntered
         setColor(btnLogin);
     }//GEN-LAST:event_btnLoginMouseEntered
@@ -196,7 +162,6 @@ j1.setBackground(new Color(204,255,255));
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnLogin;
-    private javax.swing.JButton btnrestaurarpwd;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;

@@ -24,7 +24,6 @@ public class VentanasController {
     public static Registro_Presidente ventanaRegistro_Presidente=new Registro_Presidente();
     public static Registro_Propietario ventanaRegistro_Propietario=new Registro_Propietario();
     public static Registro_Secretaria ventanaRegistro_Secretaria=new Registro_Secretaria();
-    public static Restaurar_contraseña ventanaRestaurar_contraseña=new Restaurar_contraseña();
     public static Submenu_Registro ventanaSubmenu_Registro=new Submenu_Registro();
     
     public static Submenu_Consulta ventanaSubmenu_Consulta=new Submenu_Consulta();
@@ -127,11 +126,6 @@ public class VentanasController {
  */
     public static void abrirRegistro_Secretaria(){ventanaRegistro_Secretaria.setVisible(true);}
     public static void cerrarRegistro_Secretaria(){ventanaRegistro_Secretaria.setVisible(false);}    
-/**
- * abrir y cerrar de la ventana de Restaurar_contraseña
- */
-    public static void abrirRestaurarContraseña(){ventanaRestaurar_contraseña.setVisible(true);}
-    public static void cerrarRestaurarContraseña(){ventanaRestaurar_contraseña.setVisible(false);}
    /**
     * abrir y cerrar de la ventana de Submenu_Registro
     */ 
