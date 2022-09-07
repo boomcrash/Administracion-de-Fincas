@@ -6,6 +6,7 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.DatosIncompletosException;
 import Exceptions.LoginException;
 import Exceptions.NoUserException;
 import Modelo.Usuario;
@@ -28,13 +29,8 @@ public class LoginController {
      * @param user2 objeto de la clase JTextField
      * @param pass objeto de la clase JTextField
      */
-     public static void iniciarSesion(Usuario user,JTextField user2,JTextField pass){
-        if(user.getUsuario().isEmpty()){
-            user2.setBackground(Color.red);
-        }
-        if(user.getContraseña().isEmpty()){
-             pass.setBackground(Color.red);
-        }
+     public static void iniciarSesion(Usuario user,JTextField user2,JTextField pass) throws NoUserException, LoginException{
+
         if(!user.getUsuario().isEmpty()&&!user.getContraseña().isEmpty()){
             Conexion conect= new Conexion();
             com.mysql.jdbc.Connection conexion2=(com.mysql.jdbc.Connection) conect.getconection();
@@ -66,13 +62,14 @@ public class LoginController {
                      }catch(Exception e){
                          System.out.println("ERROR DE CONSULTA");
                      }
-                 }else{
-                     throw new NoUserException();
-//System.out.println("NO EXISTE ESTE USUARIO");
                  }
-              }
+              }else{
+                     throw new NoUserException();
+                     //System.out.println("sasasasNO EXISTE ESTE USUARIO");
+                 }
             }catch(SQLException ex)
             {
+                
                 System.err.println("UPS ! PARECE QUE TU BASE DE DATOS NO ESTA FUNCIONANDO.");
             }finally{
                 try{myCall.close();} catch (Exception e){}
@@ -80,7 +77,18 @@ public class LoginController {
                  try{conexion2.close();} catch (Exception e){}
             }
         }else{
-            throw new LoginException();
+                if(user.getUsuario().isEmpty()&&user.getContraseña().isEmpty()){
+                    throw new LoginException();
+                }
+                else if(user.getUsuario().isEmpty()){
+                    user2.setBackground(Color.red);
+                    throw new DatosIncompletosException();
+                }
+                else if(user.getContraseña().isEmpty()){
+                     pass.setBackground(Color.red);
+                     throw new DatosIncompletosException();
+                }
+            
             //System.out.println("DATOS INCOMPLETOS !!");
         }
         

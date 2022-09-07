@@ -17,8 +17,8 @@ public class DatosIncompletosException  extends NullPointerException{
      */
     public  DatosIncompletosException ( ){
         //super(mensaje);
-
      System.err.println("Existen datos incompletos,Complete todos los campos");
+     JOptionPane.showMessageDialog(null, "Existen datos incompletos,Complete todos los campos");
     }
     
 }

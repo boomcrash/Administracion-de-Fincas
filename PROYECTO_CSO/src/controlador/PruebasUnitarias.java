@@ -6,6 +6,8 @@
 package controlador;
 
 import Conexion.Conexion;
+import Exceptions.LoginException;
+import Exceptions.NoUserException;
 import Modelo.Banco;
 import Modelo.Cobros;
 import Modelo.Comunidad;
@@ -40,7 +42,7 @@ public class PruebasUnitarias {
    /**
     * Metodo que abarca cada una de las pruebas unitarias de los metodos pertenecientes al modulo de Registro.
     */
-    public void PruebasUnitarias() {
+    public void PruebasUnitarias() throws NoUserException, LoginException {
         
          /**
           * Prueba conexion a base de datos ALOJADA EN " AZURE "

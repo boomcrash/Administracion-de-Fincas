@@ -5,6 +5,8 @@
 package Vista;
 
 import Conexion.Conexion;
+import Exceptions.LoginException;
+import Exceptions.NoUserException;
 import Modelo.Usuario;
 import com.mysql.jdbc.CallableStatement;
 import controlador.LoginController;
@@ -13,6 +15,8 @@ import java.awt.Color;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -142,8 +146,14 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_txtUserActionPerformed
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        LoginController.iniciarSesion(new Usuario(txtUser.getText(),txtpassword.getText()),txtUser,txtpassword);
-        //validarIngreso();
+        try {
+            LoginController.iniciarSesion(new Usuario(txtUser.getText(),txtpassword.getText()),txtUser,txtpassword);
+            //validarIngreso();
+        } catch (NoUserException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (LoginException ex) {
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 public void setColor(JButton j){
 j.setBackground(new Color(102,255,255));
