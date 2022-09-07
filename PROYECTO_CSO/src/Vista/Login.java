@@ -81,9 +81,9 @@ public class Login extends javax.swing.JFrame {
         });
         jPanel2.add(txtUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 390, 40));
 
-        btnLogin.setBackground(new java.awt.Color(0, 0, 0));
+        btnLogin.setBackground(new java.awt.Color(153, 255, 255));
         btnLogin.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        btnLogin.setForeground(new java.awt.Color(255, 255, 255));
+        btnLogin.setForeground(new java.awt.Color(0, 0, 0));
         btnLogin.setText("INICIAR SESIÓN");
         btnLogin.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         btnLogin.addMouseListener(new java.awt.event.MouseAdapter() {

@@ -7,7 +7,8 @@ package Vista;
 import controlador.VentanasController;
 
 /**
- *
+ *formulario de submenu registro que contiene todas las opciones de consultas
+ * del sistema de fincas
  * @author User
  */
 public class Submenu_Registro extends javax.swing.JFrame {
@@ -229,58 +230,81 @@ public class Submenu_Registro extends javax.swing.JFrame {
     VentanasController.abrirInicio();
     VentanasController.cerrarSubmenuRegistro();
     }//GEN-LAST:event_btnreturnActionPerformed
-
+/**
+ * boton registrar presidente que permite acceder al formulario de registro de presidentey cerrar el submenu de registro
+ * @param evt 
+ */
     private void btnregistro_presidenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_presidenteActionPerformed
     
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroPresidente();
     }//GEN-LAST:event_btnregistro_presidenteActionPerformed
-
+/**
+ * boton registrar fincas que permite acceder al formulario de registro de finca y cerrar el submenu de registro
+ * @param evt btnregistro_fincaActionPerformed
+ */
     private void btnregistro_fincaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_fincaActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroFinca();
     }//GEN-LAST:event_btnregistro_fincaActionPerformed
-
+/**
+ * boton registrar entidad bancaria que permite acceder al formulario de registro de entidad bancaria y cerrar el submenu de registro
+ * @param evt btnregistro_entbancariaActionPerformed
+ */
     private void btnregistro_entbancariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_entbancariaActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroBanco();
     }//GEN-LAST:event_btnregistro_entbancariaActionPerformed
-
+/**
+ *   boton registrar comunidad que permite acceder al formulario de registro de comunidad y cerrar el submenu de registro
+ * @param evt  btnregistrocomunidadActionPerformed 
+ */
     private void btnregistrocomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrocomunidadActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroComunidad();
     }//GEN-LAST:event_btnregistrocomunidadActionPerformed
-
+/**
+ *  boton registrar secretario que permite acceder al formulario de registro de secretario y cerrar el submenu de registro
+ * @param evt btnregistrarsecretariaActionPerformed 
+ */
     private void btnregistrarsecretariaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrarsecretariaActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistro_Secretaria();
    
     }//GEN-LAST:event_btnregistrarsecretariaActionPerformed
-
+/**
+ * boton registrar director que permite acceder al formulario de registro de director y cerrar el submenu de registro
+ * @param evt btnregistrardirectorActionPerformed
+ */
     private void btnregistrardirectorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistrardirectorActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroDirector();
     }//GEN-LAST:event_btnregistrardirectorActionPerformed
-
+/**
+ * boton registrar propietario que permite acceder al formulario de registro de propietario y cerrar el submenu de registro
+ * @param evt btnregistro_propietarioActionPerformed
+ */
     private void btnRegistro_propietarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistro_propietarioActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroPropietario();
     }//GEN-LAST:event_btnRegistro_propietarioActionPerformed
-
+/**
+ * boton registrar pagos que permite acceder al formulario de registro de pagos y cerrar el submenu de registro
+ * @param evt btnregistro_pagosActionPerformed
+ */
     private void btnregistro_pagosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_pagosActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroPagos();
     }//GEN-LAST:event_btnregistro_pagosActionPerformed
-
+/**
+ * boton registrar cobros que permite acceder al formulario de registro de cobros y cerrar el submenu de registro
+ * @param evt btnregistro_cobrosActionPerformed
+ */
     private void btnregistro_cobrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnregistro_cobrosActionPerformed
     VentanasController.cerrarSubmenuRegistro();
     VentanasController.abrirRegistroCobros();
     }//GEN-LAST:event_btnregistro_cobrosActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnRegistro_propietario;

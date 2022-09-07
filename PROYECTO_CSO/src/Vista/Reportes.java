@@ -32,9 +32,9 @@ public class Reportes extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnpagospresidentes = new javax.swing.JButton();
+        btngastoscomunidad = new javax.swing.JButton();
+        btngastospropietarios = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnreturn = new javax.swing.JButton();
@@ -43,36 +43,36 @@ public class Reportes extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 204));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gasto.png"))); // NOI18N
-        jButton1.setText("Pagos Presidentes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnpagospresidentes.setBackground(new java.awt.Color(204, 255, 255));
+        btnpagospresidentes.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btnpagospresidentes.setForeground(new java.awt.Color(0, 0, 0));
+        btnpagospresidentes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gasto.png"))); // NOI18N
+        btnpagospresidentes.setText("Pagos Presidentes");
+        btnpagospresidentes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnpagospresidentesActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(204, 204, 204));
-        jButton2.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gasto comunidad.png"))); // NOI18N
-        jButton2.setText("Gastos Comunidad");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btngastoscomunidad.setBackground(new java.awt.Color(204, 255, 255));
+        btngastoscomunidad.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btngastoscomunidad.setForeground(new java.awt.Color(0, 0, 0));
+        btngastoscomunidad.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gasto comunidad.png"))); // NOI18N
+        btngastoscomunidad.setText("Gastos Comunidad");
+        btngastoscomunidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btngastoscomunidadActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(204, 204, 204));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 0, 0));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gasto propietario.png"))); // NOI18N
-        jButton3.setText("Gastos Propietarios");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btngastospropietarios.setBackground(new java.awt.Color(204, 255, 255));
+        btngastospropietarios.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        btngastospropietarios.setForeground(new java.awt.Color(0, 0, 0));
+        btngastospropietarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/gasto propietario.png"))); // NOI18N
+        btngastospropietarios.setText("Gastos Propietarios");
+        btngastospropietarios.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btngastospropietariosActionPerformed(evt);
             }
         });
 
@@ -132,9 +132,9 @@ public class Reportes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btngastoscomunidad, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnpagospresidentes, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btngastospropietarios, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -142,33 +142,33 @@ public class Reportes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(btnpagospresidentes)
                 .addGap(27, 27, 27)
-                .addComponent(jButton2)
+                .addComponent(btngastoscomunidad)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                .addComponent(btngastospropietarios)
                 .addGap(64, 64, 64))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btngastoscomunidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngastoscomunidadActionPerformed
     ReporteController reporte=new ReporteController();
     reporte.abrirReporteGastosComunidad();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btngastoscomunidadActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnpagospresidentesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpagospresidentesActionPerformed
 
     ReporteController reporte=new ReporteController();
     reporte.abrirReportePagosPresidentes();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnpagospresidentesActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btngastospropietariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngastospropietariosActionPerformed
     
     ReporteController reporte=new ReporteController();
     reporte.abrirReporteGastosPropietarios();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btngastospropietariosActionPerformed
 
     private void btnreturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreturnActionPerformed
         try{VentanasController.cerrarInicio();}catch(Exception e){}
@@ -212,10 +212,10 @@ public class Reportes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btngastoscomunidad;
+    private javax.swing.JButton btngastospropietarios;
+    private javax.swing.JButton btnpagospresidentes;
     private javax.swing.JButton btnreturn;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;

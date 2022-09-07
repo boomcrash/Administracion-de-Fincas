@@ -9,7 +9,8 @@ import controlador.TablaConsultaController;
 import controlador.VentanasController;
 
 /**
- *
+ *formulario de consultar cobros propietarios que muestra los cobros de propietarios
+ * que esten previamente registrados en el sistema
  * @author GAMER
  */
 public class ConsultarCobrosPropietarios extends javax.swing.JFrame {
@@ -33,33 +34,35 @@ public class ConsultarCobrosPropietarios extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnconsultas = new javax.swing.JButton();
         btnInicio = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        btnreporte = new javax.swing.JButton();
         btnRegistro = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblpresidentes = new javax.swing.JTable();
         txtidpresidente1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel1.setBackground(java.awt.Color.black);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton1.setText("CONSULTAS");
-        jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnconsultas.setBackground(new java.awt.Color(255, 255, 255));
+        btnconsultas.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnconsultas.setForeground(new java.awt.Color(0, 0, 0));
+        btnconsultas.setText("CONSULTAS");
+        btnconsultas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnconsultas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnconsultasActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 0, 100, 40));
+        jPanel1.add(btnconsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 100, 40));
 
         btnInicio.setBackground(new java.awt.Color(255, 255, 255));
         btnInicio.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnInicio.setForeground(new java.awt.Color(0, 0, 0));
         btnInicio.setText("INICIO");
         btnInicio.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnInicio.addActionListener(new java.awt.event.ActionListener() {
@@ -67,37 +70,23 @@ public class ConsultarCobrosPropietarios extends javax.swing.JFrame {
                 btnInicioActionPerformed(evt);
             }
         });
-        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(627, 0, 100, 40));
+        jPanel1.add(btnInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 0, 100, 40));
 
-        jButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jButton3.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton3.setText("PERFIL\n");
-        jButton3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
-            }
-        });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnreporte.setBackground(new java.awt.Color(255, 255, 255));
+        btnreporte.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnreporte.setForeground(new java.awt.Color(0, 0, 0));
+        btnreporte.setText("REPORTES");
+        btnreporte.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        btnreporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnreporteActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(227, 0, 100, 40));
-
-        jButton4.setBackground(new java.awt.Color(255, 255, 255));
-        jButton4.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        jButton4.setText("REPORTES");
-        jButton4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 0, 100, 40));
+        jPanel1.add(btnreporte, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 100, 40));
 
         btnRegistro.setBackground(new java.awt.Color(255, 255, 255));
         btnRegistro.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(0, 0, 0));
         btnRegistro.setText("REGISTROS");
         btnRegistro.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
@@ -105,7 +94,7 @@ public class ConsultarCobrosPropietarios extends javax.swing.JFrame {
                 btnRegistroActionPerformed(evt);
             }
         });
-        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 0, 100, 40));
+        jPanel1.add(btnRegistro, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 0, 100, 40));
 
         tblpresidentes.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tblpresidentes.setModel(new javax.swing.table.DefaultTableModel(
@@ -159,37 +148,49 @@ public class ConsultarCobrosPropietarios extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+/**
+ * boton consultas que despliega el menu de consultas del sistema y cierra 
+ * la ventana de consultas cobros propietarios
+ * @param evt btnconsultasActionPerformed
+ */
+    private void btnconsultasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnconsultasActionPerformed
 VentanasController.abrirSubmenuConsulta();
 VentanasController.cerrarConsultarCobrosPropietarios();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }//GEN-LAST:event_btnconsultasActionPerformed
+/**
+ * boton inicio que lleva a la pantalla principal del sistema y cierra
+ * la ventana de consultarcobrospropietarios
+ * @param evt btnInicioActionPerformed
+ */
     private void btnInicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInicioActionPerformed
 VentanasController.abrirInicio();
 VentanasController.cerrarConsultarCobrosPropietarios();
     }//GEN-LAST:event_btnInicioActionPerformed
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
-
-    }//GEN-LAST:event_jButton3MouseEntered
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+/**
+ * boton reporte que abre el menu de reportes del sistema y cierra
+ * la ventana de consultar cobros proietarios
+ * @param evt btnreporteActionPerformed
+ */
+    private void btnreporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnreporteActionPerformed
 VentanasController.abrirReportes();
 VentanasController.cerrarConsultarCobrosPropietarios();
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4ActionPerformed
-
+    }//GEN-LAST:event_btnreporteActionPerformed
+/**
+ * boton registro que despliega el menu de registros del sistema y cierra
+ * la ventana de consultar cobros propietarios
+ * @param evt btnRegistroActionPerformed
+ */
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
 VentanasController.abrirSubmenuRegistro();
 VentanasController.cerrarConsultarCobrosPropietarios();
     }//GEN-LAST:event_btnRegistroActionPerformed
-
+/**
+ * tabla que muestra los porpietarios y sus respectivos cobros que
+ * esten registrados en el sistema
+ * @param evt tblpresidentesMouseClicked
+ */
     private void tblpresidentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblpresidentesMouseClicked
         int row=tblpresidentes.getSelectedRow();
         if(row!=-1){
@@ -236,9 +237,8 @@ VentanasController.cerrarConsultarCobrosPropietarios();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnInicio;
     private javax.swing.JButton btnRegistro;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
+    private javax.swing.JButton btnconsultas;
+    private javax.swing.JButton btnreporte;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblpresidentes;
